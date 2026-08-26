@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------
+# Ali Usta Baklavaları — depoya girmeyecekler
+# ---------------------------------------------------------------
+
+# Ham kaynak dosyalar (~180 MB): Instagram ekran görüntüleri ve kayıtları.
+# Yerelde arşiv olarak durur; siteye giren hâlleri assets/ içinde.
+DATA/
+
+# Kalite iyileştirmesi öncesi medya yedeği (~45 MB)
+_yedek_medya/
+
+# Üretim betiklerinin geçici çıktıları
+_work/_gecici/
+_work/kalib/
+_work/_video_log.txt
+_work/_avif_log.txt
+_work/yorumlar_ham.txt
+_work/*.log
+
+# İşletim sistemi artıkları
+Thumbs.db
+desktop.ini
+.DS_Store

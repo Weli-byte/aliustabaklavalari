@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ALAN ADI YER TUTUCU. python _work/build_static.py https://alanadi.com ile yeniden üretin. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ALANADINIZ.com/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ALANADINIZ.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ALANADINIZ.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ALANADINIZ.com/"/>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#urunler</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#fiyat</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#tatlilar</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#siparis</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#kargo</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#sss</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/#iletisim</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ALANADINIZ.com/en/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ALANADINIZ.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ALANADINIZ.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ALANADINIZ.com/"/>
+  </url>
+</urlset>

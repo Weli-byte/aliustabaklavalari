@@ -1,0 +1,10 @@
+# Depoda satır sonları her zaman LF; medya dosyaları ikili olarak işlenir.
+* text=auto eol=lf
+
+*.webp binary
+*.avif binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.mp4  binary
+*.woff2 binary
