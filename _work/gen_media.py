@@ -31,16 +31,16 @@ MIRAS_V = V(5)
 RAIL = [
  ("Normal Baklava","Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.",[22,45]),
  ("Kare Baklava","Kalın fıstık dolgusu, kare kesim. Tepside dizilişiyle bile iddialı.",[28,4]),
- ("Havuç Dilimi","Geniş tabanlı üçgen dilim. Her lokmada artan fıstık oranı.",[55,30]),
+ ("Yuvarlak Tepsi Baklava","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,30]),
  ("Midye Baklava","İnce yufkanın kıvrılıp kapanmasıyla açılan sedef formu.",[26,42]),
  ("Kuru Baklava","Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",[1,8]),
  ("Şöbiyet","Kaymak ve fıstığın yufka arasında buluştuğu tepsi klasiği.",[27,2]),
  ("Yaprak Şöbiyet","Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",[17,31]),
  ("Dolama","Fıstığın etrafına sarılan ince yufka. Sarma tekniğinin ustalık sınavı.",[25,44]),
- ("Kuşgözü","Küçük, yuvarlak, tek lokmalık. Ortasında iri fıstık tanesi.",[49,16]),
+ ("Fıstık Ezmesi","Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",[49,16]),
  ("Bülbül Yuvası","Yuva biçiminde kıvrılmış yufka, göbeği fıstıkla doldurulmuş.",[6,10]),
  ("Special Karışım","Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",[63,11]),
- ("Kavrulmuş Fıstık","Baklavanın içine giren fıstığın kendisi. Günlük kavrulur, ayrıca satılır.",[53,7]),
+ ("Çiğ İç Fıstık","Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.",[53,7]),
 ]
 
 # ---------------------------------------------------------------- TEZGAH
@@ -61,11 +61,12 @@ CATS = [
  dict(id="baklava", ad="Baklava", kicik="Tezgâhın ana işi",
   ozet="Kırk kat yufka elde açılır, arasına günlük kavrulmuş Antep fıstığı serpilir, "
        "gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden "
-       "kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, havuç dilimi, "
+       "kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, "
        "dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
   kapak=P(48),
   fotograflar=[P(13), P(24), P(32), P(40), P(41), P(43), P(46), P(48)],
-  videolar=[V(4), V(7), V(8), V(13)]),
+  videolar=[V(4), V(7), V(8), V(13),
+            V(17), V(18), V(19), V(20), V(21), V(22), V(23), V(24)]),
 
  dict(id="kunefe", ad="Künefe", kicik="Sıcak servis",
   ozet="Tel kadayıf iki kat hâlinde bakır tepsiye yayılır, arasına tuzsuz tel peynir konur, "
@@ -87,8 +88,8 @@ CATS = [
   ozet="Gaziantep'in fıstık kuşağının tam ortasındayız; fıstık aynı gün geliyor, aynı gün "
        "kavruluyor. Baklavanın içine giren fıstık ile tepside satılan fıstık aynı fıstıktır. "
        "Kavrulmuş fıstık, karışık kuruyemiş ve çiğ iç fıstık ayrı ayrı bulunur.",
-  kapak=P(64),
-  fotograflar=[P(51), P(52), P(64)],
+  kapak=P(65),
+  fotograflar=[P(65), P(51), P(52), P(64)],
   videolar=[]),
 
  dict(id="ozel", ad="Özel Tatlılar", kicik="Mevsimlik ve özel gün",
@@ -100,7 +101,7 @@ CATS = [
   videolar=[]),
 
  dict(id="dukkan", ad="Dükkân & Vitrin", kicik="Nizip'teki tezgâh",
-  ozet="Kanuni Sultan Süleyman Bulvarı'ndaki dükkân, her sabah 10:00'da sıfırdan dolan vitrin "
+  ozet="Yavuz Sultan Selim Bulvarı'ndaki dükkân, her sabah 10:00'da sıfırdan dolan vitrin "
        "ve açık hava oturma bölümü. Akşama kalan tepsi ertesi güne devretmez — vitrinde "
        "gördüğünüz her şey o gün yapılmıştır.",
   kapak=P(3),
@@ -116,6 +117,11 @@ CAP = {
  'p46':'Cevizli yuvarlak tepsi','p48':'Midye baklava dizilişi',
  'v04':'Tepsiye fıstık dökülüşü','v07':'Tezgâhta şöbiyet servisi',
  'v08':'Fırından çıkan tepsilerin dizilişi','v13':'Katmanlı baklavanın kesilişi',
+ # 29 Ağustos 2026'da işletmeden gelen tepsi sunumları
+ 'v17':'Kare kesim tepsi — fıstık şeridiyle','v18':'Tezgâhta kare baklava tepsisi',
+ 'v19':'Şöbiyet tepsisi — fıstıkla kaplı','v20':'Yuvarlak tepside dilim kesim',
+ 'v21':'Kare baklava — üstten kadraj','v22':'Kare tepsi ve midye tepsisi yan yana',
+ 'v23':'Sarma dilimler, tepsiye dizilmiş','v24':'Yuvarlak tepside fıstıklı dizilim',
  # kunefe
  'p37':'Künefe — peynirin uzayışı','p56':'Künefe, fıstıkla taçlandırılmış',
  'p57':'Künefe — fıstık tepesi',
@@ -128,6 +134,7 @@ CAP = {
  # fistik
  'p51':'Fıstık dokusunun yakın planı','p52':'Karışık kuruyemiş tepsisi',
  'p64':'Günlük kavrulmuş Antep fıstığı',
+ 'p65':'Çiğ iç fıstık — mor zarlı, yuvarlak tepside',
  # ozel
  'p05':'Hindistan cevizli & kakaolu kare dilim','p09':'Kaymaklı soğuk sunum',
  'p29':'Çikolatalı özel tepsi','p35':'Çikolata kaplı özel çeşit',

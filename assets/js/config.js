@@ -28,9 +28,10 @@ window.AU_CONFIG = {
 
   eposta:         '',                       // varsa yazın: 'siparis@...'
 
-  adres:      'Sultan Abdülhamit Mah., Kanuni Sultan Süleyman Bulvarı 25/A',
+  /* Adres işletmenin kendi ambalaj kâğıdından alındı (Ağustos 2026). */
+  adres:      'Sultan Abdülhamid Mah., Yavuz Sultan Selim Bulvarı, Özdemir Apt. Altı 25/A',
   adresAlt:   '27700 Nizip / Gaziantep',
-  haritaLink: 'https://www.google.com/maps/search/?api=1&query=Ali+Usta+Baklavalar%C4%B1+Kanuni+Sultan+S%C3%BCleyman+Bulvar%C4%B1+25%2FA+Nizip+Gaziantep',
+  haritaLink: 'https://www.google.com/maps/search/?api=1&query=Ali+Usta+Baklavalar%C4%B1+Yavuz+Sultan+Selim+Bulvar%C4%B1+25%2FA+Nizip+Gaziantep',
 
   saatler:    "Her gün 10:00'da açılır",
   saatlerNot: 'Akşam saatlerine kadar açığız. Kesin kapanış saati için telefonla teyit alın.',
@@ -59,26 +60,25 @@ window.AU_CONFIG = {
   fiyatGuncelleme: 'Ağustos 2026',
   fiyatNotu: 'Fiyatlar mevsime, fıstık rekoltesine ve çeşit karışımına göre değişir. Kesin tutar için WhatsApp\'tan yazın.',
   /* Tepsi sütunlarının bazı ürünlerde ne anlama geldiğini açıklar. */
-  fiyatBirimNotu: 'Kavrulmuş fıstık ve dondurmada “yarım tepsi” 500 g, “tam tepsi” 1 kg paketi gösterir. Künefe ve güllaçta ise 4 ve 8 kişilik tepsidir; porsiyon fiyatı künefede 190 ₺, güllaçta 160 ₺, dondurmada top başına 70 ₺’dir.',
+  fiyatBirimNotu: 'Çiğ iç fıstık ve dondurmada “yarım tepsi” 500 g, “tam tepsi” 1 kg paketi gösterir. Künefe ve güllaçta ise 4 ve 8 kişilik tepsidir; porsiyon fiyatı künefede 190 ₺, güllaçta 160 ₺, dondurmada top başına 70 ₺’dir.',
 
   /* Kilo fiyatı ana ölçüdür. Yarım tepsi ≈ 1 kg, tam tepsi ≈ 2 kg;
      tepsi alımında kilo fiyatına göre küçük bir avantaj uygulanır. */
   fiyatlar: [
     { urun: 'Normal Baklava',    kg: '1.150 ₺', yarim: '1.150 ₺', tam: '2.250 ₺' },
     { urun: 'Kare Baklava',      kg: '1.200 ₺', yarim: '1.200 ₺', tam: '2.350 ₺' },
-    { urun: 'Havuç Dilimi',      kg: '1.200 ₺', yarim: '1.200 ₺', tam: '2.350 ₺' },
+    { urun: 'Yuvarlak Tepsi Baklava', kg: '1.200 ₺', yarim: '1.200 ₺', tam: '2.350 ₺' },
     { urun: 'Midye Baklava',     kg: '1.300 ₺', yarim: '1.300 ₺', tam: '2.550 ₺' },
     { urun: 'Kuru Baklava',      kg: '1.100 ₺', yarim: '1.100 ₺', tam: '2.150 ₺' },
     { urun: 'Şöbiyet',           kg: '1.350 ₺', yarim: '1.350 ₺', tam: '2.650 ₺' },
     { urun: 'Yaprak Şöbiyet',    kg: '1.400 ₺', yarim: '1.400 ₺', tam: '2.750 ₺' },
     { urun: 'Dolama',            kg: '1.350 ₺', yarim: '1.350 ₺', tam: '2.650 ₺' },
-    { urun: 'Kuşgözü',           kg: '1.300 ₺', yarim: '1.300 ₺', tam: '2.550 ₺' },
     { urun: 'Bülbül Yuvası',     kg: '1.300 ₺', yarim: '1.300 ₺', tam: '2.550 ₺' },
     { urun: 'Special Karışım',   kg: '1.350 ₺', yarim: '1.350 ₺', tam: '2.650 ₺' },
     { urun: 'Fıstık Ezmesi',     kg: '1.650 ₺', yarim: '1.650 ₺', tam: '3.250 ₺' },
     /* Aşağıdaki dört üründe tepsi yerine paket/porsiyon ölçüsü geçerlidir;
        tablonun altındaki not bunu açıklar.                                    */
-    { urun: 'Kavrulmuş Fıstık',  kg: '1.450 ₺', yarim: '760 ₺',   tam: '1.450 ₺' },
+    { urun: 'Çiğ İç Fıstık',     kg: '1.450 ₺', yarim: '760 ₺',   tam: '1.450 ₺' },
     { urun: 'Künefe (porsiyon)', kg: '780 ₺',   yarim: '720 ₺',   tam: '1.380 ₺' },
     { urun: 'Güllaç (porsiyon)', kg: '720 ₺',   yarim: '680 ₺',   tam: '1.300 ₺' },
     { urun: 'Dondurma (top)',    kg: '560 ₺',   yarim: '300 ₺',   tam: '560 ₺' }
@@ -378,16 +378,16 @@ window.AU_CONFIG = {
   urunDetay: {
     'Normal Baklava':   { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 dilim' },
     'Kare Baklava':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3–4 dilim' },
-    'Havuç Dilimi':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 2–3 dilim' },
+    'Yuvarlak Tepsi Baklava': { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 2–3 dilim' },
     'Midye Baklava':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 adet' },
     'Kuru Baklava':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kuru yerde', raf: '10–15 gün — kargoya en uygunu', porsiyon: '100 g ≈ 4 dilim' },
     'Şöbiyet':          { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün — kaymaklı olduğu için', porsiyon: '100 g ≈ 3 adet' },
     'Yaprak Şöbiyet':   { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün', porsiyon: '100 g ≈ 3 adet' },
     'Dolama':           { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3 adet' },
-    'Kuşgözü':          { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 8–10 adet' },
+    'Fıstık Ezmesi':          { icindekiler: 'Antep fıstığı, pancar şekeri', alerjen: ['Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '10–15 gün', porsiyon: '100 g ≈ 4–5 dilim' },
     'Bülbül Yuvası':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4 adet' },
     'Special Karışım':  { icindekiler: 'Tepsideki bütün çeşitlerin karışımı', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Kaymaklı çeşit varsa buzdolabında', raf: '2–4 gün', porsiyon: '1 kg ≈ 8–10 kişi' },
-    'Kavrulmuş Fıstık': { icindekiler: 'Antep fıstığı, tuz (isteğe bağlı)', alerjen: ['Sert kabuklu yemiş (fıstık)'], saklama: 'Ağzı kapalı kavanozda, serin ve kuru yerde', raf: '1 ay', porsiyon: '100 g ≈ 2 avuç' }
+    'Çiğ İç Fıstık': { icindekiler: 'Antep fıstığı (çiğ iç, mor zarlı)', alerjen: ['Sert kabuklu yemiş (fıstık)'], saklama: 'Ağzı kapalı kavanozda, serin ve kuru yerde', raf: '1 ay', porsiyon: '100 g ≈ 2 avuç' }
   },
 
   /* ------------------------------------------------------------------

@@ -68,7 +68,7 @@ en: {
 
   'Normal Baklava': 'Classic Baklava',
   'Kare Baklava': 'Square Baklava',
-  'Havuç Dilimi': 'Carrot Slice',
+  'Yuvarlak Tepsi Baklava': 'Round Tray Baklava',
   'Midye Baklava': 'Mussel Baklava',
   'Kuru Baklava': 'Dry Baklava',
   'Şöbiyet': 'Şöbiyet (cream-filled)',
@@ -77,7 +77,7 @@ en: {
   'Kuşgözü': 'Kuşgözü (bird\'s eye)',
   'Bülbül Yuvası': 'Nightingale\'s Nest',
   'Special Karışım': 'Special Mix',
-  'Kavrulmuş Fıstık': 'Roasted Pistachios',
+  'Çiğ İç Fıstık': 'Raw Pistachio Kernels',
   'Künefe (porsiyon)': 'Künefe (per portion)',
   'Fıstık Ezmesi': 'Pistachio Paste',
   'Güllaç': 'Güllaç',
@@ -845,5 +845,18 @@ en: {
   'TAKİP': 'FOLLOW',
   'KAYNAK': 'SOURCE',
   'GİT': 'GO',
+  'Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.':
+    'Diamond-cut slices on a round tray. The classic presentation for holidays and hosting.',
+  'Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.':
+    'Antep pistachio ground on a stone mill, kneaded with sugar and pressed into a tray.',
+  'Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.':
+    'The very pistachio that goes inside the baklava — shelled, purple-skinned, unroasted.',
+  'Sultan Abdülhamid Mah., Yavuz Sultan Selim Bulvarı, Özdemir Apt. Altı 25/A':
+    'Sultan Abdülhamid Mah., Yavuz Sultan Selim Blv., Özdemir Apt. Altı 25/A',
+  'Antep fıstığı, pancar şekeri': 'Antep pistachio, beet sugar',
+  'Antep fıstığı (çiğ iç, mor zarlı)': 'Antep pistachio (raw kernel, purple skin)',
+  '100 g ≈ 4–5 dilim': '100 g ≈ 4–5 slices',
+  'Çiğ iç fıstık ve dondurmada “yarım tepsi” 500 g, “tam tepsi” 1 kg paketi gösterir. Künefe ve güllaçta ise 4 ve 8 kişilik tepsidir; porsiyon fiyatı künefede 190 ₺, güllaçta 160 ₺, dondurmada top başına 70 ₺’dir.':
+    'For raw pistachio and ice cream, “half tray” means a 500 g pack and “full tray” a 1 kg pack. For künefe and güllaç they are 4- and 8-person trays; per portion it is 190 ₺ for künefe, 160 ₺ for güllaç and 70 ₺ per scoop of ice cream.',
 }
 };

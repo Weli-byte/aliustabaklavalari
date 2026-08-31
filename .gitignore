@@ -21,3 +21,6 @@ _work/*.log
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Tatli adlarini dogrulamak icin uretilen kontak sayfalari
+_work/yeni_kare/

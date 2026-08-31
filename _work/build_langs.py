@@ -89,6 +89,7 @@ for kod, m in DILLER.items():
     h = h.replace('poster="assets/', 'poster="../assets/')
     h = h.replace('data-src="assets/', 'data-src="../assets/')
     h = h.replace('imagesrcset="assets/', 'imagesrcset="../assets/')
+    h = h.replace('srcset="assets/', 'srcset="../assets/')
     h = h.replace('href="manifest.webmanifest"', 'href="../manifest.webmanifest"')
     h = h.replace("'assets/", "'../assets/")
     # <html>

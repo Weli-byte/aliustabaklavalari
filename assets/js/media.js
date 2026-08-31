@@ -1,5 +1,5 @@
 /* Ali Usta Baklavaları — medya haritası. Otomatik üretildi: _work/gen_media.py
-   65 fotoğraf + 17 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
+   66 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
   "src": "assets/video/hero.mp4",
@@ -116,8 +116,8 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Havuç Dilimi",
-   "desc": "Geniş tabanlı üçgen dilim. Her lokmada artan fıstık oranı.",
+   "name": "Yuvarlak Tepsi Baklava",
+   "desc": "Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",
    "photos": [
     {
      "k": "p55",
@@ -260,8 +260,8 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Kuşgözü",
-   "desc": "Küçük, yuvarlak, tek lokmalık. Ortasında iri fıstık tanesi.",
+   "name": "Fıstık Ezmesi",
+   "desc": "Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",
    "photos": [
     {
      "k": "p49",
@@ -332,8 +332,8 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Kavrulmuş Fıstık",
-   "desc": "Baklavanın içine giren fıstığın kendisi. Günlük kavrulur, ayrıca satılır.",
+   "name": "Çiğ İç Fıstık",
+   "desc": "Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.",
    "photos": [
     {
      "k": "p53",
@@ -411,7 +411,7 @@ window.AU_MEDIA = {
    "id": "baklava",
    "name": "Baklava",
    "kicker": "Tezgâhın ana işi",
-   "desc": "Kırk kat yufka elde açılır, arasına günlük kavrulmuş Antep fıstığı serpilir, gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, havuç dilimi, dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
+   "desc": "Kırk kat yufka elde açılır, arasına günlük kavrulmuş Antep fıstığı serpilir, gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
    "cover": {
     "k": "p48",
     "t": "img",
@@ -422,7 +422,7 @@ window.AU_MEDIA = {
     "bg": "#463f23"
    },
    "nPhoto": 8,
-   "nVideo": 4,
+   "nVideo": 12,
    "items": [
     {
      "k": "p13",
@@ -535,6 +535,70 @@ window.AU_MEDIA = {
      "h": 804,
      "dur": 9.9,
      "cap": "Katmanlı baklavanın kesilişi"
+    },
+    {
+     "k": "v17",
+     "t": "vid",
+     "w": 900,
+     "h": 1614,
+     "dur": 2.6,
+     "cap": "Kare kesim tepsi — fıstık şeridiyle"
+    },
+    {
+     "k": "v18",
+     "t": "vid",
+     "w": 900,
+     "h": 502,
+     "dur": 4.3,
+     "cap": "Tezgâhta kare baklava tepsisi"
+    },
+    {
+     "k": "v19",
+     "t": "vid",
+     "w": 900,
+     "h": 1614,
+     "dur": 3.6,
+     "cap": "Şöbiyet tepsisi — fıstıkla kaplı"
+    },
+    {
+     "k": "v20",
+     "t": "vid",
+     "w": 900,
+     "h": 1614,
+     "dur": 2.5,
+     "cap": "Yuvarlak tepside dilim kesim"
+    },
+    {
+     "k": "v21",
+     "t": "vid",
+     "w": 900,
+     "h": 1614,
+     "dur": 2.6,
+     "cap": "Kare baklava — üstten kadraj"
+    },
+    {
+     "k": "v22",
+     "t": "vid",
+     "w": 900,
+     "h": 502,
+     "dur": 4.3,
+     "cap": "Kare tepsi ve midye tepsisi yan yana"
+    },
+    {
+     "k": "v23",
+     "t": "vid",
+     "w": 900,
+     "h": 502,
+     "dur": 3.7,
+     "cap": "Sarma dilimler, tepsiye dizilmiş"
+    },
+    {
+     "k": "v24",
+     "t": "vid",
+     "w": 900,
+     "h": 502,
+     "dur": 5.6,
+     "cap": "Yuvarlak tepside fıstıklı dizilim"
     }
    ]
   },
@@ -692,17 +756,27 @@ window.AU_MEDIA = {
    "kicker": "Her sabah kavrulur",
    "desc": "Gaziantep'in fıstık kuşağının tam ortasındayız; fıstık aynı gün geliyor, aynı gün kavruluyor. Baklavanın içine giren fıstık ile tepside satılan fıstık aynı fıstıktır. Kavrulmuş fıstık, karışık kuruyemiş ve çiğ iç fıstık ayrı ayrı bulunur.",
    "cover": {
-    "k": "p64",
+    "k": "p65",
     "t": "img",
-    "w": 1126,
-    "h": 1564,
-    "tw": 653,
-    "th": 907,
-    "bg": "#403b1f"
+    "w": 1200,
+    "h": 1600,
+    "tw": 696,
+    "th": 928,
+    "bg": "#454641"
    },
-   "nPhoto": 3,
+   "nPhoto": 4,
    "nVideo": 0,
    "items": [
+    {
+     "k": "p65",
+     "t": "img",
+     "w": 1200,
+     "h": 1600,
+     "tw": 696,
+     "th": 928,
+     "bg": "#454641",
+     "cap": "Çiğ iç fıstık — mor zarlı, yuvarlak tepside"
+    },
     {
      "k": "p51",
      "t": "img",
@@ -808,7 +882,7 @@ window.AU_MEDIA = {
    "id": "dukkan",
    "name": "Dükkân & Vitrin",
    "kicker": "Nizip'teki tezgâh",
-   "desc": "Kanuni Sultan Süleyman Bulvarı'ndaki dükkân, her sabah 10:00'da sıfırdan dolan vitrin ve açık hava oturma bölümü. Akşama kalan tepsi ertesi güne devretmez — vitrinde gördüğünüz her şey o gün yapılmıştır.",
+   "desc": "Yavuz Sultan Selim Bulvarı'ndaki dükkân, her sabah 10:00'da sıfırdan dolan vitrin ve açık hava oturma bölümü. Akşama kalan tepsi ertesi güne devretmez — vitrinde gördüğünüz her şey o gün yapılmıştır.",
    "cover": {
     "k": "p03",
     "t": "img",

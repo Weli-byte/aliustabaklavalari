@@ -399,7 +399,7 @@ basar, mesaj işletmeye düşer.
 
 ## 4. Medya — tam envanter
 
-**65 fotoğraf + 17 kısa video + 1 tanıtım filmi = 83 dosyanın tamamı kullanılıyor.**
+**66 fotoğraf + 25 kısa video + 1 tanıtım filmi = 92 dosyanın tamamı kullanılıyor.**
 Eşleme `_work/gen_media.py` içinde; betik kullanılmayan dosya kalırsa `assert` ile durur.
 
 | Bölüm | Fotoğraf | Video |
@@ -407,12 +407,12 @@ Eşleme `_work/gen_media.py` içinde; betik kullanılmayan dosya kalırsa `asser
 | Hero | — | 1 (tanıtım filmi, sessiz) |
 | Miras | 5 | 1 |
 | Ürünler rayı | 24 (12 çeşit × 2) | — |
-| Tatlı Dünyası | 27 | 9 |
+| Tatlı Dünyası | 28 | 17 |
 | Tezgâh | — | 6 |
 | Özel Sipariş | 4 | 1 |
 | Kargo | 2 | — |
 | İletişim | 3 | — |
-| **Toplam** | **65** | **18** |
+| **Toplam** | **66** | **26** |
 
 Dosya bazında liste: **[`MEDYA-LISTESI.md`](MEDYA-LISTESI.md)**.
 `v08` ayrıca "Neden Ali Usta" bölümünde %14 opaklıkta arka plan dokusu olarak
@@ -432,6 +432,44 @@ boyutlandırma**. İçerik değiştirilmedi, rötuşlanmadı, üretilmedi:
 - **Tezgâh videoları:** 6 üretim kaydı **sesli** kodlandı; karodaki hoparlör düğmesiyle açılır.
 
 Stok görsel yok, AI görsel yok.
+
+### Ağustos 2026 — düzeltmeler ve yeni medya
+
+**Yanlış tatlı adları düzeltildi.** Ürün rayındaki üç ad, atanan fotoğraflarla
+uyuşmuyordu:
+
+| Eski ad | Yeni ad | Neden |
+|---|---|---|
+| Havuç Dilimi | **Yuvarlak Tepsi Baklava** | Fotoğraflar yuvarlak tepside dilim kesim gösteriyordu, üçgen havuç dilimi değil |
+| Kuşgözü | **Fıstık Ezmesi** | Fotoğraflar baskı fıstıkla kaplı düz tepsi gösteriyordu; fiyat tablosundaki mevcut Fıstık Ezmesi satırıyla birleşti |
+| Kavrulmuş Fıstık | **Çiğ İç Fıstık** | Fotoğraflarda mor zarlı çiğ iç fıstık var, kavrulmuş değil |
+
+Adlarla birlikte açıklamalar, `urunDetay` içerikleri, fiyat tablosu ve İngilizce
+sözlük de güncellendi.
+
+**Adres düzeltildi.** İşletmenin kendi ambalaj kâğıdı (29 Ağustos'ta gelen
+fotoğrafta okunuyor) şunu yazıyor:
+
+> Sultan Abdülhamid Mh. **Yavuz Sultan Selim Blv.** Özdemir Apt. Altı 25/A Nizip
+
+Sitede "Kanuni Sultan Süleyman Bulvarı" yazıyordu. `config.js`, harita
+bağlantısı ve `LocalBusiness` yapısal verisi ambalaja göre düzeltildi.
+
+**Yeni medya eklendi.** İşletmeden 29 Ağustos'ta gelen dosyalar:
+
+- **8 video** (v17–v24) — markalı kâğıt üzerinde tepsi sunumları, dükkânda
+  çekilmiş. Tatlı Dünyası → Baklava kategorisine girdi.
+- **1 fotoğraf** (p65) — yuvarlak tepside çiğ iç fıstık, **1200×1600**.
+  Projedeki en yüksek çözünürlüklü fotoğraf; Antep Fıstığı kategorisinin
+  kapağı oldu.
+
+Bu dosyalar Instagram ekran kaydı değil, doğrudan WhatsApp'tan geldiği için
+arayüz kırpması uygulanmadı — yalnızca hafif temizlik ve keskinleştirme
+(`_work/yeni_medya.py`).
+
+**Ayrıca düzeltilen bir hata:** `build_langs.py`, `srcset="assets/..."`
+yollarını `../assets/` olarak yeniden yazmıyordu; İngilizce sayfada logonun
+AVIF sürümü 404 veriyordu (WebP yedeğine düştüğü için görünürde sorun yoktu).
 
 ### Kalite iyileştirmesi (Ağustos 2026)
 
