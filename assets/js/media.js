@@ -2,9 +2,9 @@
    62 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=40",
-  "srcSmall": "assets/video/hero-sm.mp4?v=40",
-  "poster": "assets/video/poster/hero.webp?v=40",
+  "src": "assets/video/hero.mp4?v=41",
+  "srcSmall": "assets/video/hero-sm.mp4?v=41",
+  "poster": "assets/video/poster/hero.webp?v=41",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
@@ -107,7 +107,7 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Yuvarlak Tepsi Baklava",
+   "name": "Yuvarlak Tepside Tel Kadayıf",
    "desc": "Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",
    "photos": [
     {

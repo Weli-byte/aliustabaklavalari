@@ -59,7 +59,7 @@
     'Kare Baklava': 'Klasik Baklava',
     'Dürüm Baklava': 'Klasik Baklava',
     'Burma Kadayıf': 'Klasik Baklava',
-    'Yuvarlak Tepsi Baklava': 'Klasik Baklava',
+    'Yuvarlak Tepside Tel Kadayıf': 'Klasik Baklava',
     'Kuru Baklava': 'Klasik Baklava',
     'Special Karışım': 'Klasik Baklava',
     'Özel Kare': 'Klasik Baklava',

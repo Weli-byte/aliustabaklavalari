@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=40',
-    srcSmall='assets/video/hero-sm.mp4?v=40',
-    poster='assets/video/poster/hero.webp?v=40',
+    src='assets/video/hero.mp4?v=41',
+    srcSmall='assets/video/hero-sm.mp4?v=41',
+    poster='assets/video/poster/hero.webp?v=41',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
@@ -31,7 +31,7 @@ MIRAS_V = V(5)
 RAIL = [
  ("Normal Baklava","Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.",[22,45]),
  ("Kare Baklava","Kalın fıstık dolgusu, kare kesim. Tepside dizilişiyle bile iddialı.",[28,4]),
- ("Yuvarlak Tepsi Baklava","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,32]),
+ ("Yuvarlak Tepside Tel Kadayıf","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,32]),
  ("Midye Baklava","İnce yufkanın kıvrılıp kapanmasıyla açılan sedef formu.",[26,42]),
  ("Kuru Baklava","Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",[1,8]),
  ("Yeşil Şöbiyet","Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",[66]),
