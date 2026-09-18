@@ -1,10 +1,10 @@
 /* Ali Usta Baklavaları — medya haritası. Otomatik üretildi: _work/gen_media.py
-   60 fotoğraf + 22 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
+   60 fotoğraf + 21 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=45",
-  "srcSmall": "assets/video/hero-sm.mp4?v=45",
-  "poster": "assets/video/poster/hero.webp?v=45",
+  "src": "assets/video/hero.mp4?v=46",
+  "srcSmall": "assets/video/hero-sm.mp4?v=46",
+  "poster": "assets/video/poster/hero.webp?v=46",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
@@ -745,7 +745,7 @@ window.AU_MEDIA = {
     "bg": "#443722"
    },
    "nPhoto": 2,
-   "nVideo": 1,
+   "nVideo": 0,
    "items": [
     {
      "k": "p34",
@@ -766,14 +766,6 @@ window.AU_MEDIA = {
      "th": 605,
      "bg": "#5d5644",
      "cap": ""
-    },
-    {
-     "k": "v10",
-     "t": "vid",
-     "w": 820,
-     "h": 1440,
-     "dur": 22.7,
-     "cap": "Fıstık ezmeli tepsinin kesimi"
     }
    ]
   },

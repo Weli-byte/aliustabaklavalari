@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=45',
-    srcSmall='assets/video/hero-sm.mp4?v=45',
-    poster='assets/video/poster/hero.webp?v=45',
+    src='assets/video/hero.mp4?v=46',
+    srcSmall='assets/video/hero-sm.mp4?v=46',
+    poster='assets/video/poster/hero.webp?v=46',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
@@ -83,7 +83,7 @@ CATS = [
        "Fıstık ezmesi ayrıca tepsiyle de satılır, kesilip porsiyon hâlinde servis edilir.",
   kapak=P(34),
   fotograflar=[P(34), P(36)],
-  videolar=[V(10)]),
+  videolar=[]),
 
  dict(id="ozel", ad="Özel Tatlılar", kicik="Mevsimlik ve özel gün",
   ozet="Kaymaklı katmanlar, çikolata kaplı dilimler, hindistan cevizli kare kesim, mevsiminde "
@@ -124,7 +124,6 @@ CAP = {
  'p58':'Fıstıklı künefe ve meyve tabağı sunumu',
  # dondurma & fistik ezmesi
  'p34':'','p36':'',
- 'v10':'Fıstık ezmeli tepsinin kesimi',
  # ozel
  'p05':'Sütlü kadayıf','p09':'Sütlü kadayıf',
  'p29':'Soğuk baklava','p35':'Soğuk baklava',

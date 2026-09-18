@@ -71,7 +71,6 @@
 | `v07` | Ekran Kaydı 2026-08-25 132709.mp4 | Tatlı dünyası · Baklava |
 | `v08` | Ekran Kaydı 2026-08-25 132817.mp4 | Tatlı dünyası · Baklava |
 | `v09` | Ekran Kaydı 2026-08-25 132955.mp4 | Tezgâh — üretim kayıtları |
-| `v10` | Ekran Kaydı 2026-08-25 133250.mp4 | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
 | `v11` | Ekran Kaydı 2026-08-25 133912.mp4 | Tezgâh — üretim kayıtları |
 | `v12` | Ekran Kaydı 2026-08-25 134452.mp4 | Tatlı dünyası · Künefe |
 | `v13` | Ekran Kaydı 2026-08-25 134753.mp4 | Tatlı dünyası · Baklava |
