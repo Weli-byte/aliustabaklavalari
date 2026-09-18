@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masa Kartı — Ali Usta Baklavaları</title>
+<meta name="robots" content="noindex">
+<style>
+  @page{ size:A5; margin:0; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#EDE5D3; font-family:Georgia,"Palatino Linotype",serif; }
+  .kart{
+    width:148mm; height:210mm; margin:0 auto; padding:16mm 12mm;
+    background:#120C06; color:#F5E8CF;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:8mm;
+  }
+  .isim{ letter-spacing:.08em; text-transform:uppercase; color:#C9922E; font-size:14pt; }
+  .baslik{ font-size:26pt; color:#F5E8CF; margin:0; }
+  .alt{ font-size:11pt; color:#C7B18B; max-width:100mm; line-height:1.5; }
+  .qr-cerceve{ background:#F5E8CF; padding:6mm; border:1px solid #C9922E; }
+  .qr-cerceve img{ display:block; width:55mm; height:55mm; }
+  .oku{ font-size:12pt; color:#F0C463; letter-spacing:.04em; }
+  .link{ font-size:9pt; color:#9C8969; }
+  @media print{
+    body{ background:#120C06; }
+    .kart{ box-shadow:none; }
+  }
+  .yazdir-btn{
+    position:fixed; top:12px; right:12px; padding:.6rem 1.1rem; border-radius:2rem;
+    background:#C9922E; color:#120C06; border:0; font-weight:bold; cursor:pointer;
+  }
+  @media print{ .yazdir-btn{ display:none; } }
+</style>
+</head>
+<body>
+<button class="yazdir-btn" onclick="window.print()">Yazdır</button>
+<div class="kart">
+  <div class="isim">Ali Usta Baklavaları</div>
+  <h1 class="baslik">Menümüzü&nbsp;Keşfedin</h1>
+  <div class="qr-cerceve"><img src="assets/img/qr-menu.png" alt="Menü QR kodu"></div>
+  <div class="oku">Kamerayla okutun</div>
+  <div class="alt">Tüm çeşitlerimiz ve güncel kilo fiyatlarımız karekodda.</div>
+  <div class="link">aliustabaklavalari.com/menu.html</div>
+</div>
+</body>
+</html>

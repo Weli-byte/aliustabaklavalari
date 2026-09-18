@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menü — Ali Usta Baklavaları</title>
+<meta name="description" content="Ali Usta Baklavaları menüsü — çeşitler ve güncel kilo fiyatları.">
+<meta name="theme-color" content="#120C06">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23120C06'/%3E%3Cpath d='M16 5l11 11-11 11L5 16z' fill='%23C9922E'/%3E%3Cpath d='M16 10.5L21.5 16 16 21.5 10.5 16z' fill='%23120C06'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=46">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Karla:ital,wght@0,400..700;1,400..500&display=swap&subset=latin,latin-ext">
+
+<style>
+  /* Menü sayfası kendi başına — site.js'in scroll/animasyon sistemine bağlı değil. */
+  body{ overflow-x:hidden; }
+  .menu-wrap{ max-width:920px; margin-inline:auto; padding:clamp(2rem,6vw,4rem) var(--shell) clamp(4rem,8vw,6rem); }
+  .menu-head{ text-align:center; padding-block:clamp(2.5rem,7vw,4rem) clamp(1.5rem,4vw,2.5rem); border-bottom:1px solid var(--line-soft); }
+  .menu-head .eyebrow{ justify-content:center; }
+  .menu-logo{ font-family:var(--f-disp); font-variation-settings:"SOFT" 30,"WONK" 1; color:var(--gold-lit); font-size:1.05rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.9rem; }
+  .menu-h1{ font-family:var(--f-disp); font-variation-settings:"SOFT" 40,"WONK" 1,"opsz" 96; font-size:clamp(2.1rem,4vw + 1rem,3.4rem); color:var(--cream); margin:.3rem 0 .6rem; }
+  .menu-sub{ color:var(--cream-dim); font-size:.98rem; max-width:32rem; margin-inline:auto; }
+  .menu-cat{ padding-top:clamp(2.4rem,6vw,3.6rem); }
+  .menu-cat h2{ font-family:var(--f-disp); font-variation-settings:"SOFT" 30,"WONK" 1,"opsz" 60; font-size:clamp(1.4rem,2vw + .8rem,1.9rem); color:var(--gold-lit); border-bottom:1px solid var(--line); padding-bottom:.7rem; margin-bottom:.3rem; }
+  .menu-list{ display:flex; flex-direction:column; }
+  .menu-item{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:1.1rem 0; border-bottom:1px solid var(--line-soft); }
+  .menu-item:last-child{ border-bottom:0; }
+  .menu-item-name{ font-family:var(--f-disp); font-size:1.08rem; color:var(--cream); }
+  .menu-item-desc{ display:block; font-family:var(--f-body); font-size:.86rem; color:var(--cream-mute); margin-top:.25rem; font-weight:400; line-height:1.5; }
+  .menu-item-price{ font-family:var(--f-disp); font-size:1.08rem; color:var(--gold-lit); white-space:nowrap; }
+  .menu-item-unit{ font-family:var(--f-body); font-size:.72rem; color:var(--cream-mute); display:block; text-align:right; margin-top:.15rem; }
+  .menu-note{ margin-top:clamp(2.4rem,6vw,3.4rem); padding-top:1.4rem; border-top:1px solid var(--line-soft); color:var(--cream-mute); font-size:.86rem; text-align:center; }
+  .menu-foot{ margin-top:clamp(2.4rem,6vw,3.4rem); text-align:center; }
+  .menu-foot a.mini{ display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.6rem; border:1px solid var(--line); border-radius:2rem; color:var(--cream); text-decoration:none; font-size:.92rem; }
+  .menu-foot a.mini:hover{ border-color:var(--gold); color:var(--gold-lit); }
+  .menu-foot p{ margin-top:1rem; color:var(--cream-mute); font-size:.86rem; }
+</style>
+</head>
+<body class="motion-off">
+
+<main class="menu-wrap">
+  <header class="menu-head">
+    <div class="menu-logo">Ali Usta Baklavaları</div>
+    <h1 class="menu-h1">Menü</h1>
+    <p class="menu-sub">Nizip, Gaziantep — kırk kat yufka, günlük kavrulmuş Antep fıstığı, doğal pancar şekeri şerbeti. Fiyatlar kilogram üzerindendir.</p>
+  </header>
+
+  <div id="menuBody"></div>
+
+  <p class="menu-note">Kesin tutar ve tepsi ölçüleri için WhatsApp'tan teyit alınız. Fiyatlar önceden haber verilmeksizin güncellenebilir.</p>
+
+  <div class="menu-foot">
+    <a class="mini" id="menuWa" href="#" target="_blank" rel="noopener">WhatsApp'tan Sipariş</a>
+    <p id="menuAdres"></p>
+  </div>
+</main>
+
+<script src="assets/js/config.js?v=46"></script>
+<script src="assets/js/media.js?v=46"></script>
+<script src="assets/js/menu.js?v=46"></script>
+</body>
+</html>
