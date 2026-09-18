@@ -27,3 +27,6 @@ _work/yeni_kare/
 
 # Playwright test ekran görüntüleri (geliştirme sırasında geçici)
 .playwright-mcp/
+
+# Python derleme önbelleği
+__pycache__/
