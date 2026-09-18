@@ -332,10 +332,9 @@ window.AU_CONFIG = {
     'Antep Özel':             { icindekiler: 'Un, su, tereyağı, bol Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4 dilim' },
     'Bülbül Yuvası':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4 adet' },
     'Havuç Dilimi':     { icindekiler: 'Un, su, tereyağı, bol Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 2–3 dilim' },
-    'Special Karışım':  { icindekiler: 'Tepsideki bütün çeşitlerin karışımı', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Kaymaklı çeşit varsa buzdolabında', raf: '2–4 gün', porsiyon: '1 kg ≈ 8–10 kişi' },
     'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': { icindekiler: 'Tel kadayıf, sade yağ, tuzsuz künefe peyniri, bol Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '2, 3, 4 ve 6 kişilik' },
     'Fıstıkzade Künefe': { icindekiler: 'Tel kadayıf, sade yağ, tuzsuz künefe peyniri, bol Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '2, 3, 4 ve 6 kişilik' },
+    'Saray Sarması':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3 adet' },
     'Fıstıkzade':        { icindekiler: 'Tel kadayıf, sade yağ, tuzsuz künefe peyniri, bol Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '2, 3, 4 ve 6 kişilik' },
-    'Çiğ İç Fıstık': { icindekiler: 'Antep fıstığı (çiğ iç, mor zarlı)', alerjen: ['Sert kabuklu yemiş (fıstık)'], saklama: 'Ağzı kapalı kavanozda, serin ve kuru yerde', raf: '1 ay', porsiyon: '100 g ≈ 2 avuç' }
   }
 };

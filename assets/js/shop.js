@@ -58,10 +58,10 @@
     'Dürüm Baklava': 'Klasik Baklava',
     'Burma Kadayıf': 'Klasik Baklava',
     'Hasır Künefe': 'Klasik Baklava',
-    'Special Karışım': 'Klasik Baklava',
     'Özel Kare': 'Klasik Baklava',
     'Yaprak Şöbiyet': 'Yeşil Şöbiyet',
     'Saray Dolması': 'Dolama',
+    'Saray Sarması': 'Dolama',
     'Antep Özel': 'Klasik Baklava',
     'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade',
     'Fıstıkzade Künefe': 'Fıstıkzade'

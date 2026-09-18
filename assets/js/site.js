@@ -225,40 +225,9 @@
   });
 
   /* --- Ürün rayı --- */
-  /* Fiyat ve sepet/karşılaştır düğmeleri kart ilk çizilirken yazılır.
+  /* Sepet/karşılaştır düğmeleri kart ilk çizilirken yazılır.
      Sonradan eklenince kart yüksekliği değişiyor ve CLS artıyordu;
      shop.js yalnızca davranışı bağlar. */
-  function railFiyat(ad) {
-    var alias = {
-      'Normal Baklava': 'Klasik Baklava',
-      'Kare Baklava': 'Klasik Baklava',
-      'Dürüm Baklava': 'Klasik Baklava',
-      'Burma Kadayıf': 'Klasik Baklava',
-      'Kuru Baklava': 'Klasik Baklava',
-      'Yuvarlak Tepsi Baklava': 'Klasik Baklava',
-      'Yaprak Şöbiyet': 'Yeşil Şöbiyet',
-      'Saray Dolması': 'Dolama',
-      'Antep Özel': 'Klasik Baklava',
-      'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade',
-      'Fıstıkzade Künefe': 'Fıstıkzade'
-    };
-    var hedefAd = alias[ad] || ad;
-    var f = (C.fiyatlar || []).filter(function (x) { return x.urun === hedefAd || x.urun === ad; })[0];
-    if (!f) return '';
-    if (f.porsiyon) {
-      return '<span class="pcard-price"><bdi>' + (f.kg ? esc(f.kg) : (f.tam ? esc(f.tam) : '')) + '</bdi></span>';
-    }
-    function oku(v) {
-      var t = String(v == null ? '' : v).replace(/[^\d,.]/g, '').replace(/\./g, '').replace(',', '.');
-      var s = parseFloat(t);
-      return isNaN(s) ? 0 : s;
-    }
-    var kg = oku(f.kg), tam = oku(f.tam);
-    if (!kg && !tam) return '';
-    var tut = kg ? kg : tam;
-    return '<span class="pcard-price"><bdi>' + tut.toLocaleString('tr-TR') + ' ₺' +
-      (kg ? ' / kg' : '') + '</bdi></span>';
-  }
   var SEPET_ACIK = !!(C.sepet && C.sepet.acik);
 
   var railTrack = $('#railTrack');
@@ -276,7 +245,6 @@
       '<div class="pcard-body">' +
         '<h3>' + esc(p.name) + '</h3>' +
         '<p>' + esc(p.desc) + '</p>' +
-        (SEPET_ACIK ? railFiyat(p.name) : '') +
         '<div class="pcard-act">' +
           (SEPET_ACIK ? '<button class="mini mini--add" type="button" data-add="' + esc(p.name) + '">' + esc(T('Sepete ekle')) + '</button>' : '') +
           '<button class="mini mini--wa" type="button" data-ask="' + esc(p.name) + '">' + esc(T('Bu ürünü sor')) + '</button>' +

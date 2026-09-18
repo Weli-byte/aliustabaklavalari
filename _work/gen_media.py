@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=42',
-    srcSmall='assets/video/hero-sm.mp4?v=42',
-    poster='assets/video/poster/hero.webp?v=42',
+    src='assets/video/hero.mp4?v=43',
+    srcSmall='assets/video/hero-sm.mp4?v=43',
+    poster='assets/video/poster/hero.webp?v=43',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
@@ -36,10 +36,11 @@ RAIL = [
  ("Burma Kadayıf","Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",[1]),
  ("Yeşil Şöbiyet","Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",[66]),
  ("Dolama","Fıstığın etrafına sarılan ince yufka. Sarma tekniğinin ustalık sınavı.",[8]),
- ("Fıstık Ezmesi","Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",[49,16]),
- ("Bülbül Yuvası","Yuva biçiminde kıvrılmış yufka, göbeği fıstıkla doldurulmuş.",[6,10]),
- ("Special Karışım","Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",[63,58]),
- ("Çiğ İç Fıstık","Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.",[53,7]),
+ ("Antep Özel","Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",[49]),
+ ("Bülbül Yuvası","Yuva biçiminde kıvrılmış yufka, göbeği fıstıkla doldurulmuş.",[6]),
+ ("Havuç Dilimi","Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",[63]),
+ ("Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye","Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.",[53,7]),
+ ("Saray Sarması","Fıstığın etrafına sarılan ince yufka, rulo kesim. Tezgâhın en zarif işi.",[44]),
 ]
 
 # ---------------------------------------------------------------- TEZGAH
@@ -63,7 +64,7 @@ CATS = [
        "kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, "
        "dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
   kapak=P(13),
-  fotograflar=[P(13), P(40), P(41), P(43), P(25), P(44)],
+  fotograflar=[P(13), P(40), P(41), P(43), P(25), P(10)],
   videolar=[V(4), V(7), V(8), V(13),
             V(17), V(18), V(19), V(20), V(21), V(22), V(23), V(24)]),
 
@@ -81,7 +82,7 @@ CATS = [
        "girer. Yazın en çok istenen çeşit budur: sıcak baklavanın yanında soğuk bir kaşık. "
        "Fıstık ezmesi ayrıca tepsiyle de satılır, kesilip porsiyon hâlinde servis edilir.",
   kapak=P(34),
-  fotograflar=[P(34), P(36)],
+  fotograflar=[P(34), P(36), P(16)],
   videolar=[V(10)]),
 
  dict(id="ozel", ad="Özel Tatlılar", kicik="Mevsimlik ve özel gün",
@@ -89,7 +90,7 @@ CATS = [
        "çilekli tepsiler ve Ramazan'da güllaç. Vitrinin klasik baklava dışında kalan tarafı — "
        "her biri aynı tezgâhta, aynı malzemeyle yapılır.",
   kapak=P(5),
-  fotograflar=[P(5), P(9), P(29), P(35), P(20)],
+  fotograflar=[P(5), P(9), P(29), P(35), P(20), P(58)],
   videolar=[]),
 
  dict(id="dukkan", ad="Dükkân & Vitrin", kicik="Nizip'teki tezgâh",
@@ -105,7 +106,7 @@ CAP = {
  # baklava
  'p13':'Klasik Baklava','p40':'Fıstık Sarma',
  'p41':'Altın Rengi Tepsi','p43':'Midye Baklava',
- 'p25':'Dolama, tepside dizilim','p44':'Dolama, rulo kesim',
+ 'p25':'Dolama, tepside dizilim','p10':'Bülbül yuvası, yakın çekim',
  'v04':'','v07':'',
  'v08':'','v13':'',
  'v17':'','v18':'',
@@ -123,12 +124,14 @@ CAP = {
  'p52':'Dördü bir arada','p64':'Yarı fıstıkzade yarı billuriye',
  # dondurma & fistik ezmesi
  'p34':'Fıstık ezmesi ve dondurmalı sunum','p36':'Fıstık ezmesi dolama, içi kaymaklı',
+ 'p16':'Fıstık ezmesi, yakın çekim',
  'v10':'Fıstık ezmeli tepsinin kesimi',
  # ozel
  'p05':'Sütlü kadayıf','p09':'Sütlü kadayıf',
  'p29':'Soğuk baklava','p35':'Soğuk baklava',
  'p20':'Sütlaç',
  'p62':'Kaymaklı tepsi kesimi',
+ 'p58':'Fıstıklı künefe ve meyve tabağı sunumu',
  # dukkan
  'p03':'Vitrinde günün tepsileri','p15':'Vitrin — çeşit çeşit dizilim',
  'p18':'Tezgâhta tepsi düzeni',

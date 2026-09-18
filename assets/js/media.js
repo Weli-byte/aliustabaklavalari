@@ -2,9 +2,9 @@
    62 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=42",
-  "srcSmall": "assets/video/hero-sm.mp4?v=42",
-  "poster": "assets/video/poster/hero.webp?v=42",
+  "src": "assets/video/hero.mp4?v=43",
+  "srcSmall": "assets/video/hero-sm.mp4?v=43",
+  "poster": "assets/video/poster/hero.webp?v=43",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
@@ -227,7 +227,7 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Fıstık Ezmesi",
+   "name": "Antep Özel",
    "desc": "Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",
    "photos": [
     {
@@ -240,13 +240,13 @@ window.AU_MEDIA = {
      "bg": "#473714"
     },
     {
-     "k": "p16",
+     "k": "p49",
      "t": "img",
-     "w": 933,
-     "h": 1685,
+     "w": 1280,
+     "h": 941,
      "tw": 620,
-     "th": 1120,
-     "bg": "#454214"
+     "th": 456,
+     "bg": "#473714"
     }
    ]
   },
@@ -264,18 +264,18 @@ window.AU_MEDIA = {
      "bg": "#503917"
     },
     {
-     "k": "p10",
+     "k": "p06",
      "t": "img",
      "w": 1254,
      "h": 1254,
      "tw": 620,
      "th": 620,
-     "bg": "#5f481c"
+     "bg": "#503917"
     }
    ]
   },
   {
-   "name": "Special Karışım",
+   "name": "Havuç Dilimi",
    "desc": "Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",
    "photos": [
     {
@@ -288,18 +288,18 @@ window.AU_MEDIA = {
      "bg": "#593b1a"
     },
     {
-     "k": "p58",
+     "k": "p63",
      "t": "img",
-     "w": 1172,
-     "h": 1342,
+     "w": 1234,
+     "h": 1275,
      "tw": 620,
-     "th": 710,
-     "bg": "#4d3a1f"
+     "th": 641,
+     "bg": "#593b1a"
     }
    ]
   },
   {
-   "name": "Çiğ İç Fıstık",
+   "name": "Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye",
    "desc": "Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.",
    "photos": [
     {
@@ -319,6 +319,30 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 776,
      "bg": "#464120"
+    }
+   ]
+  },
+  {
+   "name": "Saray Sarması",
+   "desc": "Fıstığın etrafına sarılan ince yufka, rulo kesim. Tezgâhın en zarif işi.",
+   "photos": [
+    {
+     "k": "p44",
+     "t": "img",
+     "w": 1280,
+     "h": 953,
+     "tw": 620,
+     "th": 461,
+     "bg": "#504117"
+    },
+    {
+     "k": "p44",
+     "t": "img",
+     "w": 1280,
+     "h": 953,
+     "tw": 620,
+     "th": 461,
+     "bg": "#504117"
     }
    ]
   }
@@ -442,14 +466,14 @@ window.AU_MEDIA = {
      "cap": "Dolama, tepside dizilim"
     },
     {
-     "k": "p44",
+     "k": "p10",
      "t": "img",
-     "w": 1280,
-     "h": 953,
+     "w": 1254,
+     "h": 1254,
      "tw": 620,
-     "th": 461,
-     "bg": "#504117",
-     "cap": "Dolama, rulo kesim"
+     "th": 620,
+     "bg": "#5f481c",
+     "cap": "Bülbül yuvası, yakın çekim"
     },
     {
      "k": "v04",
@@ -744,7 +768,7 @@ window.AU_MEDIA = {
     "th": 766,
     "bg": "#443722"
    },
-   "nPhoto": 2,
+   "nPhoto": 3,
    "nVideo": 1,
    "items": [
     {
@@ -766,6 +790,16 @@ window.AU_MEDIA = {
      "th": 605,
      "bg": "#5d5644",
      "cap": "Fıstık ezmesi dolama, içi kaymaklı"
+    },
+    {
+     "k": "p16",
+     "t": "img",
+     "w": 933,
+     "h": 1685,
+     "tw": 620,
+     "th": 1120,
+     "bg": "#454214",
+     "cap": "Fıstık ezmesi, yakın çekim"
     },
     {
      "k": "v10",
@@ -791,7 +825,7 @@ window.AU_MEDIA = {
     "th": 952,
     "bg": "#4e473e"
    },
-   "nPhoto": 5,
+   "nPhoto": 6,
    "nVideo": 0,
    "items": [
     {
@@ -843,6 +877,16 @@ window.AU_MEDIA = {
      "th": 620,
      "bg": "#817653",
      "cap": "Sütlaç"
+    },
+    {
+     "k": "p58",
+     "t": "img",
+     "w": 1172,
+     "h": 1342,
+     "tw": 620,
+     "th": 710,
+     "bg": "#4d3a1f",
+     "cap": "Fıstıklı künefe ve meyve tabağı sunumu"
     }
    ]
   },

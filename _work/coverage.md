@@ -10,13 +10,13 @@
 | `p07` | ChatGPT Image 9 Eyl 2026 10_59_50.png | Ürünler rayı |
 | `p08` | ChatGPT Image 9 Eyl 2026 11_01_39.png | Ürünler rayı |
 | `p09` | ChatGPT Image 9 Eyl 2026 11_02_50.png | Tatlı dünyası · Özel Tatlılar |
-| `p10` | ChatGPT Image 9 Eyl 2026 11_04_34.png | Ürünler rayı |
+| `p10` | ChatGPT Image 9 Eyl 2026 11_04_34.png | Tatlı dünyası · Baklava |
 | `p11` | ChatGPT Image 9 Eyl 2026 11_06_07.png | Özel Sipariş |
 | `p12` | ChatGPT Image 9 Eyl 2026 11_07_48.png | Miras |
 | `p13` | ChatGPT Image 9 Eyl 2026 11_09_29.png | Tatlı dünyası · Baklava |
 | `p14` | ChatGPT Image 9 Eyl 2026 11_13_55.png | Özel Sipariş |
 | `p15` | ChatGPT Image 9 Eyl 2026 11_15_27.png | Tatlı dünyası · Dükkân & Vitrin |
-| `p16` | ChatGPT Image 9 Eyl 2026 11_16_37.png | Ürünler rayı |
+| `p16` | ChatGPT Image 9 Eyl 2026 11_16_37.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
 | `p18` | ChatGPT Image 9 Eyl 2026 11_19_48.png | Tatlı dünyası · Dükkân & Vitrin |
 | `p19` | Ekran görüntüsü 2026-08-25 133330.png | Miras |
 | `p20` | ChatGPT Image 9 Eyl 2026 11_21_54.png | Tatlı dünyası · Özel Tatlılar |
@@ -41,7 +41,7 @@
 | `p41` | ChatGPT Image 9 Eyl 2026 13_48_57.png | Tatlı dünyası · Baklava |
 | `p42` | ChatGPT Image 9 Eyl 2026 13_50_51.png | Ürünler rayı |
 | `p43` | ChatGPT Image 9 Eyl 2026 13_52_40.png | Tatlı dünyası · Baklava |
-| `p44` | ChatGPT Image 9 Eyl 2026 13_54_14.png | Tatlı dünyası · Baklava |
+| `p44` | ChatGPT Image 9 Eyl 2026 13_54_14.png | Ürünler rayı |
 | `p45` | ChatGPT Image 9 Eyl 2026 13_55_54.png | Ürünler rayı |
 | `p46` | ChatGPT Image 9 Eyl 2026 13_57_06.png | Tatlı dünyası · Künefe |
 | `p47` | ChatGPT Image 9 Eyl 2026 13_58_21.png | Kargo |
@@ -54,7 +54,7 @@
 | `p55` | ChatGPT Image 9 Eyl 2026 14_10_37.png | Ürünler rayı |
 | `p56` | ChatGPT Image 9 Eyl 2026 14_12_04.png | Tatlı dünyası · Künefe |
 | `p57` | ChatGPT Image 9 Eyl 2026 14_14_36.png | Tatlı dünyası · Künefe |
-| `p58` | ChatGPT Image 9 Eyl 2026 14_15_51.png | Ürünler rayı |
+| `p58` | ChatGPT Image 9 Eyl 2026 14_15_51.png | Tatlı dünyası · Özel Tatlılar |
 | `p59` | ChatGPT Image 9 Eyl 2026 14_17_06.png | Kargo |
 | `p60` | ChatGPT Image 9 Eyl 2026 14_18_37.png | Miras |
 | `p61` | ChatGPT Image 9 Eyl 2026 14_21_02.png | Özel Sipariş |
