@@ -16,6 +16,14 @@
   var C = W.AU_CONFIG || {};
   D.documentElement.classList.add('js');
 
+  /* Google Fonts'u "print" medya hilesiyle geç yükler (render'ı bloklamasın
+     diye) — önceden inline onload="" ile yapılıyordu; CSP script-src'yi
+     'unsafe-inline' ile gevşetmemek için buraya, harici dosyaya taşındı. */
+  (function () {
+    var gf = D.getElementById('gfonts');
+    if (gf) gf.media = 'all';
+  })();
+
   /* ===============================================================
      i18n — dil, sözlük ve derin çeviri
      =============================================================== */
@@ -171,7 +179,13 @@
 
   function cellHTML(o, opts) {
     var inner;
-    if (o.t === 'vid') {
+    if (o.url) {
+      /* Panelden (Supabase) gelen kayıt: yerel anahtar yok, ham URL var —
+         AVIF/WebP/boyut ön işlemesi olmadığı için doğrudan basılır. */
+      inner = o.t === 'vid'
+        ? '<video class="m-fill" muted loop playsinline preload="metadata" src="' + esc(o.url) + '"></video>' + PLAY_ICON
+        : '<img class="m-fill" src="' + esc(o.url) + '" alt="' + esc(o.alt || o.cap || '') + '" loading="lazy" decoding="async">';
+    } else if (o.t === 'vid') {
       inner = '<video class="m-fill" muted loop playsinline preload="none" poster="' + POS(o.k) +
         '" width="' + o.w + '" height="' + o.h + '" data-src="' + VID(o.k) + '" tabindex="-1"></video>' + PLAY_ICON;
     } else {
@@ -199,14 +213,13 @@
 
   /* --- Miras --- */
   var MIRAS_META = [
-    { cap: 'Dükkân girişi', alt: 'Ali Usta, dükkân girişinde fıstıklı baklava dolu tepsiyi tutarken' },
-    { cap: 'Günün tepsileri', alt: 'Usta, üzerinde dört farklı baklava tepsisi bulunan mermer tezgâhın arkasında' },
-    { cap: 'Kesim sonrası', alt: 'Ustanın taze kesilmiş yaprak şöbiyet tepsisini tezgâha yerleştirişi' },
-    { cap: 'Tezgâh ekibi', alt: 'Ali Usta forması giymiş çalışan, fıstıklı baklava tepsisinin başında' },
-    { cap: 'Nizip şubesi', alt: 'Ali Usta Baklavaları’nın aydınlatmalı dükkân tabelası' }
+    { cap: 'Ustanın elinde', alt: 'Ali Usta, dükkânın rafları ve vitrini önünde taze fıstıklı baklava dolu tepsiyi tutarken' },
+    { cap: 'Kesim sonrası', alt: 'Ustanın bıçakla taze kesim yaptığı an, önlüğünde Ali Usta yazısı' },
+    { cap: 'Fıstıklı tatlı çeşitleri sunumu', alt: 'Ali Usta Baklavaları tabelasının önünde, tahta tepside çeşit çeşit taze baklava' },
+    { cap: 'Ustadan bir kare', alt: 'Ali Usta, tezgâhın başında elinde fıstıklı baklava tepsisiyle' }
   ];
   var mirasMedia = $('#mirasMedia');
-  mirasMedia.appendChild(makeCell(merge(M.miras.video, { cap: T('Ali Usta tezgâhta — tabelanın altında') }), { cls: 'm-cell--tall' }));
+  mirasMedia.appendChild(makeCell(merge(M.miras.video, { cap: T('Ali Usta tezgâhta') }), { cls: 'm-cell--tall' }));
   M.miras.photos.forEach(function (p, i) {
     mirasMedia.appendChild(makeCell(merge(p, MIRAS_META[i]), { cls: i >= 3 ? 'm-cell--wide' : '' }));
   });
@@ -216,8 +229,25 @@
      Sonradan eklenince kart yüksekliği değişiyor ve CLS artıyordu;
      shop.js yalnızca davranışı bağlar. */
   function railFiyat(ad) {
-    var f = (C.fiyatlar || []).filter(function (x) { return x.urun === ad; })[0];
+    var alias = {
+      'Normal Baklava': 'Klasik Baklava',
+      'Kare Baklava': 'Klasik Baklava',
+      'Dürüm Baklava': 'Klasik Baklava',
+      'Burma Kadayıf': 'Klasik Baklava',
+      'Kuru Baklava': 'Klasik Baklava',
+      'Yuvarlak Tepsi Baklava': 'Klasik Baklava',
+      'Yaprak Şöbiyet': 'Yeşil Şöbiyet',
+      'Saray Dolması': 'Dolama',
+      'Antep Özel': 'Klasik Baklava',
+      'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade',
+      'Fıstıkzade Künefe': 'Fıstıkzade'
+    };
+    var hedefAd = alias[ad] || ad;
+    var f = (C.fiyatlar || []).filter(function (x) { return x.urun === hedefAd || x.urun === ad; })[0];
     if (!f) return '';
+    if (f.porsiyon) {
+      return '<span class="pcard-price"><bdi>' + (f.kg ? esc(f.kg) : (f.tam ? esc(f.tam) : '')) + '</bdi></span>';
+    }
     function oku(v) {
       var t = String(v == null ? '' : v).replace(/[^\d,.]/g, '').replace(/\./g, '').replace(',', '.');
       var s = parseFloat(t);
@@ -241,7 +271,7 @@
         '<span class="pcard-no">' + pad(i + 1) + '</span>' +
         pic(p.photos[0], ' class="m-fill main" loading="lazy" decoding="async" alt="' +
           esc(p.name) + ' — tepside yakın çekim"') +
-        pic(p.photos[1], ' class="m-fill alt" loading="lazy" decoding="async" alt="" aria-hidden="true"') +
+        (p.photos[1] ? pic(p.photos[1], ' class="m-fill alt" loading="lazy" decoding="async" alt="" aria-hidden="true"') : '') +
       '</div>' +
       '<div class="pcard-body">' +
         '<h3>' + esc(p.name) + '</h3>' +
@@ -331,9 +361,13 @@
     catFilters.appendChild(b);
   });
 
-  var catCells = $$('.m-cell', catGrid);
+  /* Sabit dizi değil, her çağrıda taze sorgu: panelden gelen kayıtlar
+     ilk boyamadan sonra catGrid'e eklenir, o yüzden burada donmuş bir
+     listeye güvenilmez. */
+  function catCellsAll() { return $$('.m-cell', catGrid); }
   var catChips = $$('.chip', catFilters);
   var catRefreshT = null;
+  var catAcikId = null;
 
   /* Bir sonraki boyamadan sonra çalıştırır — etkileşim gecikmesini uzatmaz. */
   function sonraYap(fn) {
@@ -361,6 +395,9 @@
   function showCat(id, kaydir) {
     var c = CATS.filter(function (x) { return x.id === id; })[0];
     if (!c) return;
+    catAcikId = id;
+    var turSel = $('#catAddTur');
+    if (turSel) turSel.value = id;
     catCards.hidden = true;
     catView.hidden = false;
 
@@ -375,7 +412,7 @@
         (c.nVideo ? ' · ' + c.nVideo + ' ' + esc(T('video')) : '') + '</p>';
 
       var shown = [];
-      catCells.forEach(function (cell) {
+      catCellsAll().forEach(function (cell) {
         var on = cell.dataset.cat === id;
         cell.hidden = !on;
         cell.classList.remove('is-active');
@@ -393,10 +430,11 @@
   }
 
   function showCards() {
+    catAcikId = null;
     catView.hidden = true;
     catCards.hidden = false;
     sonraYap(function () {
-      catCells.forEach(function (c) { c.hidden = true; c.classList.remove('is-active'); });
+      catCellsAll().forEach(function (c) { c.hidden = true; c.classList.remove('is-active'); });
       catTazele();
     });
   }
@@ -411,18 +449,379 @@
   });
   catBack.addEventListener('click', function () { showCards(); catKaydir(); });
 
+  /* "Türüne göre, tek tek" bölümünün İÇİNDE, seçili türün üstünde
+     "Fotoğraf/video ekle" düğmesi — ayrı bir panel sayfası değil. Supabase
+     kuruluysa (config.js) herkes doğrudan buradan o türe fotoğraf/video
+     ekleyebilir; kayıt anında ızgaraya ve sayaçlara işler. Yerel medya
+     anahtarı yok, ham URL var; cellHTML/lbRender o.url alanını görünce
+     buna göre basar. */
+  /* "Türüne göre, tek tek" bölümünde fotoğraf/video ekleme özelliği.
+     Bilgisayarda dosya gezgini, telefonda galeri anında açılır.
+     Kullanıcı görseli seçip alt kısmına adını yazar.
+     Fotoğraf ilgili tatlı türünün vitrinine anında eklenir ve yerel
+     hafızada (localStorage) kalıcı tutulur. Supabase varsa
+     oraya da arka planda senkronize edilir. */
+  (function turEkleKur() {
+    var s = C.supabase;
+    var toggle = $('#catAddToggle'),
+        box = $('#catAdd'),
+        form = $('#catAddForm'),
+        closeBtn = $('#catAddClose'),
+        cancelBtn = $('#catAddCancel'),
+        dropZone = $('#catAddDropZone'),
+        fileInput = $('#catAddFile'),
+        promptWrap = $('#catAddPrompt'),
+        previewWrap = $('#catAddPreviewWrap'),
+        thumbWrap = $('#catAddPreviewThumb'),
+        fileNameEl = $('#catAddFileName'),
+        fileSizeEl = $('#catAddFileSize'),
+        changeBtn = $('#catAddChangeBtn'),
+        selectBtn = $('#catAddSelectBtn'),
+        baslikInput = $('#catAddBaslik'),
+        turSelect = $('#catAddTur'),
+        msg = $('#catAddMsg'),
+        submitBtn = $('#catAddSubmit');
+
+    if (!toggle || !box || !form || !fileInput) return;
+
+    var seciliDosya = null; // { file, dataUrl, isVid, name, size }
+
+    /* Kartta/ızgarada gösterilecek yeni kareyi ekler, sayaçları günceller */
+    function turKayitEkle(tur, baslik, tip, url, prepend) {
+      var c = CATS.filter(function (x) { return x.id === tur; })[0];
+      if (!c) return null;
+      var isVid = tip === 'video';
+      var cell = makeCell({ t: isVid ? 'vid' : 'img', url: url, cap: baslik, cat: c.id, catName: c.name },
+        { big: !isVid, sizes: '(max-width:600px) 47vw, (max-width:900px) 31vw, 23vw' });
+      cell.dataset.cat = c.id;
+      cell.hidden = (catAcikId !== c.id);
+
+      if (prepend && catGrid.firstChild) {
+        catGrid.insertBefore(cell, catGrid.firstChild);
+      } else {
+        catGrid.appendChild(cell);
+      }
+
+      if (isVid) c.nVideo++; else c.nPhoto++;
+      var adet = c.nPhoto + c.nVideo;
+      var cardCount = catCards.querySelector('.catcard[data-cat="' + c.id + '"] .catcard-count');
+      if (cardCount) cardCount.textContent = c.nPhoto + ' ' + T('fotoğraf') + (c.nVideo ? ' · ' + c.nVideo + ' ' + T('video') : '');
+      var chipCount = catFilters.querySelector('.chip[data-cat="' + c.id + '"] i');
+      if (chipCount) chipCount.textContent = adet;
+      if (catAcikId === c.id) {
+        var cntEl = catIntro.querySelector('.cat-count');
+        if (cntEl) cntEl.textContent = c.nPhoto + ' ' + esc(T('fotoğraf')) + (c.nVideo ? ' · ' + c.nVideo + ' ' + esc(T('video')) : '');
+      }
+      return c;
+    }
+
+    /* Kalıcı yerel depolama (LocalStorage) */
+    var STORAGE_KEY = 'AU_USER_MEDIA_V1';
+    function yerelKayitlariAl() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) { return []; }
+    }
+    function yerelKayitEkle(item) {
+      try {
+        var list = yerelKayitlariAl();
+        list.unshift(item);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {
+        console.warn('LocalStorage kotası veya yazma hatası:', e);
+      }
+    }
+
+    /* Sayfa açılışında kayıtlı medyaları yükle */
+    var kaydedilmisler = yerelKayitlariAl();
+    if (Array.isArray(kaydedilmisler) && kaydedilmisler.length) {
+      kaydedilmisler.forEach(function (r) {
+        if (r && r.url && r.tur) {
+          turKayitEkle(r.tur, r.baslik || '', r.tip || 'image', r.url, true);
+        }
+      });
+    }
+
+    /* Supabase üzerinden uzaktaki kayıtlar (eğer ayarlandıysa) */
+    if (s && s.url && s.anonKey) {
+      fetch(s.url.replace(/\/+$/, '') + '/rest/v1/tur_medya' +
+        '?select=tur,baslik,medya_url,medya_tip,olusturma&order=olusturma.desc&limit=200',
+        { headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey } })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!Array.isArray(d) || !d.length) return;
+          var etkilenen = {};
+          d.forEach(function (r) {
+            if (!r.medya_url) return;
+            var c = turKayitEkle(r.tur, r.baslik, r.medya_tip, r.medya_url, false);
+            if (c) etkilenen[c.id] = true;
+          });
+          Object.keys(etkilenen).forEach(function (id) { if (catAcikId === id) showCat(id, false); });
+        }).catch(function () {});
+    }
+
+    /* Paneli Aç / Kapat */
+    function panelAcKapat(ac) {
+      var yeniDurum = typeof ac === 'boolean' ? ac : box.hidden;
+      box.hidden = !yeniDurum;
+      toggle.setAttribute('aria-expanded', yeniDurum ? 'true' : 'false');
+      if (yeniDurum) {
+        if (catAcikId && turSelect) turSelect.value = catAcikId;
+        msg.textContent = '';
+        msg.className = 'frm-msg';
+        try {
+          box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } catch (e) {}
+      }
+    }
+
+    /* Şifre kontrolü: yalnızca işletme sahibi/çalışanları fotoğraf/video
+       ekleyebilsin. Bu bir sunucu kontrolü değildir (site tamamen
+       tarayıcıda çalışır) — sıradan ziyaretçiyi durdurur, kaynak kodu
+       okuyabilen birini durdurmaz. Şifre ters çevrilmiş tutulur, ilk
+       bakışta görünmesin diye; gerçek şifreleme değildir. */
+    var SIFRE_OTURUM_ANAHTARI = 'AU_PANEL_DOGRULANDI';
+    function sifreDogruMu(girilen) {
+      var ters = (C.catEkleSifreTers || '').split('').reverse().join('');
+      return !!ters && girilen === ters;
+    }
+    function panelAcmayaCalis() {
+      if (!box.hidden) { panelAcKapat(false); return; }
+      if (sessionStorage.getItem(SIFRE_OTURUM_ANAHTARI) === '1') { panelAcKapat(true); return; }
+      var girilen = window.prompt('Bu bölüm yalnızca işletme sahibi/çalışanları içindir.\nŞifreyi yazın:');
+      if (girilen === null) return;
+      if (sifreDogruMu(girilen.trim())) {
+        try { sessionStorage.setItem(SIFRE_OTURUM_ANAHTARI, '1'); } catch (e) {}
+        panelAcKapat(true);
+      } else {
+        window.alert('Şifre yanlış.');
+      }
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      panelAcmayaCalis();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', function () { panelAcKapat(false); });
+    if (cancelBtn) cancelBtn.addEventListener('click', function () { panelAcKapat(false); formSifirla(); });
+
+    /* Dosya Seçiciyi Açma: drop alanına, butona veya değiştir düğmesine basıldığında tetiklenir */
+    function dosyaSeciciyiTetikle(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      fileInput.click();
+    }
+
+    dropZone.addEventListener('click', function (e) {
+      if (e.target !== fileInput) {
+        dosyaSeciciyiTetikle(e);
+      }
+    });
+    dropZone.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        dosyaSeciciyiTetikle(e);
+      }
+    });
+
+    if (selectBtn) selectBtn.addEventListener('click', dosyaSeciciyiTetikle);
+    if (changeBtn) changeBtn.addEventListener('click', dosyaSeciciyiTetikle);
+
+    /* Sürükle - Bırak (Drag and drop) desteği */
+    dropZone.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+    dropZone.addEventListener('dragleave', function () {
+      dropZone.classList.remove('drag-over');
+    });
+    dropZone.addEventListener('drop', function (e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+        dosyaSecildi();
+      }
+    });
+
+    function formatBoyut(bytes) {
+      if (!bytes) return '';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    /* Kullanıcı dosya seçtiğinde çalışan fonksiyon: anında önizleme gösterir */
+    function dosyaSecildi() {
+      var file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+
+      var isVid = /^video\//.test(file.type);
+      var reader = new FileReader();
+
+      reader.onload = function (ev) {
+        var dataUrl = ev.target.result;
+        seciliDosya = {
+          file: file,
+          dataUrl: dataUrl,
+          isVid: isVid,
+          name: file.name,
+          size: file.size
+        };
+
+        thumbWrap.innerHTML = '';
+        if (isVid) {
+          var v = D.createElement('video');
+          v.src = dataUrl;
+          v.muted = true; v.playsInline = true; v.autoplay = true; v.loop = true;
+          thumbWrap.appendChild(v);
+        } else {
+          var img = D.createElement('img');
+          img.src = dataUrl;
+          img.alt = file.name;
+          thumbWrap.appendChild(img);
+        }
+
+        fileNameEl.textContent = file.name;
+        fileSizeEl.textContent = (isVid ? 'Video' : 'Fotoğraf') + ' · ' + formatBoyut(file.size);
+
+        promptWrap.hidden = true;
+        previewWrap.hidden = false;
+        msg.textContent = '';
+        msg.className = 'frm-msg';
+
+        /* Başlık boşsa dosya adından otomatik güzel bir yer tutucu öner */
+        if (!baslikInput.value.trim()) {
+          var temizAd = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ').trim();
+          if (temizAd.length > 2 && !/image|img|dsc|photo|chatgpt/i.test(temizAd)) {
+            baslikInput.value = temizAd.charAt(0).toUpperCase() + temizAd.slice(1);
+          }
+        }
+        baslikInput.focus();
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', dosyaSecildi);
+
+    function formSifirla() {
+      form.reset();
+      fileInput.value = '';
+      seciliDosya = null;
+      thumbWrap.innerHTML = '';
+      promptWrap.hidden = false;
+      previewWrap.hidden = true;
+      msg.textContent = '';
+      msg.className = 'frm-msg';
+      if (catAcikId && turSelect) turSelect.value = catAcikId;
+    }
+
+    /* Supabase yükleme yardımcıları */
+    function dosyaYukleSupabase(file) {
+      if (!s || !s.url || !s.anonKey) return Promise.reject(new Error('Supabase bağlı değil'));
+      var base = s.url.replace(/\/+$/, '');
+      var guvenliAd = file.name.replace(/[^a-zA-Z0-9.]+/g, '-').slice(-60);
+      var yol = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + guvenliAd;
+      return fetch(base + '/storage/v1/object/hikaye-medya/' + yol, {
+        method: 'POST',
+        headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey, 'Content-Type': file.type || 'application/octet-stream' },
+        body: file
+      }).then(function (r) {
+        if (!r.ok) throw new Error('Dosya yüklenemedi (' + r.status + ')');
+        return { url: base + '/storage/v1/object/public/hikaye-medya/' + yol, tip: /^video\//.test(file.type) ? 'video' : 'image' };
+      });
+    }
+    function kayitYazSupabase(tur, baslik, medya) {
+      if (!s || !s.url || !s.anonKey) return Promise.resolve();
+      var base = s.url.replace(/\/+$/, '');
+      return fetch(base + '/rest/v1/tur_medya', {
+        method: 'POST',
+        headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+        body: JSON.stringify({ tur: tur, baslik: baslik, medya_url: medya.url, medya_tip: medya.tip })
+      });
+    }
+
+    /* Form Gönderimi */
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var tur = (turSelect && turSelect.value) || catAcikId || 'baklava';
+      var baslik = baslikInput.value.trim();
+
+      if (!seciliDosya || !seciliDosya.dataUrl) {
+        msg.textContent = 'Lütfen önce fotoğraf ve dosya seçme alanına basarak bir görsel seçin.';
+        msg.className = 'frm-msg err';
+        fileInput.click();
+        return;
+      }
+      if (!baslik) {
+        msg.textContent = 'Lütfen bu fotoğrafın adını / açıklamasını yazın.';
+        msg.className = 'frm-msg err';
+        baslikInput.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      msg.className = 'frm-msg';
+      msg.innerHTML = '<span class="spin"></span>Fotoğraf ekleniyor…';
+
+      var dataUrl = seciliDosya.dataUrl;
+      var tip = seciliDosya.isVid ? 'video' : 'image';
+
+      /* 1. Yerel hafızaya kaydet */
+      var yeniItem = {
+        id: 'u_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+        tur: tur,
+        baslik: baslik,
+        tip: tip,
+        url: dataUrl,
+        olusturma: new Date().toISOString()
+      };
+      yerelKayitEkle(yeniItem);
+
+      /* 2. Vitrine (kategori ızgarasına) ekle */
+      turKayitEkle(tur, baslik, tip, dataUrl, true);
+
+      /* 3. Kategoriyi güncelle veya göster */
+      if (catAcikId !== tur) {
+        showCat(tur, false);
+      } else {
+        catCellsAll().forEach(function (cell) {
+          if (cell.dataset.cat === tur) cell.hidden = false;
+        });
+        catTazele();
+      }
+
+      /* 4. Arka planda Supabase varsa aktar */
+      if (s && s.url && s.anonKey && seciliDosya.file) {
+        dosyaYukleSupabase(seciliDosya.file)
+          .then(function (m) { return kayitYazSupabase(tur, baslik, m); })
+          .catch(function (err) { console.warn('Supabase senkronizasyon:', err); });
+      }
+
+      /* 5. Başarı mesajı ve form temizliği */
+      msg.textContent = '✓ Fotoğraf başarıyla eklendi ve vitrinde yayına alındı!';
+      msg.className = 'frm-msg ok';
+
+      setTimeout(function () {
+        formSifirla();
+        panelAcKapat(false);
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+  })();
+
   /* --- Özel sipariş / kargo / iletişim kareleri --- */
   var OZ_META = [{ cap: 'Kalp biçiminde özel gün baklavası' }, { cap: 'Bayram sofrası — büyük tepsi' },
-                 { cap: 'Çilekli özel tepsi' }, { cap: 'Güllaç — Ramazan tatlısı' }];
+                 { cap: 'Çilekli özel tepsi' }];
   var ozelMedia = $('#ozelMedia');
   ozelMedia.appendChild(makeCell(merge(M.ozel.video, { cap: T('Bayramda da evlere servis') }), { cls: 'm-cell--tall' }));
   M.ozel.photos.forEach(function (p, i) { ozelMedia.appendChild(makeCell(merge(p, OZ_META[i]))); });
 
-  var KG_META = [{ cap: 'Vitrinde "Soğuk Baklava" etiketi' }, { cap: 'Kargoya hazırlanan tepsiler' }];
+  var KG_META = [{ cap: 'Vitrinde "Soğuk Baklava" etiketi' }, { cap: 'Vitrin — günün seçkisi' }];
   var kargoMedia = $('#kargoMedia');
   M.kargo.forEach(function (p, i) { kargoMedia.appendChild(makeCell(merge(p, KG_META[i]))); });
 
-  var CN_META = [{ cap: 'Aydınlatmalı vitrin' }, { cap: 'Tezgâhta günün tepsileri' }, { cap: 'Vitrin — yakın plan' }];
+  var CN_META = [{ cap: 'Aydınlatmalı vitrin' }, { cap: 'Tezgâhta günün tepsileri' }, { cap: 'Ürün — yakın plan' }];
   var conShots = $('#conShots');
   M.iletisim.forEach(function (p, i) { conShots.appendChild(makeCell(merge(p, CN_META[i]))); });
 
@@ -510,47 +909,55 @@
   /* --- Fiyat tablosu --- */
   (function priceTable() {
     var t = $('#priceTable');
-    if (!C.fiyatlar || !C.fiyatlar.length) { $('#fiyat').hidden = true; return; }
-    t.innerHTML +=
-      '<thead><tr><th scope="col">' + esc(T('Ürün')) + '</th><th scope="col">' + esc(T('Kilo')) + '</th><th scope="col">' + esc(T('Yarım tepsi')) + '</th><th scope="col">' + esc(T('Tam tepsi')) + '</th></tr></thead>' +
+    if (!t) return;
+    if (!C.fiyatlar || !C.fiyatlar.length) { var fs = $('#fiyat'); if (fs) fs.hidden = true; return; }
+    t.innerHTML =
+      '<thead><tr><th scope="col">' + esc(T('Ürün')) + '</th><th scope="col">' + esc(T('Kilo')) + '</th><th scope="col">' + esc(T('Tepsi')) + '</th></tr></thead>' +
       '<tbody>' + C.fiyatlar.map(function (r) {
-        return '<tr><th scope="row">' + esc(r.urun) + '</th><td>' + esc(r.kg) + '</td><td>' + esc(r.yarim) + '</td><td>' + esc(r.tam) + '</td></tr>';
+        if (r.detay || r.porsiyon) {
+          return '<tr><th scope="row">' + esc(r.urun) + '</th><td colspan="2" class="price-porsiyon">' + esc(r.detay || (r.kg + ' · ' + (r.tepsi || r.tam))) + '</td></tr>';
+        }
+        return '<tr><th scope="row">' + esc(r.urun) + '</th><td>' + esc(r.kg || '-') + '</td><td>' + esc(r.tepsi || r.tam || '-') + '</td></tr>';
       }).join('') + '</tbody>';
 
-    $('#gramGrid').innerHTML = (C.gramajlar || []).map(function (x) {
-      return '<div class="gram"><b>' + esc(x.olcu) + '</b><span>' + esc(x.gram) + '</span><span class="gram-kisi">' + esc(x.kisi) + '</span></div>';
-    }).join('') +
-    (C.kargoUcreti ? '<div class="gram gram--acc"><b>' + esc(T('Kargo')) + '</b><span>' + esc(C.kargoUcreti) + '</span><span class="gram-kisi">' + esc(C.kargoSure || '') + '</span></div>' : '');
+    var gg = $('#gramGrid');
+    if (gg) {
+      if (C.gramajlar && C.gramajlar.length) {
+        gg.innerHTML = C.gramajlar.map(function (x) {
+          return '<div class="gram"><b>' + esc(x.olcu) + '</b><span>' + esc(x.gram) + '</span><span class="gram-kisi">' + esc(x.kisi) + '</span></div>';
+        }).join('') +
+        (C.kargoUcreti ? '<div class="gram gram--acc"><b>' + esc(T('Kargo')) + '</b><span>' + esc(C.kargoUcreti) + '</span><span class="gram-kisi">' + esc(C.kargoSure || '') + '</span></div>' : '');
+      } else {
+        gg.remove();
+      }
+    }
 
-    var not = [];
-    if (C.fiyatNotu) not.push(C.fiyatNotu);
-    if (C.fiyatBirimNotu) not.push(C.fiyatBirimNotu);
-    if (C.fiyatGuncelleme) not.push('Son güncelleme: ' + C.fiyatGuncelleme + '.');
-    $('#fiyatNot').textContent = not.join(' ');
+    var fn = $('#fiyatNot');
+    if (fn) {
+      var not = [];
+      if (C.fiyatNotu) not.push(C.fiyatNotu);
+      if (C.fiyatBirimNotu) not.push(C.fiyatBirimNotu);
+      if (C.fiyatGuncelleme) not.push('Son güncelleme: ' + C.fiyatGuncelleme + '.');
+      if (not.length) {
+        fn.textContent = not.join(' ');
+      } else {
+        fn.remove();
+      }
+    }
 
     var onayli = (C.fiyatDurum === 'onayli') || C.fiyatlarOnayli === true;
-    if (!onayli) {
-      var u = $('#fiyatUyari');
-      u.hidden = false;
-      u.innerHTML = '<strong>' + esc(T('Not:')) + '</strong><span>' +
-        esc(T('Aşağıdaki fiyatlar piyasa ortalamasına göre hazırlanmış tahmini değerlerdir; işletmeden henüz teyit edilmedi. Sipariş vermeden önce WhatsApp\'tan güncel fiyatı sorun.')) +
-        '</span>';
-      t.classList.add('price--ph');
+    var u = $('#fiyatUyari');
+    if (u) {
+      if (!onayli) {
+        u.hidden = false;
+        u.innerHTML = '<strong>' + esc(T('Not:')) + '</strong><span>' +
+          esc(T('Aşağıdaki fiyatlar piyasa ortalamasına göre hazırlanmış tahmini değerlerdir; işletmeden henüz teyit edilmedi. Sipariş vermeden önce WhatsApp\'tan güncel fiyatı sorun.')) +
+          '</span>';
+        t.classList.add('price--ph');
+      } else {
+        u.hidden = true;
+      }
     }
-  })();
-
-  /* --- Belgeler --- */
-  (function belgeler() {
-    var ok = (C.belgeler || []).filter(function (b) { return b.dogrulandi; });
-    if (!ok.length) return;
-    var n = $('#belgeStrip');
-    n.hidden = false;
-    n.innerHTML = ok.map(function (b) {
-      return '<div class="belge">' +
-        (b.gorsel ? '<img src="' + BASE + 'assets/img/belge/' + esc(b.gorsel) + '" alt="" loading="lazy" decoding="async">'
-                  : '<span class="belge-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 4v5.5c0 4.2-3.1 7.6-7.5 8.5-4.4-.9-7.5-4.3-7.5-8.5V7z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span>') +
-        '<div><b>' + esc(b.ad) + '</b><span>' + esc(b.aciklama) + '</span></div></div>';
-    }).join('');
   })();
 
   /* --- Yorumlar --- */
@@ -615,26 +1022,6 @@
     }
   }
   yorumlar();
-
-  /* --- SSS + FAQPage --- */
-  (function sss() {
-    var list = C.sss || [], box = $('#faq');
-    if (!list.length) { $('#sss').hidden = true; return; }
-    box.innerHTML = list.map(function (q, i) {
-      return '<details class="faq-item rv"' + (i === 0 ? ' open' : '') + '>' +
-        '<summary><span>' + esc(q.s) + '</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>' +
-        '<div class="faq-a"><p>' + esc(q.c) + '</p></div></details>';
-    }).join('');
-    var ld = D.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.textContent = JSON.stringify({
-      '@context': 'https://schema.org', '@type': 'FAQPage',
-      mainEntity: list.map(function (q) {
-        return { '@type': 'Question', name: q.s, acceptedAnswer: { '@type': 'Answer', text: q.c } };
-      })
-    });
-    D.head.appendChild(ld);
-  })();
 
   /* --- İletişim --- */
   (function iletisim() {
@@ -972,7 +1359,9 @@
       bos.hidden = false;
       bos.innerHTML = esc(T('Yorum metinleri henüz siteye aktarılmadı.')) + ' ' +
         esc(T('Google’daki 117 ve Restaurant Guru’daki 116 değerlendirmenin puanları yukarıda; metinleri ise yalnızca o servislerin kendi sayfalarında görünüyor.')) +
-        ' <strong>' + esc(T('İlk yorumu siz yazabilirsiniz.')) + '</strong>';
+        ' <strong>' + esc(T('İlk yorumu siz yazabilirsiniz.')) + '</strong>' +
+        (C.haritaLink ? ' <a class="rv-src-link" href="' + esc(C.haritaLink) + '" target="_blank" rel="noopener">' +
+          esc(T('Google’daki gerçek yorumları görün')) + ' →</a>' : '');
       return;
     }
     bos.hidden = true;
@@ -1418,11 +1807,6 @@
       gsap.to(stars, { width: stars.dataset.fill + '%', duration: 1.4, ease: 'power3.out' });
     } });
 
-    gsap.fromTo('.val', { yPercent: 14, opacity: 0 },
-      { yPercent: 0, opacity: 1, duration: .9, stagger: .1, ease: 'power3.out',
-        scrollTrigger: { trigger: '.vals', start: 'top 84%', once: true },
-        onComplete: function () { gsap.set('.val', { clearProps: 'transform' }); } });
-
     gsap.fromTo('.uv', { yPercent: 12, opacity: 0 },
       { yPercent: 0, opacity: 1, duration: .85, stagger: { each: .07 }, ease: 'power3.out',
         scrollTrigger: { trigger: '.ur-grid', start: 'top 82%', once: true },
@@ -1485,7 +1869,19 @@
   function lbRender() {
     var o = lbList[lbIdx];
     lbStage.innerHTML = '';
-    if (o.t === 'vid') {
+    if (o.url) {
+      if (o.t === 'vid') {
+        var vu = D.createElement('video');
+        vu.src = o.url;
+        vu.controls = true; vu.autoplay = !motionOff; vu.loop = true; vu.muted = true;
+        vu.setAttribute('playsinline', '');
+        lbStage.appendChild(vu);
+      } else {
+        var imu = D.createElement('img');
+        imu.src = o.url; imu.alt = o.alt || o.cap || '';
+        lbStage.appendChild(imu);
+      }
+    } else if (o.t === 'vid') {
       var v = D.createElement('video');
       v.src = VID(o.k); v.poster = POS(o.k);
       v.controls = true; v.autoplay = !motionOff; v.loop = true; v.muted = true;

@@ -54,6 +54,7 @@ en: {
 
   /* --- ürünler --- */
   'On iki çeşit,': 'Twelve varieties,',
+  'On bir çeşit,': 'Eleven varieties,',
   'tek tezgâh.': 'one bench.',
   'Hepsi aynı hamurdan, aynı fıstıktan. Ayıran şey yalnızca ustanın elindeki kesim ve katlama. Kartın altındaki düğmelerden fiyat sorabilir ya da içerik ve alerjen bilgisine bakabilirsiniz.':
     'All from the same dough, the same pistachios. What sets them apart is the master\'s cut and fold. Use the buttons on each card to ask a price or view ingredients and allergens.',
@@ -67,20 +68,32 @@ en: {
   'Porsiyon': 'Portion',
 
   'Normal Baklava': 'Classic Baklava',
+  'Klasik Baklava': 'Classic Baklava',
   'Kare Baklava': 'Square Baklava',
+  'Dürüm Baklava': 'Rolled / Dürüm Baklava',
   'Yuvarlak Tepsi Baklava': 'Round Tray Baklava',
+  'Hasır Künefe': 'Hasır Künefe',
   'Midye Baklava': 'Mussel Baklava',
+  'Burma Kadayıf': 'Burma Kadayıf',
   'Kuru Baklava': 'Dry Baklava',
   'Şöbiyet': 'Şöbiyet (cream-filled)',
   'Yaprak Şöbiyet': 'Leaf Şöbiyet',
+  'Yeşil Şöbiyet': 'Green Şöbiyet',
   'Dolama': 'Dolama (rolled)',
+  'Saray Dolması': 'Palace Dolma (pistachio roll)',
   'Kuşgözü': 'Kuşgözü (bird\'s eye)',
   'Bülbül Yuvası': 'Nightingale\'s Nest',
   'Special Karışım': 'Special Mix',
+  'Havuç Dilimi': 'Carrot Slice Baklava',
+  'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade Künefe & Half-and-Half Billuriye',
+  'Fıstıkzade Künefe': 'Fıstıkzade Künefe',
+  'Fıstıkzade': 'Fıstıkzade',
+  'Bol Antep fıstıklı sıcak künefe ve çıtır billuriye lezzeti.': 'Hot künefe rich in Antep pistachios and crisp billuriye flavor.',
   'Çiğ İç Fıstık': 'Raw Pistachio Kernels',
   'Künefe (porsiyon)': 'Künefe (per portion)',
   'Fıstık Ezmesi': 'Pistachio Paste',
-  'Güllaç': 'Güllaç',
+  'Antep Özel': 'Antep Special',
+  'Bol Antep fıstıklı, özel el açımı çıtır lezzet.': 'Rich in Antep pistachios, hand-rolled crisp special.',
 
   'Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.':
     'Forty layers of pastry, butter, Antep pistachios. The hand-rolled classic.',
@@ -116,6 +129,7 @@ en: {
   'Ürün fiyat listesi': 'Product price list',
   'Ürün': 'Product',
   'Kilo': 'Per kilo',
+  'Tepsi': 'Tray',
   'Yarım tepsi': 'Half tray',
   'Tam tepsi': 'Full tray',
   'Büyük tepsi': 'Large tray',
@@ -163,26 +177,10 @@ en: {
   'Kanuni Sultan Süleyman Bulvarı\'ndaki dükkân, her sabah 10:00\'da sıfırdan dolan vitrin ve açık hava oturma bölümü. Akşama kalan tepsi ertesi güne devretmez — vitrinde gördüğünüz her şey o gün yapılmıştır.':
     'The shop on Kanuni Sultan Süleyman Boulevard, a display filled from scratch at 10:00 every morning, and an outdoor seating area. Nothing carries over to the next day — everything you see was made today.',
 
-  /* --- neden --- */
-  'Neden Ali Usta': 'Why Ali Usta',
-  'Kısa yol': 'No shortcuts.',
-  'yok.': '',
-  'Baklavayı ucuzlatmanın dört yolu var: margarin, glikoz şurubu, koruyucu, bayat fıstık. Dördü de bu tezgâhta yasak.':
-    'There are four ways to make baklava cheaper: margarine, glucose syrup, preservatives, stale pistachios. All four are banned at this bench.',
+  /* --- kayan şerit --- */
   'Koruyucu yok': 'No preservatives',
-  'Şerbet doğal pancar şekerinden kaynatılır. Raf ömrünü uzatan hiçbir katkı kullanılmaz.':
-    'The syrup is boiled from natural beet sugar. Nothing is added to extend shelf life.',
-  '%100 doğal': '100% natural',
-  'Gerçek tereyağı, Antep fıstığı, un ve su. Malzeme listesi tek elin parmaklarını geçmez.':
-    'Real butter, Antep pistachios, flour and water. The ingredient list fits on one hand.',
   'Hijyenik üretim': 'Hygienic production',
-  'Kapalı üretim alanı, eldivenli hazırlık, günlük temizlenen tepsi ve tezgâh düzeni.':
-    'An enclosed production area, gloved preparation, trays and benches cleaned daily.',
   'Günlük üretim': 'Made fresh daily',
-  'Her sabah 10:00\'da vitrin sıfırdan dolar. Akşama kalanı ertesi güne devretmez.':
-    'The display is filled from scratch at 10:00 each morning. Nothing carries over.',
-  'Puan ve değerlendirme sayısı Google işletme kaydından alınmıştır.':
-    'Rating and review count taken from the Google business listing.',
 
   /* --- tezgâh --- */
   'Tezgâh': 'The Bench',
@@ -523,6 +521,7 @@ en: {
   'Yorumlar henüz siteye aktarılmadı.': 'Reviews have not been copied to the site yet.',
   'Google’daki 117 değerlendirme işletme kaydında duruyor; buraya eklenmesi için işletmenin onayı gerekiyor.': 'The 117 reviews on Google sit in the business listing; adding them here needs the owner’s approval.',
   'İlk yorumu siz yazabilirsiniz.': 'You can write the first one.',
+  'Google’daki gerçek yorumları görün': 'See the real reviews on Google',
   'Teşekkürler! Yorumunuz WhatsApp’ta açıldı — göndermeyi unutmayın. Onaylandıktan sonra bu sayfada yayınlanacak.': 'Thank you! Your review opened in WhatsApp — don’t forget to send it. It will appear here once approved.',
   'videosunun sesini aç': '— turn on sound',
   'videosunun sesini kapat': '— mute',
@@ -602,6 +601,7 @@ en: {
   '250 g': '250 g',
   '500 g': '500 g',
   '1 kg': '1 kg',
+  'Tepsi': 'Tray',
   'Yarım tepsi': 'Half tray',
   'Tam tepsi': 'Full tray',
   'Büyük tepsi': 'Large tray',
@@ -663,13 +663,6 @@ en: {
     'The bench is set from scratch every morning. What is in the display today is listed below — it may not last until evening.',
   'Bugünkü vitrin fotoğrafı': 'Today’s display photo',
   'Güncelleme': 'Updated',
-
-  /* ===== story arşivi ===== */
-  'Arşiv': 'Archive',
-  'Tezgâhtan': 'Weekly frames',
-  'haftalık kareler.': 'from the bench.',
-  'Instagram hikâyelerinde paylaşılan üretim anları burada kalıcı olarak duruyor.':
-    'Production moments shared in Instagram stories are kept here permanently.',
 
   /* ===== fark tablosu ===== */
   'Neden bizden': 'Why buy from us',

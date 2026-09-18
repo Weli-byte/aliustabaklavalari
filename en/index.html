@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="../assets/video/poster/hero.webp" fetchpriority="high">
 <link rel="stylesheet" href="../assets/css/site.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Karla:ital,wght@0,400..700;1,400..500&display=swap&subset=latin,latin-ext" media="print" onload="this.media='all'">
+<link id="gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Karla:ital,wght@0,400..700;1,400..500&display=swap&subset=latin,latin-ext" media="print">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Karla:ital,wght@0,400..700;1,400..500&display=swap&subset=latin,latin-ext"></noscript>
 
 <script id="ld-business" type="application/ld+json">
@@ -69,19 +69,21 @@
     "@type": "OfferCatalog",
     "name": "Ürünler",
     "itemListElement": [
-      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Normal Baklava"}},
-      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Kare Baklava"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Klasik Baklava"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Dürüm Baklava"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Havuç Dilimi"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Midye Baklava"}},
-      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Kuru Baklava"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Burma Kadayıf"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Şöbiyet"}},
-      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Yaprak Şöbiyet"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Yeşil Şöbiyet"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Dolama"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Saray Dolması"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Kuşgözü"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Bülbül Yuvası"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Special Karışım"}},
-      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Künefe"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Hasır Künefe"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Fıstık Ezmesi"}},
+      {"@type":"Offer","itemOffered":{"@type":"Product","name":"Antep Özel"}},
       {"@type":"Offer","itemOffered":{"@type":"Product","name":"Kavrulmuş Antep Fıstığı"}}
     ]
   }
@@ -116,7 +118,7 @@
   <a class="brand" href="#hero">
     <picture class="brand-logo">
       <source type="image/avif" srcset="../assets/img/logo-sm.avif">
-      <img src="../assets/img/logo-sm.webp" width="160" height="180" alt="" decoding="async">
+      <img src="../assets/img/logo-sm.webp" width="160" height="139" alt="" decoding="async">
     </picture>
     <span class="brand-ad"><b>Ali</b><span>Usta</span></span>
   </a>
@@ -125,7 +127,6 @@
     <a href="#urunler">Ürünler</a>
     <a href="#fiyat">Fiyat</a>
     <a href="#tatlilar">Tatlı Dünyası</a>
-    <a href="#sihirbaz">Tatlı Seç</a>
     <a href="#siparis">Sipariş &amp; Rezervasyon</a>
     <a href="#iletisim">İletişim</a>
   </nav>
@@ -216,7 +217,7 @@
   <div class="rail-head">
     <div>
       <p class="eyebrow rv">Ürünler</p>
-      <h2 id="urun-h" class="rv" style="margin-top:1.3rem">On iki çeşit,<br><em class="acc">tek tezgâh.</em></h2>
+      <h2 id="urun-h" class="rv" style="margin-top:1.3rem">On bir çeşit,<br><em class="acc">tek tezgâh.</em></h2>
     </div>
     <p class="lede rv" style="max-width:34ch">Hepsi aynı hamurdan, aynı fıstıktan. Ayıran şey yalnızca ustanın elindeki kesim ve katlama. Kartın altındaki düğmelerden sepete ekleyebilir, fiyat sorabilir ya da “Detay”dan içerik ve alerjen bilgisine bakabilirsiniz.</p>
   </div>
@@ -247,19 +248,6 @@
   </div>
 </section>
 
-<!-- ================= TATLI SİHİRBAZI ================= -->
-<section id="sihirbaz" class="band cut-top--rev fistik-zone" aria-labelledby="wz-h">
-  <div class="shell wz-grid">
-    <div class="wz-copy">
-      <p class="eyebrow rv">Karar veremediniz mi?</p>
-      <h2 id="wz-h" class="rv">Bana bir <em class="acc">tatlı seç.</em></h2>
-      <p class="lede rv">Üç soru soruyoruz, tezgâhtan size en uygun çeşidi öneriyoruz. Kaç kişi olduğunuza, nasıl teslim alacağınıza ve kaymak sevip sevmediğinize bakıyoruz.</p>
-      <p class="small rv">Öneri, ustanın sofra tecrübesine göre kurulmuş basit bir kılavuzdur — son karar sizin.</p>
-    </div>
-    <div class="wz-box rv" id="wizard"></div>
-  </div>
-</section>
-
 <!-- ================= FİYAT & GRAMAJ ================= -->
 <section id="fiyat" class="band cut-top--rev fistik-zone" aria-labelledby="fiyat-h">
   <div class="shell">
@@ -278,8 +266,6 @@
         </table>
       </div>
     </div>
-    <div class="gram-grid rv" id="gramGrid"></div>
-    <p class="small rv" id="fiyatNot" style="margin-top:1.4rem"></p>
   </div>
 </section>
 
@@ -311,75 +297,6 @@
       <div class="cat-grid media-set" id="catGrid"></div>
     </div>
 
-  </div>
-</section>
-
-<!-- ================= STORY ARŞİVİ ================= -->
-<section id="story" class="band cut-top--rev" aria-labelledby="st-h" hidden>
-  <div class="shell">
-    <div class="gal-head">
-      <div>
-        <p class="eyebrow rv">Arşiv</p>
-        <h2 id="st-h" class="rv" style="margin-top:1.3rem">Tezgâhtan<br><em class="acc">haftalık kareler.</em></h2>
-      </div>
-      <p class="lede rv" style="max-width:32ch">Instagram hikâyelerinde paylaşılan üretim anları burada kalıcı olarak duruyor.</p>
-    </div>
-    <div class="st-grid media-set" id="storyList"></div>
-  </div>
-</section>
-
-<!-- ================= NEDEN ================= -->
-<section id="neden" class="band cut-top--rev" aria-labelledby="neden-h">
-  <div class="neden-bg" aria-hidden="true">
-    <video muted loop playsinline preload="none" poster="../assets/video/poster/v08.webp"
-           width="442" height="770" data-src="../assets/video/v08.mp4" data-bg-video></video>
-  </div>
-  <div class="shell neden-inner">
-    <div class="neden-head">
-      <p class="eyebrow rv">Neden Ali Usta</p>
-      <h2 id="neden-h" class="rv">Kısa yol <em class="acc">yok.</em></h2>
-      <p class="lede rv">Baklavayı ucuzlatmanın dört yolu var: margarin, glikoz şurubu, koruyucu, bayat fıstık. Dördü de bu tezgâhta yasak.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= DEĞERLER (videonun altında, ayrı) ================= -->
-<section id="degerler" class="band band--degerler fistik-zone" aria-label="Ali Usta'nın çalışma ilkeleri">
-  <div class="shell">
-    <div class="neden-plate rv">
-    <div class="vals">
-      <article class="val rv">
-        <span class="val-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 4v5.5c0 4.2-3.1 7.6-7.5 8.5-4.4-.9-7.5-4.3-7.5-8.5V7z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span>
-        <h3>Koruyucu yok</h3>
-        <p>Şerbet doğal pancar şekerinden kaynatılır. Raf ömrünü uzatan hiçbir katkı kullanılmaz.</p>
-      </article>
-      <article class="val rv">
-        <span class="val-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21c-4-2.5-6.5-5.6-6.5-9A6.5 6.5 0 0 1 12 5.5 6.5 6.5 0 0 1 18.5 12c0 3.4-2.5 6.5-6.5 9z"/><path d="M12 5.5V3"/><path d="M12 12l3.2-3.2"/></svg></span>
-        <h3>%100 doğal</h3>
-        <p>Gerçek tereyağı, Antep fıstığı, un ve su. Malzeme listesi tek elin parmaklarını geçmez.</p>
-      </article>
-      <article class="val rv">
-        <span class="val-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 7.5l7.5-4 7.5 4v9l-7.5 4-7.5-4z"/><path d="M12 12l7.5-4.5M12 12v9M12 12L4.5 7.5"/></svg></span>
-        <h3>Hijyenik üretim</h3>
-        <p>Kapalı üretim alanı, eldivenli hazırlık, günlük temizlenen tepsi ve tezgâh düzeni.</p>
-      </article>
-      <article class="val rv">
-        <span class="val-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.4 2"/></svg></span>
-        <h3>Günlük üretim</h3>
-        <p>Her sabah 10:00'da vitrin sıfırdan dolar. Akşama kalanı ertesi güne devretmez.</p>
-      </article>
-    </div>
-
-    <div class="belge-strip" id="belgeStrip" hidden></div>
-
-    <div class="counters">
-      <div class="ctr"><b data-count="4.5" data-dec="1">0</b><span>Google puanı</span></div>
-      <div class="ctr"><b data-count="117">0</b><span>Değerlendirme</span></div>
-      <div class="ctr"><b data-count="14">0</b><span>Ürün çeşidi</span></div>
-      <div class="ctr"><b data-count="81">0</b><span>İle kargo</span></div>
-    </div>
-    </div>
-    <p class="small rv neden-kaynak">Puan ve değerlendirme sayısı Google işletme kaydından alınmıştır.</p>
   </div>
 </section>
 
@@ -621,33 +538,6 @@
   </div>
 </section>
 
-<!-- ================= SSS ================= -->
-<section id="sss" class="band cut-top--rev fistik-zone" aria-labelledby="sss-h">
-  <div class="shell">
-    <div class="gal-head">
-      <div>
-        <p class="eyebrow rv">Sıkça sorulanlar</p>
-        <h2 id="sss-h" class="rv" style="margin-top:1.3rem">Merak edilen<br><em class="acc">her şey.</em></h2>
-      </div>
-      <p class="lede rv" style="max-width:32ch">Aradığınızı bulamazsanız WhatsApp'tan yazın, hemen cevaplayalım.</p>
-    </div>
-    <div class="faq" id="faq"></div>
-  </div>
-</section>
-
-<!-- ================= YAZILAR ================= -->
-<section id="yazilar" class="band fistik-zone" aria-labelledby="yz-h" hidden>
-  <div class="shell">
-    <div class="gal-head">
-      <div>
-        <p class="eyebrow rv">Yazılar</p>
-        <h2 id="yz-h" class="rv" style="margin-top:1.3rem">Tezgâhın<br><em class="acc">arkasındaki bilgi.</em></h2>
-      </div>
-      <p class="lede rv" style="max-width:34ch">Yufkanın kaç kat olduğundan şerbetin kıvamına kadar, sık sorulanların uzun cevapları.</p>
-    </div>
-    <div class="yz-grid media-set" id="yaziList"></div>
-  </div>
-</section>
 
 <!-- ================= İLETİŞİM ================= -->
 <section id="iletisim" class="band fistik-zone" aria-labelledby="ilet-h">
@@ -679,7 +569,7 @@
     <div class="foot-brand">
       <picture class="foot-logo">
         <source type="image/avif" srcset="../assets/img/logo.avif">
-        <img src="../assets/img/logo.webp" width="611" height="686" alt="Ali Usta Baklavaları amblemi" loading="lazy" decoding="async">
+        <img src="../assets/img/logo.webp" width="640" height="556" alt="Ali Usta Baklavaları amblemi" loading="lazy" decoding="async">
       </picture>
       <p class="disp">Ali Usta<br><em>Baklavaları</em></p>
       <p class="small">Nizip / Gaziantep. Günlük üretim, koruyucusuz, %100 doğal malzeme. Türkiye geneline kargo.</p>
@@ -694,7 +584,6 @@
         <li><a href="#fiyat">Fiyat &amp; gramaj</a></li>
         <li><a href="#tatlilar">Tatlı Dünyası</a></li>
         <li><a href="#tezgah">Tezgâh</a></li>
-        <li><a href="#yazilar">Yazılar</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -704,7 +593,6 @@
         <li><a href="#siparis">Rezervasyon</a></li>
         <li><a href="#siparis">Toplu &amp; kurumsal</a></li>
         <li><a href="#kargo">Türkiye geneli kargo</a></li>
-        <li><a href="#sss">Sıkça sorulanlar</a></li>
         <li><a href="#kargo">Sipariş takibi</a></li>
       </ul>
     </div>

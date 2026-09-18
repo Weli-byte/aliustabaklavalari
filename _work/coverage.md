@@ -1,72 +1,68 @@
 | # | Kaynak dosya | Kullanıldığı bölüm |
 |---|---|---|
-| `hero` | Hero - Ali Usta tanitim filmi.mp4 | Hero — tanıtım filmi (tam ekran) |
-| `p00` | Ekran görüntüsü 2026-08-25 131536.png | İletişim |
-| `p01` | Ekran görüntüsü 2026-08-25 131716.png | Ürünler rayı |
-| `p02` | Ekran görüntüsü 2026-08-25 131726.png | Ürünler rayı |
-| `p03` | Ekran görüntüsü 2026-08-25 131735.png | Tatlı dünyası · Dükkân & Vitrin |
-| `p04` | Ekran görüntüsü 2026-08-25 131742.png | Ürünler rayı |
-| `p05` | Ekran görüntüsü 2026-08-25 131825.png | Tatlı dünyası · Özel Tatlılar |
-| `p06` | Ekran görüntüsü 2026-08-25 132100.png | Ürünler rayı |
-| `p07` | Ekran görüntüsü 2026-08-25 132112.png | Ürünler rayı |
-| `p08` | Ekran görüntüsü 2026-08-25 132122.png | Ürünler rayı |
-| `p09` | Ekran görüntüsü 2026-08-25 132134.png | Tatlı dünyası · Özel Tatlılar |
-| `p10` | Ekran görüntüsü 2026-08-25 132201.png | Ürünler rayı |
-| `p11` | Ekran görüntüsü 2026-08-25 132542.png | Ürünler rayı |
-| `p12` | Ekran görüntüsü 2026-08-25 132856.png | Miras |
-| `p13` | Ekran görüntüsü 2026-08-25 132911.png | Tatlı dünyası · Baklava |
-| `p14` | Ekran görüntüsü 2026-08-25 133007.png | Özel Sipariş |
-| `p15` | Ekran görüntüsü 2026-08-25 133024.png | Tatlı dünyası · Dükkân & Vitrin |
-| `p16` | Ekran görüntüsü 2026-08-25 133048.png | Ürünler rayı |
-| `p17` | Ekran görüntüsü 2026-08-25 133302.png | Ürünler rayı |
-| `p18` | Ekran görüntüsü 2026-08-25 133323.png | Miras |
+| `hero` | Hero - Ali Usta dukkan ve kunefe tanitim.mp4 | Hero — tanıtım filmi (tam ekran) |
+| `p00` | ChatGPT Image 9 Eyl 2026 10_47_31.png | İletişim |
+| `p01` | ChatGPT Image 9 Eyl 2026 10_49_12.png | Ürünler rayı |
+| `p03` | ChatGPT Image 9 Eyl 2026 10_52_54.png | Tatlı dünyası · Dükkân & Vitrin |
+| `p04` | ChatGPT Image 9 Eyl 2026 10_55_12.png | Ürünler rayı |
+| `p05` | ChatGPT Image 9 Eyl 2026 10_56_49.png | Tatlı dünyası · Özel Tatlılar |
+| `p06` | ChatGPT Image 9 Eyl 2026 10_58_32.png | Ürünler rayı |
+| `p07` | ChatGPT Image 9 Eyl 2026 10_59_50.png | Ürünler rayı |
+| `p08` | ChatGPT Image 9 Eyl 2026 11_01_39.png | Ürünler rayı |
+| `p09` | ChatGPT Image 9 Eyl 2026 11_02_50.png | Tatlı dünyası · Özel Tatlılar |
+| `p10` | ChatGPT Image 9 Eyl 2026 11_04_34.png | Ürünler rayı |
+| `p11` | ChatGPT Image 9 Eyl 2026 11_06_07.png | Özel Sipariş |
+| `p12` | ChatGPT Image 9 Eyl 2026 11_07_48.png | Miras |
+| `p13` | ChatGPT Image 9 Eyl 2026 11_09_29.png | Tatlı dünyası · Baklava |
+| `p14` | ChatGPT Image 9 Eyl 2026 11_13_55.png | Özel Sipariş |
+| `p15` | ChatGPT Image 9 Eyl 2026 11_15_27.png | Tatlı dünyası · Dükkân & Vitrin |
+| `p16` | ChatGPT Image 9 Eyl 2026 11_16_37.png | Ürünler rayı |
+| `p18` | ChatGPT Image 9 Eyl 2026 11_19_48.png | Tatlı dünyası · Dükkân & Vitrin |
 | `p19` | Ekran görüntüsü 2026-08-25 133330.png | Miras |
-| `p20` | Ekran görüntüsü 2026-08-25 133412.png | Özel Sipariş |
-| `p21` | Ekran görüntüsü 2026-08-25 133443.png | Tatlı dünyası · Dükkân & Vitrin |
-| `p22` | Ekran görüntüsü 2026-08-25 133528.png | Ürünler rayı |
-| `p23` | Ekran görüntüsü 2026-08-25 133547.png | İletişim |
-| `p24` | Ekran görüntüsü 2026-08-25 133603.png | Tatlı dünyası · Baklava |
-| `p25` | Ekran görüntüsü 2026-08-25 133613.png | Ürünler rayı |
-| `p26` | Ekran görüntüsü 2026-08-25 133622.png | Ürünler rayı |
-| `p27` | Ekran görüntüsü 2026-08-25 133631.png | Ürünler rayı |
-| `p28` | Ekran görüntüsü 2026-08-25 133638.png | Ürünler rayı |
-| `p29` | Ekran görüntüsü 2026-08-25 133645.png | Tatlı dünyası · Özel Tatlılar |
-| `p30` | Ekran görüntüsü 2026-08-25 133656.png | Ürünler rayı |
-| `p31` | Ekran görüntüsü 2026-08-25 133705.png | Ürünler rayı |
-| `p32` | Ekran görüntüsü 2026-08-25 133715.png | Tatlı dünyası · Baklava |
-| `p33` | Ekran görüntüsü 2026-08-25 133813.png | Miras |
-| `p34` | Ekran görüntüsü 2026-08-25 133928.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
-| `p35` | Ekran görüntüsü 2026-08-25 133942.png | Tatlı dünyası · Özel Tatlılar |
-| `p36` | Ekran görüntüsü 2026-08-25 134507.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
-| `p37` | Ekran görüntüsü 2026-08-25 134526.png | Tatlı dünyası · Künefe |
-| `p38` | Ekran görüntüsü 2026-08-25 134546.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
-| `p39` | Ekran görüntüsü 2026-08-25 134615.png | İletişim |
-| `p40` | Ekran görüntüsü 2026-08-25 134623.png | Tatlı dünyası · Baklava |
-| `p41` | Ekran görüntüsü 2026-08-25 134632.png | Tatlı dünyası · Baklava |
-| `p42` | Ekran görüntüsü 2026-08-25 134639.png | Ürünler rayı |
-| `p43` | Ekran görüntüsü 2026-08-25 134649.png | Tatlı dünyası · Baklava |
-| `p44` | Ekran görüntüsü 2026-08-25 134656.png | Ürünler rayı |
-| `p45` | Ekran görüntüsü 2026-08-25 134704.png | Ürünler rayı |
-| `p46` | Ekran görüntüsü 2026-08-25 134716.png | Tatlı dünyası · Baklava |
-| `p47` | Ekran görüntüsü 2026-08-25 134820.png | Kargo |
-| `p48` | Ekran görüntüsü 2026-08-25 134829.png | Tatlı dünyası · Baklava |
-| `p49` | Ekran görüntüsü 2026-08-25 134839.png | Ürünler rayı |
-| `p50` | Ekran görüntüsü 2026-08-25 134909.png | Tatlı dünyası · Dükkân & Vitrin |
-| `p51` | Ekran görüntüsü 2026-08-25 135005.png | Tatlı dünyası · Antep Fıstığı |
-| `p52` | Ekran görüntüsü 2026-08-25 135115.png | Tatlı dünyası · Antep Fıstığı |
-| `p53` | Ekran görüntüsü 2026-08-25 135124.png | Ürünler rayı |
-| `p54` | Ekran görüntüsü 2026-08-25 135130.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
-| `p55` | Ekran görüntüsü 2026-08-25 135137.png | Ürünler rayı |
-| `p56` | Ekran görüntüsü 2026-08-25 135143.png | Tatlı dünyası · Künefe |
-| `p57` | Ekran görüntüsü 2026-08-25 135149.png | Tatlı dünyası · Künefe |
-| `p58` | Ekran görüntüsü 2026-08-25 135243.png | Özel Sipariş |
-| `p59` | Ekran görüntüsü 2026-08-25 135255.png | Kargo |
-| `p60` | Ekran görüntüsü 2026-08-25 135303.png | Miras |
-| `p61` | Ekran görüntüsü 2026-08-25 135447.png | Özel Sipariş |
-| `p62` | Ekran görüntüsü 2026-08-25 135500.png | Tatlı dünyası · Özel Tatlılar |
-| `p63` | Ekran görüntüsü 2026-08-25 135603.png | Ürünler rayı |
-| `p64` | Ekran görüntüsü 2026-08-25 135612.png | Tatlı dünyası · Antep Fıstığı |
-| `p65` | WhatsApp Image 2026-08-29 at 15.43.57.jpeg | Tatlı dünyası · Antep Fıstığı |
+| `p20` | ChatGPT Image 9 Eyl 2026 11_21_54.png | Tatlı dünyası · Özel Tatlılar |
+| `p21` | ChatGPT Image 9 Eyl 2026 11_24_02.png | Tatlı dünyası · Dükkân & Vitrin |
+| `p22` | ChatGPT Image 9 Eyl 2026 11_25_22.png | Ürünler rayı |
+| `p23` | ChatGPT Image 9 Eyl 2026 11_27_24.png | İletişim |
+| `p24` | ChatGPT Image 9 Eyl 2026 11_28_59.png | Tatlı dünyası · Künefe |
+| `p25` | ChatGPT Image 9 Eyl 2026 11_31_12.png | Ürünler rayı |
+| `p26` | ChatGPT Image 9 Eyl 2026 11_32_37.png | Ürünler rayı |
+| `p28` | ChatGPT Image 9 Eyl 2026 11_35_11.png | Ürünler rayı |
+| `p29` | ChatGPT Image 9 Eyl 2026 11_36_31.png | Tatlı dünyası · Özel Tatlılar |
+| `p30` | ChatGPT Image 9 Eyl 2026 11_38_40.png | Tatlı dünyası · Künefe |
+| `p32` | ChatGPT Image 9 Eyl 2026 11_41_09.png | Ürünler rayı |
+| `p33` | ChatGPT Image 9 Eyl 2026 11_51_59.png | Miras |
+| `p34` | ChatGPT Image 9 Eyl 2026 11_53_28.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
+| `p35` | ChatGPT Image 9 Eyl 2026 11_55_02.png | Tatlı dünyası · Özel Tatlılar |
+| `p36` | ChatGPT Image 9 Eyl 2026 11_56_56.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
+| `p37` | ChatGPT Image 9 Eyl 2026 11_58_49.png | Tatlı dünyası · Künefe |
+| `p38` | ChatGPT Image 9 Eyl 2026 12_00_45.png | Tatlı dünyası · Künefe |
+| `p39` | ChatGPT Image 9 Eyl 2026 13_45_19.png | İletişim |
+| `p40` | ChatGPT Image 9 Eyl 2026 13_46_59.png | Tatlı dünyası · Baklava |
+| `p41` | ChatGPT Image 9 Eyl 2026 13_48_57.png | Tatlı dünyası · Baklava |
+| `p42` | ChatGPT Image 9 Eyl 2026 13_50_51.png | Ürünler rayı |
+| `p43` | ChatGPT Image 9 Eyl 2026 13_52_40.png | Tatlı dünyası · Baklava |
+| `p44` | ChatGPT Image 9 Eyl 2026 13_54_14.png | Ürünler rayı |
+| `p45` | ChatGPT Image 9 Eyl 2026 13_55_54.png | Ürünler rayı |
+| `p46` | ChatGPT Image 9 Eyl 2026 13_57_06.png | Tatlı dünyası · Künefe |
+| `p47` | ChatGPT Image 9 Eyl 2026 13_58_21.png | Kargo |
+| `p49` | ChatGPT Image 9 Eyl 2026 14_01_14.png | Ürünler rayı |
+| `p50` | ChatGPT Image 9 Eyl 2026 14_03_48.png | Tatlı dünyası · Dükkân & Vitrin |
+| `p51` | ChatGPT Image 9 Eyl 2026 14_05_16.png | Tatlı dünyası · Künefe |
+| `p52` | ChatGPT Image 9 Eyl 2026 14_07_00.png | Tatlı dünyası · Künefe |
+| `p53` | ChatGPT Image 9 Eyl 2026 14_08_14.png | Ürünler rayı |
+| `p54` | ChatGPT Image 9 Eyl 2026 14_09_24.png | Tatlı dünyası · Künefe |
+| `p55` | ChatGPT Image 9 Eyl 2026 14_10_37.png | Ürünler rayı |
+| `p56` | ChatGPT Image 9 Eyl 2026 14_12_04.png | Tatlı dünyası · Künefe |
+| `p57` | ChatGPT Image 9 Eyl 2026 14_14_36.png | Tatlı dünyası · Künefe |
+| `p58` | ChatGPT Image 9 Eyl 2026 14_15_51.png | Ürünler rayı |
+| `p59` | ChatGPT Image 9 Eyl 2026 14_17_06.png | Kargo |
+| `p60` | ChatGPT Image 9 Eyl 2026 14_18_37.png | Miras |
+| `p61` | ChatGPT Image 9 Eyl 2026 14_21_02.png | Özel Sipariş |
+| `p62` | ChatGPT Image 9 Eyl 2026 14_22_12.png | Tatlı dünyası · Künefe |
+| `p63` | ChatGPT Image 9 Eyl 2026 14_23_54.png | Ürünler rayı |
+| `p64` | ChatGPT Image 9 Eyl 2026 14_25_13.png | Tatlı dünyası · Künefe |
+| `p65` | ChatGPT Image 9 Eyl 2026 14_26_29.png | Tatlı dünyası · Künefe |
+| `p66` | ChatGPT Image 9 Eyl 2026 11_39_58.png | Ürünler rayı |
 | `v00` | Ekran Kaydı 2026-08-25 131459.mp4 | Tezgâh — üretim kayıtları |
 | `v01` | Ekran Kaydı 2026-08-25 131701.mp4 | Tezgâh — üretim kayıtları |
 | `v02` | Ekran Kaydı 2026-08-25 131926.mp4 | Tatlı dünyası · Künefe |

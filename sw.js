@@ -1,7 +1,7 @@
 /* Ali Usta Baklavaları — çevrimdışı önbellek.
    Kabuk (HTML/CSS/JS/ikon) önbelleğe alınır; ağır medya alınmaz.
    Sürümü değiştirince eski önbellek otomatik silinir. */
-var SURUM = 'aliusta-v34';
+var SURUM = 'aliusta-v70';
 var KABUK = [
   './',
   './index.html',
@@ -61,7 +61,22 @@ self.addEventListener('fetch', function (e) {
     return;
   }
 
-  // Diğer varlıklar: önce önbellek, sonra ağ
+  // Kod (JS/CSS): önce ağ, olmazsa önbellek. Cache-first olduğunda site
+  // güncellendiği hâlde tarayıcıda eski kod çalışmaya devam ediyordu.
+  if (/\.(js|css)$/i.test(u.pathname)) {
+    e.respondWith(
+      fetch(r).then(function (res) {
+        if (res && res.status === 200 && res.type === 'basic') {
+          var kopya = res.clone();
+          caches.open(SURUM).then(function (c) { c.put(r, kopya); });
+        }
+        return res;
+      }).catch(function () { return caches.match(r); })
+    );
+    return;
+  }
+
+  // Görsel ve diğer varlıklar: önce önbellek, sonra ağ (çevrimdışı hız için)
   e.respondWith(
     caches.match(r).then(function (hit) {
       if (hit) return hit;
@@ -71,7 +86,7 @@ self.addEventListener('fetch', function (e) {
           caches.open(SURUM).then(function (c) { c.put(r, kopya); });
         }
         return res;
-      }).catch(function () { return hit; });
+      }).catch(function () { return Response.error(); });
     })
   );
 });

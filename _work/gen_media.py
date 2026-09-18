@@ -16,30 +16,29 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4',
-    srcSmall='assets/video/hero-sm.mp4',
-    poster='assets/video/poster/hero.webp',
+    src='assets/video/hero.mp4?v=40',
+    srcSmall='assets/video/hero-sm.mp4?v=40',
+    poster='assets/video/poster/hero.webp?v=40',
     w=1280, h=720, dur=10.0,
-    file='Hero - Ali Usta tanitim filmi.mp4',
+    file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
 
 # ---------------------------------------------------------------- MIRAS
-MIRAS   = [P(12), P(18), P(19), P(33), P(60)]
+MIRAS   = [P(12), P(33), P(60), P(19)]
 MIRAS_V = V(5)
 
 # ---------------------------------------------------------------- URUNLER
 RAIL = [
  ("Normal Baklava","Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.",[22,45]),
  ("Kare Baklava","Kalın fıstık dolgusu, kare kesim. Tepside dizilişiyle bile iddialı.",[28,4]),
- ("Yuvarlak Tepsi Baklava","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,30]),
+ ("Yuvarlak Tepsi Baklava","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,32]),
  ("Midye Baklava","İnce yufkanın kıvrılıp kapanmasıyla açılan sedef formu.",[26,42]),
  ("Kuru Baklava","Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",[1,8]),
- ("Şöbiyet","Kaymak ve fıstığın yufka arasında buluştuğu tepsi klasiği.",[27,2]),
- ("Yaprak Şöbiyet","Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",[17,31]),
+ ("Yeşil Şöbiyet","Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",[66]),
  ("Dolama","Fıstığın etrafına sarılan ince yufka. Sarma tekniğinin ustalık sınavı.",[25,44]),
  ("Fıstık Ezmesi","Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",[49,16]),
  ("Bülbül Yuvası","Yuva biçiminde kıvrılmış yufka, göbeği fıstıkla doldurulmuş.",[6,10]),
- ("Special Karışım","Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",[63,11]),
+ ("Special Karışım","Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",[63,58]),
  ("Çiğ İç Fıstık","Baklavanın içine giren fıstığın kendisi — kabuğu alınmış, mor zarlı, kavrulmamış.",[53,7]),
 ]
 
@@ -48,10 +47,10 @@ RAIL = [
 TEZGAH = [V(0), V(1), V(3), V(6), V(9), V(11)]
 TEZGAH_CAP = {
  'v00':'Kadayıf tezgâhı — telin açılışı',
- 'v01':'Şerbetin kazanda kaynatılması',
+ 'v01':'Ustanın elinden dondurma yapımı',
  'v03':'Vitrin dizilişi ve günlük kesim',
  'v06':'Şerbetin ocakta kıvama gelmesi',
- 'v09':'Antep fıstığının çekilmesi',
+ 'v09':'Karışık fıstıkzade künefe yapımı',
  'v11':'Dilimleme — bıçak açısı ustalık işi',
 }
 
@@ -63,8 +62,8 @@ CATS = [
        "gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden "
        "kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, "
        "dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
-  kapak=P(48),
-  fotograflar=[P(13), P(24), P(32), P(40), P(41), P(43), P(46), P(48)],
+  kapak=P(13),
+  fotograflar=[P(13), P(40), P(41), P(43)],
   videolar=[V(4), V(7), V(8), V(13),
             V(17), V(18), V(19), V(20), V(21), V(22), V(23), V(24)]),
 
@@ -73,7 +72,8 @@ CATS = [
        "ocakta iki yüzü de kızarana kadar çevrilir. Sıcakken şerbetlenir, üstüne fıstık, "
        "yanına kaymak. Künefe beklemez — tezgâhtan tabağa gider, peynir uzarken yenir.",
   kapak=P(37),
-  fotograflar=[P(37), P(56), P(57)],
+  fotograflar=[P(37), P(56), P(57), P(62), P(24), P(30), P(46), P(38), P(54),
+               P(65), P(51), P(52), P(64)],
   videolar=[V(2), V(12), V(14), V(15)]),
 
  dict(id="dondurma", ad="Dondurma & Fıstık Ezmesi", kicik="Soğuk taraf",
@@ -81,23 +81,15 @@ CATS = [
        "girer. Yazın en çok istenen çeşit budur: sıcak baklavanın yanında soğuk bir kaşık. "
        "Fıstık ezmesi ayrıca tepsiyle de satılır, kesilip porsiyon hâlinde servis edilir.",
   kapak=P(34),
-  fotograflar=[P(34), P(36), P(38), P(54)],
+  fotograflar=[P(34), P(36)],
   videolar=[V(10)]),
-
- dict(id="fistik", ad="Antep Fıstığı", kicik="Her sabah kavrulur",
-  ozet="Gaziantep'in fıstık kuşağının tam ortasındayız; fıstık aynı gün geliyor, aynı gün "
-       "kavruluyor. Baklavanın içine giren fıstık ile tepside satılan fıstık aynı fıstıktır. "
-       "Kavrulmuş fıstık, karışık kuruyemiş ve çiğ iç fıstık ayrı ayrı bulunur.",
-  kapak=P(65),
-  fotograflar=[P(65), P(51), P(52), P(64)],
-  videolar=[]),
 
  dict(id="ozel", ad="Özel Tatlılar", kicik="Mevsimlik ve özel gün",
   ozet="Kaymaklı katmanlar, çikolata kaplı dilimler, hindistan cevizli kare kesim, mevsiminde "
        "çilekli tepsiler ve Ramazan'da güllaç. Vitrinin klasik baklava dışında kalan tarafı — "
        "her biri aynı tezgâhta, aynı malzemeyle yapılır.",
-  kapak=P(62),
-  fotograflar=[P(5), P(9), P(29), P(35), P(62)],
+  kapak=P(5),
+  fotograflar=[P(5), P(9), P(29), P(35), P(20)],
   videolar=[]),
 
  dict(id="dukkan", ad="Dükkân & Vitrin", kicik="Nizip'teki tezgâh",
@@ -105,47 +97,45 @@ CATS = [
        "ve açık hava oturma bölümü. Akşama kalan tepsi ertesi güne devretmez — vitrinde "
        "gördüğünüz her şey o gün yapılmıştır.",
   kapak=P(3),
-  fotograflar=[P(3), P(15), P(21), P(50)],
+  fotograflar=[P(3), P(15), P(21), P(50), P(18)],
   videolar=[]),
 ]
 
 CAP = {
  # baklava
- 'p13':'Fırından çıkan fıstıklı tepsiler','p24':'Kuru baklava, yakın plan',
- 'p32':'Yuvarlak tepside radyal kesim','p40':'Yeşil midye baklava sırası',
- 'p41':'Altın rengi tepsi, fıstık şeridi','p43':'Midye baklava makro',
- 'p46':'Cevizli yuvarlak tepsi','p48':'Midye baklava dizilişi',
- 'v04':'Tepsiye fıstık dökülüşü','v07':'Tezgâhta şöbiyet servisi',
- 'v08':'Fırından çıkan tepsilerin dizilişi','v13':'Katmanlı baklavanın kesilişi',
- # 29 Ağustos 2026'da işletmeden gelen tepsi sunumları
- 'v17':'Kare kesim tepsi — fıstık şeridiyle','v18':'Tezgâhta kare baklava tepsisi',
- 'v19':'Şöbiyet tepsisi — fıstıkla kaplı','v20':'Yuvarlak tepside dilim kesim',
- 'v21':'Kare baklava — üstten kadraj','v22':'Kare tepsi ve midye tepsisi yan yana',
- 'v23':'Sarma dilimler, tepsiye dizilmiş','v24':'Yuvarlak tepside fıstıklı dizilim',
+ 'p13':'Klasik Baklava','p40':'Fıstık Sarma',
+ 'p41':'Altın Rengi Tepsi','p43':'Midye Baklava',
+ 'v04':'','v07':'',
+ 'v08':'','v13':'',
+ 'v17':'','v18':'',
+ 'v19':'','v20':'',
+ 'v21':'','v22':'',
+ 'v23':'','v24':'',
  # kunefe
  'p37':'Künefe — peynirin uzayışı','p56':'Künefe, fıstıkla taçlandırılmış',
  'p57':'Künefe — fıstık tepesi',
+ 'p24':'Fıstıklı burma kadayıf','p30':'Fıstıklı kadayıf','p46':'Cevizli künefe',
+ 'p38':'Billuriye','p54':'Billuriye',
  'v02':'Ocakta künefe — bakır tepside çevirme','v12':'Künefe ve kaymak servisi',
  'v14':'Künefenin tabakta açılışı','v15':'Tel kadayıfın çekişi',
+ 'p65':'Fıstıkzade Künefe','p51':'Hasır kadayıf',
+ 'p52':'Dördü bir arada','p64':'Yarı fıstıkzade yarı billuriye',
  # dondurma & fistik ezmesi
  'p34':'Fıstık ezmesi ve dondurmalı sunum','p36':'Fıstık ezmesi dolama, içi kaymaklı',
- 'p38':'Fıstık ezmesi tepsisi','p54':'Fıstık ezmesi — üstü iri fıstıklı',
  'v10':'Fıstık ezmeli tepsinin kesimi',
- # fistik
- 'p51':'Fıstık dokusunun yakın planı','p52':'Karışık kuruyemiş tepsisi',
- 'p64':'Günlük kavrulmuş Antep fıstığı',
- 'p65':'Çiğ iç fıstık — mor zarlı, yuvarlak tepside',
  # ozel
- 'p05':'Hindistan cevizli & kakaolu kare dilim','p09':'Kaymaklı soğuk sunum',
- 'p29':'Çikolatalı özel tepsi','p35':'Çikolata kaplı özel çeşit',
+ 'p05':'Sütlü kadayıf','p09':'Sütlü kadayıf',
+ 'p29':'Soğuk baklava','p35':'Soğuk baklava',
+ 'p20':'Sütlaç',
  'p62':'Kaymaklı tepsi kesimi',
  # dukkan
  'p03':'Vitrinde günün tepsileri','p15':'Vitrin — çeşit çeşit dizilim',
- 'p21':'Ali Usta ürün koleksiyonu','p50':'Ali Usta çekiliş duyurusu',
+ 'p18':'Tezgâhta tepsi düzeni',
+ 'p21':'Ali Usta ürün koleksiyonu','p50':'Ali Usta\'dan bir kare',
 }
 
 # ---------------------------------------------------------------- DIGER BOLUMLER
-OZEL   = [P(61), P(58), P(14), P(20)]
+OZEL   = [P(61), P(11), P(14)]
 OZEL_V = V(16)
 KARGO  = [P(47), P(59)]
 ILETIS = [P(0), P(23), P(39)]
@@ -186,7 +176,10 @@ def cell(k):
 data = dict(
   hero     = HERO,
   miras    = dict(photos=[im(k) for k in MIRAS], video=vd(MIRAS_V)),
-  rail     = [dict(name=n, desc=d, photos=[im(P(x)) for x in ns]) for n, d, ns in RAIL],
+  # tek fotoğraflı ürünlerde kart hover'ı için aynı görsel iki kez konur
+  # (arka planda boş kalmasın); fotoğraf verisinde tekrar sayılmaz.
+  rail     = [dict(name=n, desc=d, photos=([im(P(x)) for x in ns] * 2 if len(ns) == 1 else [im(P(x)) for x in ns]))
+              for n, d, ns in RAIL],
   tezgah   = [dict(**vd(k), cap=TEZGAH_CAP[k]) for k in TEZGAH],
   cats     = [dict(id=c['id'], name=c['ad'], kicker=c['kicik'], desc=c['ozet'],
                    cover=im(c['kapak']),

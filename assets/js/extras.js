@@ -179,24 +179,6 @@
   }
 
   /* ===============================================================
-     4. STORY ARŞİVİ
-     =============================================================== */
-  function storyKur() {
-    var sec = $('#story');
-    if (!sec) return;
-    var list = C.storyArsivi || [];
-    if (!list.length) { sec.hidden = true; return; }
-    sec.hidden = false;
-    $('#storyList').innerHTML = list.map(function (s, i) {
-      return '<button class="st-card m-cell" type="button" data-story="' + i + '">' +
-        '<span class="st-ring"><picture>' +
-          (A ? '<source type="image/avif" srcset="' + esc(A.TH_AV(s.gorsel)) + '">' : '') +
-          '<img src="' + esc(A ? A.TH(s.gorsel) : s.gorsel) + '" alt="" loading="lazy" decoding="async"></picture></span>' +
-        '<b>' + esc(s.baslik) + '</b><span class="st-date">' + esc(tarihYaz(s.tarih)) + '</span></button>';
-    }).join('');
-  }
-
-  /* ===============================================================
      5. KARŞILAŞTIRMA TABLOSU — "neden bizden"
      =============================================================== */
   function karsilastirmaKur() {
@@ -218,107 +200,6 @@
           '<td data-lbl="' + esc(T('Endüstriyel üretim')) + '">' +
             '<svg viewBox="0 0 24 24" aria-hidden="true" class="fk-ic fk-ic--n"><path d="M6 6l12 12M18 6L6 18"/></svg>' + esc(r.onlar) + '</td></tr>';
       }).join('') + '</tbody>';
-  }
-
-  /* ===============================================================
-     6. YAZILAR (blog)
-     =============================================================== */
-  var yaziPanel, yaziSonOdak = null;
-
-  function yaziKur() {
-    var sec = $('#yazilar');
-    if (!sec) return;
-    var list = C.yazilar || [];
-    if (!list.length) { sec.hidden = true; return; }
-    sec.hidden = false;
-
-    $('#yaziList').innerHTML = list.map(function (y, i) {
-      var kapak = y.kapak && A
-        ? '<picture><source type="image/avif" srcset="' + esc(A.TH_AV(y.kapak)) + '">' +
-          '<img src="' + esc(A.TH(y.kapak)) + '" alt="" loading="lazy" decoding="async"></picture>'
-        : '';
-      return '<article class="yz-card m-cell">' +
-        (kapak ? '<span class="yz-img">' + kapak + '</span>' : '') +
-        '<div class="yz-body">' +
-          '<p class="yz-meta">' + esc(tarihYaz(y.tarih)) + (y.okuma ? ' · ' + esc(okumaYaz(y.okuma)) : '') + '</p>' +
-          '<h3>' + esc(y.baslik) + '</h3>' +
-          '<p class="yz-ozet">' + esc(y.ozet) + '</p>' +
-          '<button class="mini mini--read" type="button" data-yazi="' + i + '">' + esc(T('Yazıyı oku')) + '</button>' +
-        '</div></article>';
-    }).join('');
-
-    yaziPanel = el('div', 'yz-dlg');
-    yaziPanel.id = 'yz';
-    yaziPanel.setAttribute('role', 'dialog');
-    yaziPanel.setAttribute('aria-modal', 'true');
-    yaziPanel.setAttribute('aria-label', T('Yazı'));
-    yaziPanel.setAttribute('aria-hidden', 'true');
-    D.body.appendChild(yaziPanel);
-
-    yaziPanel.addEventListener('click', function (e) {
-      if (e.target === yaziPanel || e.target.closest('#yzClose')) yaziKapat();
-    });
-    D.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && yaziPanel.classList.contains('open')) yaziKapat();
-    });
-    D.addEventListener('click', function (e) {
-      var b = e.target.closest('[data-yazi]');
-      if (b) yaziAc(+b.dataset.yazi);
-    });
-
-    /* ?yazi=slug ile doğrudan açılış */
-    var s = new URLSearchParams(location.search).get('yazi');
-    if (s) {
-      var i = list.map(function (y) { return y.slug; }).indexOf(s);
-      if (i > -1) setTimeout(function () { yaziAc(i); }, 700);
-    }
-  }
-
-  function yaziAc(i) {
-    var y = (C.yazilar || [])[i];
-    if (!y) return;
-    var kapak = y.kapak && A
-      ? '<picture><source type="image/avif" srcset="' + esc(A.IMG_AV(y.kapak)) + '">' +
-        '<img class="yz-hero" src="' + esc(A.IMG(y.kapak)) + '" alt="" decoding="async"></picture>'
-      : '';
-    yaziPanel.innerHTML = '<article class="yz-box">' +
-      '<button class="icon-btn yz-close" type="button" id="yzClose"><span class="sr-only">' + esc(T('Kapat')) + '</span>' +
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-      kapak +
-      '<div class="yz-read">' +
-        '<p class="yz-meta">' + esc(tarihYaz(y.tarih)) + (y.okuma ? ' · ' + esc(okumaYaz(y.okuma)) : '') + '</p>' +
-        '<h2>' + esc(y.baslik) + '</h2>' +
-        (y.icerik || []).map(function (p) {
-          if (typeof p === 'string') return '<p>' + esc(p) + '</p>';
-          if (p.baslik) return '<h3>' + esc(p.baslik) + '</h3>';
-          if (p.liste) return '<ul>' + p.liste.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
-          if (p.alinti) return '<blockquote><p>' + esc(p.alinti) + '</p></blockquote>';
-          return '';
-        }).join('') +
-        '<div class="yz-foot"><button class="btn btn--solid" type="button" id="yzSepet"><span>' +
-          esc(T('Ürünlere göz at')) + '</span></button></div>' +
-      '</div></article>';
-    yaziSonOdak = D.activeElement;
-    yaziPanel.classList.add('open');
-    yaziPanel.setAttribute('aria-hidden', 'false');
-    if (A) A.kilitle(true);
-    ses('ac');
-    W.requestAnimationFrame(function () { $('#yzClose', yaziPanel).focus(); });
-    $('#yzSepet', yaziPanel).addEventListener('click', function () {
-      yaziKapat();
-      var t = $('#urunler');
-      if (t && A) { var l = A.lenis(); var yv = t.getBoundingClientRect().top + W.scrollY - 70;
-        if (l) l.scrollTo(yv, { duration: 1.2 }); else W.scrollTo(0, yv); }
-    });
-    if (A) A.izle('yazi-' + (y.slug || i));
-  }
-  function yaziKapat() {
-    yaziPanel.classList.remove('open');
-    yaziPanel.setAttribute('aria-hidden', 'true');
-    if (A) A.kilitle(false);
-    ses('kapat');
-    if (A && A.odakGeri) A.odakGeri(yaziSonOdak, yaziPanel);
-    else if (yaziSonOdak) yaziSonOdak.focus();
   }
 
   /* ===============================================================
@@ -445,9 +326,7 @@
     temaKur();
     sesKur();
     vitrinKur();
-    storyKur();
     karsilastirmaKur();
-    yaziKur();
     bultenKur();
     /* Uzak istekler ve tek seferlik ölçüm ilk boyamadan sonra. */
     if (A) A.sonraYap(function () {

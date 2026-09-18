@@ -1,34 +1,43 @@
 /* Ali Usta Baklavaları — medya haritası. Otomatik üretildi: _work/gen_media.py
-   66 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
+   62 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4",
-  "srcSmall": "assets/video/hero-sm.mp4",
-  "poster": "assets/video/poster/hero.webp",
+  "src": "assets/video/hero.mp4?v=40",
+  "srcSmall": "assets/video/hero-sm.mp4?v=40",
+  "poster": "assets/video/poster/hero.webp?v=40",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
-  "file": "Hero - Ali Usta tanitim filmi.mp4"
+  "file": "Hero - Ali Usta dukkan ve kunefe tanitim.mp4"
  },
  "miras": {
   "photos": [
    {
     "k": "p12",
     "t": "img",
-    "w": 786,
-    "h": 1192,
-    "tw": 455,
-    "th": 690,
-    "bg": "#44433d"
+    "w": 1081,
+    "h": 1455,
+    "tw": 620,
+    "th": 835,
+    "bg": "#47423c"
    },
    {
-    "k": "p18",
+    "k": "p33",
     "t": "img",
-    "w": 574,
-    "h": 850,
-    "tw": 332,
-    "th": 492,
-    "bg": "#756949"
+    "w": 942,
+    "h": 1670,
+    "tw": 620,
+    "th": 1099,
+    "bg": "#4d3b25"
+   },
+   {
+    "k": "p60",
+    "t": "img",
+    "w": 1115,
+    "h": 1411,
+    "tw": 620,
+    "th": 785,
+    "bg": "#433728"
    },
    {
     "k": "p19",
@@ -38,24 +47,6 @@ window.AU_MEDIA = {
     "tw": 810,
     "th": 910,
     "bg": "#766b4b"
-   },
-   {
-    "k": "p33",
-    "t": "img",
-    "w": 800,
-    "h": 1584,
-    "tw": 463,
-    "th": 917,
-    "bg": "#5a4a36"
-   },
-   {
-    "k": "p60",
-    "t": "img",
-    "w": 1266,
-    "h": 1584,
-    "tw": 734,
-    "th": 918,
-    "bg": "#3f3a32"
    }
   ],
   "video": {
@@ -74,20 +65,20 @@ window.AU_MEDIA = {
     {
      "k": "p22",
      "t": "img",
-     "w": 1124,
-     "h": 1576,
-     "tw": 651,
-     "th": 913,
-     "bg": "#503e17"
+     "w": 1118,
+     "h": 1407,
+     "tw": 620,
+     "th": 780,
+     "bg": "#553b18"
     },
     {
      "k": "p45",
      "t": "img",
-     "w": 1408,
-     "h": 1166,
-     "tw": 816,
-     "th": 676,
-     "bg": "#483815"
+     "w": 1280,
+     "h": 947,
+     "tw": 620,
+     "th": 459,
+     "bg": "#493915"
     }
    ]
   },
@@ -98,20 +89,20 @@ window.AU_MEDIA = {
     {
      "k": "p28",
      "t": "img",
-     "w": 1122,
-     "h": 1556,
-     "tw": 650,
-     "th": 901,
-     "bg": "#483b15"
+     "w": 1126,
+     "h": 1397,
+     "tw": 620,
+     "th": 769,
+     "bg": "#473714"
     },
     {
      "k": "p04",
      "t": "img",
-     "w": 1408,
-     "h": 1568,
-     "tw": 816,
-     "th": 909,
-     "bg": "#65511d"
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#4e3c16"
     }
    ]
   },
@@ -122,20 +113,20 @@ window.AU_MEDIA = {
     {
      "k": "p55",
      "t": "img",
-     "w": 1122,
-     "h": 1552,
-     "tw": 650,
-     "th": 899,
-     "bg": "#5c4b24"
+     "w": 1132,
+     "h": 1389,
+     "tw": 620,
+     "th": 761,
+     "bg": "#564028"
     },
     {
-     "k": "p30",
+     "k": "p32",
      "t": "img",
-     "w": 1114,
-     "h": 1562,
-     "tw": 646,
-     "th": 906,
-     "bg": "#4c4a3b"
+     "w": 1125,
+     "h": 1398,
+     "tw": 620,
+     "th": 770,
+     "bg": "#54482e"
     }
    ]
   },
@@ -146,20 +137,20 @@ window.AU_MEDIA = {
     {
      "k": "p26",
      "t": "img",
-     "w": 1126,
-     "h": 1566,
-     "tw": 653,
-     "th": 908,
-     "bg": "#4e4325"
+     "w": 1122,
+     "h": 1402,
+     "tw": 620,
+     "th": 775,
+     "bg": "#523d1e"
     },
     {
      "k": "p42",
      "t": "img",
-     "w": 1408,
-     "h": 1178,
-     "tw": 816,
-     "th": 683,
-     "bg": "#4a3e15"
+     "w": 1280,
+     "h": 947,
+     "tw": 620,
+     "th": 459,
+     "bg": "#523e18"
     }
    ]
   },
@@ -170,68 +161,44 @@ window.AU_MEDIA = {
     {
      "k": "p01",
      "t": "img",
-     "w": 798,
-     "h": 1180,
-     "tw": 462,
-     "th": 683,
-     "bg": "#3e3c33"
+     "w": 1093,
+     "h": 1439,
+     "tw": 620,
+     "th": 816,
+     "bg": "#3f2e1f"
     },
     {
      "k": "p08",
      "t": "img",
-     "w": 1416,
-     "h": 1572,
-     "tw": 821,
-     "th": 911,
-     "bg": "#3a361d"
+     "w": 1265,
+     "h": 1244,
+     "tw": 620,
+     "th": 610,
+     "bg": "#433b13"
     }
    ]
   },
   {
-   "name": "Şöbiyet",
-   "desc": "Kaymak ve fıstığın yufka arasında buluştuğu tepsi klasiği.",
-   "photos": [
-    {
-     "k": "p27",
-     "t": "img",
-     "w": 1122,
-     "h": 1546,
-     "tw": 650,
-     "th": 896,
-     "bg": "#4f3b18"
-    },
-    {
-     "k": "p02",
-     "t": "img",
-     "w": 1404,
-     "h": 1584,
-     "tw": 814,
-     "th": 918,
-     "bg": "#624a1c"
-    }
-   ]
-  },
-  {
-   "name": "Yaprak Şöbiyet",
+   "name": "Yeşil Şöbiyet",
    "desc": "Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",
    "photos": [
     {
-     "k": "p17",
+     "k": "p66",
      "t": "img",
-     "w": 1122,
-     "h": 1576,
-     "tw": 650,
-     "th": 913,
-     "bg": "#4e4e16"
+     "w": 935,
+     "h": 1300,
+     "tw": 620,
+     "th": 862,
+     "bg": "#413d17"
     },
     {
-     "k": "p31",
+     "k": "p66",
      "t": "img",
-     "w": 1132,
-     "h": 1568,
-     "tw": 656,
-     "th": 909,
-     "bg": "#454621"
+     "w": 935,
+     "h": 1300,
+     "tw": 620,
+     "th": 862,
+     "bg": "#413d17"
     }
    ]
   },
@@ -242,20 +209,20 @@ window.AU_MEDIA = {
     {
      "k": "p25",
      "t": "img",
-     "w": 1120,
-     "h": 1550,
-     "tw": 649,
-     "th": 898,
-     "bg": "#4f4217"
+     "w": 1133,
+     "h": 1388,
+     "tw": 620,
+     "th": 760,
+     "bg": "#473714"
     },
     {
      "k": "p44",
      "t": "img",
-     "w": 1386,
-     "h": 1178,
-     "tw": 803,
-     "th": 682,
-     "bg": "#4e4416"
+     "w": 1280,
+     "h": 953,
+     "tw": 620,
+     "th": 461,
+     "bg": "#504117"
     }
    ]
   },
@@ -266,20 +233,20 @@ window.AU_MEDIA = {
     {
      "k": "p49",
      "t": "img",
-     "w": 1404,
-     "h": 1160,
-     "tw": 814,
-     "th": 673,
-     "bg": "#493e15"
+     "w": 1280,
+     "h": 941,
+     "tw": 620,
+     "th": 456,
+     "bg": "#473714"
     },
     {
      "k": "p16",
      "t": "img",
-     "w": 782,
-     "h": 1580,
-     "tw": 453,
-     "th": 915,
-     "bg": "#545522"
+     "w": 933,
+     "h": 1685,
+     "tw": 620,
+     "th": 1120,
+     "bg": "#454214"
     }
    ]
   },
@@ -290,20 +257,20 @@ window.AU_MEDIA = {
     {
      "k": "p06",
      "t": "img",
-     "w": 1402,
-     "h": 1568,
-     "tw": 813,
-     "th": 909,
-     "bg": "#56411e"
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#503917"
     },
     {
      "k": "p10",
      "t": "img",
-     "w": 1408,
-     "h": 1572,
-     "tw": 816,
-     "th": 911,
-     "bg": "#57481f"
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#5f481c"
     }
    ]
   },
@@ -314,20 +281,20 @@ window.AU_MEDIA = {
     {
      "k": "p63",
      "t": "img",
-     "w": 1406,
-     "h": 1576,
-     "tw": 815,
-     "th": 914,
-     "bg": "#644724"
+     "w": 1234,
+     "h": 1275,
+     "tw": 620,
+     "th": 641,
+     "bg": "#593b1a"
     },
     {
-     "k": "p11",
+     "k": "p58",
      "t": "img",
-     "w": 786,
-     "h": 1184,
-     "tw": 455,
-     "th": 685,
-     "bg": "#454037"
+     "w": 1172,
+     "h": 1342,
+     "tw": 620,
+     "th": 710,
+     "bg": "#4d3a1f"
     }
    ]
   },
@@ -338,20 +305,20 @@ window.AU_MEDIA = {
     {
      "k": "p53",
      "t": "img",
-     "w": 1132,
-     "h": 1560,
-     "tw": 656,
-     "th": 904,
-     "bg": "#453d2c"
+     "w": 1136,
+     "h": 1385,
+     "tw": 620,
+     "th": 756,
+     "bg": "#4b402f"
     },
     {
      "k": "p07",
      "t": "img",
-     "w": 1116,
-     "h": 1562,
-     "tw": 647,
-     "th": 906,
-     "bg": "#403b1f"
+     "w": 1121,
+     "h": 1403,
+     "tw": 620,
+     "th": 776,
+     "bg": "#464120"
     }
    ]
   }
@@ -371,7 +338,7 @@ window.AU_MEDIA = {
    "w": 820,
    "h": 1446,
    "dur": 35.2,
-   "cap": "Şerbetin kazanda kaynatılması"
+   "cap": "Ustanın elinden dondurma yapımı"
   },
   {
    "k": "v03",
@@ -395,7 +362,7 @@ window.AU_MEDIA = {
    "w": 820,
    "h": 1448,
    "dur": 18.0,
-   "cap": "Antep fıstığının çekilmesi"
+   "cap": "Karışık fıstıkzade künefe yapımı"
   },
   {
    "k": "v11",
@@ -413,96 +380,56 @@ window.AU_MEDIA = {
    "kicker": "Tezgâhın ana işi",
    "desc": "Kırk kat yufka elde açılır, arasına günlük kavrulmuş Antep fıstığı serpilir, gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
    "cover": {
-    "k": "p48",
+    "k": "p13",
     "t": "img",
-    "w": 1400,
-    "h": 1156,
-    "tw": 812,
-    "th": 670,
-    "bg": "#463f23"
+    "w": 944,
+    "h": 1666,
+    "tw": 620,
+    "th": 1094,
+    "bg": "#503e1d"
    },
-   "nPhoto": 8,
+   "nPhoto": 4,
    "nVideo": 12,
    "items": [
     {
      "k": "p13",
      "t": "img",
-     "w": 792,
-     "h": 1570,
-     "tw": 459,
-     "th": 910,
-     "bg": "#5e4921",
-     "cap": "Fırından çıkan fıstıklı tepsiler"
-    },
-    {
-     "k": "p24",
-     "t": "img",
-     "w": 1130,
-     "h": 1570,
-     "tw": 655,
-     "th": 910,
-     "bg": "#494025",
-     "cap": "Kuru baklava, yakın plan"
-    },
-    {
-     "k": "p32",
-     "t": "img",
-     "w": 1118,
-     "h": 1552,
-     "tw": 648,
-     "th": 900,
-     "bg": "#494538",
-     "cap": "Yuvarlak tepside radyal kesim"
+     "w": 944,
+     "h": 1666,
+     "tw": 620,
+     "th": 1094,
+     "bg": "#503e1d",
+     "cap": "Klasik Baklava"
     },
     {
      "k": "p40",
      "t": "img",
-     "w": 1404,
-     "h": 1176,
-     "tw": 814,
-     "th": 682,
-     "bg": "#423d13",
-     "cap": "Yeşil midye baklava sırası"
+     "w": 1280,
+     "h": 951,
+     "tw": 620,
+     "th": 461,
+     "bg": "#3d3511",
+     "cap": "Fıstık Sarma"
     },
     {
      "k": "p41",
      "t": "img",
-     "w": 1398,
-     "h": 1162,
-     "tw": 810,
-     "th": 673,
-     "bg": "#4e401d",
-     "cap": "Altın rengi tepsi, fıstık şeridi"
+     "w": 1280,
+     "h": 947,
+     "tw": 620,
+     "th": 459,
+     "bg": "#51381b",
+     "cap": "Altın Rengi Tepsi"
     },
     {
      "k": "p43",
      "t": "img",
-     "w": 1394,
-     "h": 1166,
-     "tw": 808,
-     "th": 676,
-     "bg": "#544c24",
-     "cap": "Midye baklava makro"
-    },
-    {
-     "k": "p46",
-     "t": "img",
-     "w": 1128,
-     "h": 1564,
-     "tw": 654,
-     "th": 907,
-     "bg": "#452b14",
-     "cap": "Cevizli yuvarlak tepsi"
-    },
-    {
-     "k": "p48",
-     "t": "img",
-     "w": 1400,
-     "h": 1156,
-     "tw": 812,
-     "th": 670,
-     "bg": "#463f23",
-     "cap": "Midye baklava dizilişi"
+     "w": 1280,
+     "h": 946,
+     "tw": 620,
+     "th": 458,
+     "bg": "#4f421d",
+     "cap": "Midye Baklava"
     },
     {
      "k": "v04",
@@ -510,7 +437,7 @@ window.AU_MEDIA = {
      "w": 868,
      "h": 1540,
      "dur": 43.3,
-     "cap": "Tepsiye fıstık dökülüşü"
+     "cap": ""
     },
     {
      "k": "v07",
@@ -518,7 +445,7 @@ window.AU_MEDIA = {
      "w": 820,
      "h": 1436,
      "dur": 30.1,
-     "cap": "Tezgâhta şöbiyet servisi"
+     "cap": ""
     },
     {
      "k": "v08",
@@ -526,7 +453,7 @@ window.AU_MEDIA = {
      "w": 868,
      "h": 1532,
      "dur": 37.3,
-     "cap": "Fırından çıkan tepsilerin dizilişi"
+     "cap": ""
     },
     {
      "k": "v13",
@@ -534,7 +461,7 @@ window.AU_MEDIA = {
      "w": 980,
      "h": 804,
      "dur": 9.9,
-     "cap": "Katmanlı baklavanın kesilişi"
+     "cap": ""
     },
     {
      "k": "v17",
@@ -542,7 +469,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 1614,
      "dur": 2.6,
-     "cap": "Kare kesim tepsi — fıstık şeridiyle"
+     "cap": ""
     },
     {
      "k": "v18",
@@ -550,7 +477,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 502,
      "dur": 4.3,
-     "cap": "Tezgâhta kare baklava tepsisi"
+     "cap": ""
     },
     {
      "k": "v19",
@@ -558,7 +485,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 1614,
      "dur": 3.6,
-     "cap": "Şöbiyet tepsisi — fıstıkla kaplı"
+     "cap": ""
     },
     {
      "k": "v20",
@@ -566,7 +493,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 1614,
      "dur": 2.5,
-     "cap": "Yuvarlak tepside dilim kesim"
+     "cap": ""
     },
     {
      "k": "v21",
@@ -574,7 +501,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 1614,
      "dur": 2.6,
-     "cap": "Kare baklava — üstten kadraj"
+     "cap": ""
     },
     {
      "k": "v22",
@@ -582,7 +509,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 502,
      "dur": 4.3,
-     "cap": "Kare tepsi ve midye tepsisi yan yana"
+     "cap": ""
     },
     {
      "k": "v23",
@@ -590,7 +517,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 502,
      "dur": 3.7,
-     "cap": "Sarma dilimler, tepsiye dizilmiş"
+     "cap": ""
     },
     {
      "k": "v24",
@@ -598,7 +525,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 502,
      "dur": 5.6,
-     "cap": "Yuvarlak tepside fıstıklı dizilim"
+     "cap": ""
     }
    ]
   },
@@ -610,44 +537,144 @@ window.AU_MEDIA = {
    "cover": {
     "k": "p37",
     "t": "img",
-    "w": 1102,
-    "h": 1566,
-    "tw": 639,
-    "th": 908,
-    "bg": "#4b3115"
+    "w": 1114,
+    "h": 1412,
+    "tw": 620,
+    "th": 786,
+    "bg": "#4b2f15"
    },
-   "nPhoto": 3,
+   "nPhoto": 13,
    "nVideo": 4,
    "items": [
     {
      "k": "p37",
      "t": "img",
-     "w": 1102,
-     "h": 1566,
-     "tw": 639,
-     "th": 908,
-     "bg": "#4b3115",
+     "w": 1114,
+     "h": 1412,
+     "tw": 620,
+     "th": 786,
+     "bg": "#4b2f15",
      "cap": "Künefe — peynirin uzayışı"
     },
     {
      "k": "p56",
      "t": "img",
-     "w": 1116,
-     "h": 1488,
-     "tw": 647,
-     "th": 863,
-     "bg": "#583819",
+     "w": 1141,
+     "h": 1378,
+     "tw": 620,
+     "th": 749,
+     "bg": "#59331a",
      "cap": "Künefe, fıstıkla taçlandırılmış"
     },
     {
      "k": "p57",
      "t": "img",
-     "w": 1126,
-     "h": 1546,
-     "tw": 653,
-     "th": 897,
-     "bg": "#725128",
+     "w": 1129,
+     "h": 1393,
+     "tw": 620,
+     "th": 765,
+     "bg": "#654429",
      "cap": "Künefe — fıstık tepesi"
+    },
+    {
+     "k": "p62",
+     "t": "img",
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#524017",
+     "cap": "Kaymaklı tepsi kesimi"
+    },
+    {
+     "k": "p24",
+     "t": "img",
+     "w": 1127,
+     "h": 1396,
+     "tw": 620,
+     "th": 768,
+     "bg": "#4a3a1a",
+     "cap": "Fıstıklı burma kadayıf"
+    },
+    {
+     "k": "p30",
+     "t": "img",
+     "w": 1119,
+     "h": 1406,
+     "tw": 620,
+     "th": 779,
+     "bg": "#514839",
+     "cap": "Fıstıklı kadayıf"
+    },
+    {
+     "k": "p46",
+     "t": "img",
+     "w": 1131,
+     "h": 1391,
+     "tw": 620,
+     "th": 763,
+     "bg": "#4d2d16",
+     "cap": "Cevizli künefe"
+    },
+    {
+     "k": "p38",
+     "t": "img",
+     "w": 1147,
+     "h": 1372,
+     "tw": 620,
+     "th": 742,
+     "bg": "#46431f",
+     "cap": "Billuriye"
+    },
+    {
+     "k": "p54",
+     "t": "img",
+     "w": 1119,
+     "h": 1406,
+     "tw": 620,
+     "th": 779,
+     "bg": "#453e25",
+     "cap": "Billuriye"
+    },
+    {
+     "k": "p65",
+     "t": "img",
+     "w": 1085,
+     "h": 1449,
+     "tw": 620,
+     "th": 828,
+     "bg": "#555147",
+     "cap": "Fıstıkzade Künefe"
+    },
+    {
+     "k": "p51",
+     "t": "img",
+     "w": 1121,
+     "h": 1403,
+     "tw": 620,
+     "th": 776,
+     "bg": "#60593a",
+     "cap": "Hasır kadayıf"
+    },
+    {
+     "k": "p52",
+     "t": "img",
+     "w": 1136,
+     "h": 1385,
+     "tw": 620,
+     "th": 756,
+     "bg": "#4f3d2a",
+     "cap": "Dördü bir arada"
+    },
+    {
+     "k": "p64",
+     "t": "img",
+     "w": 1127,
+     "h": 1396,
+     "tw": 620,
+     "th": 768,
+     "bg": "#454023",
+     "cap": "Yarı fıstıkzade yarı billuriye"
     },
     {
      "k": "v02",
@@ -691,54 +718,34 @@ window.AU_MEDIA = {
    "cover": {
     "k": "p34",
     "t": "img",
-    "w": 1116,
-    "h": 1550,
-    "tw": 647,
-    "th": 899,
-    "bg": "#4a4325"
+    "w": 1128,
+    "h": 1394,
+    "tw": 620,
+    "th": 766,
+    "bg": "#443722"
    },
-   "nPhoto": 4,
+   "nPhoto": 2,
    "nVideo": 1,
    "items": [
     {
      "k": "p34",
      "t": "img",
-     "w": 1116,
-     "h": 1550,
-     "tw": 647,
-     "th": 899,
-     "bg": "#4a4325",
+     "w": 1128,
+     "h": 1394,
+     "tw": 620,
+     "th": 766,
+     "bg": "#443722",
      "cap": "Fıstık ezmesi ve dondurmalı sunum"
     },
     {
      "k": "p36",
      "t": "img",
-     "w": 1140,
-     "h": 1316,
-     "tw": 661,
-     "th": 763,
-     "bg": "#58513c",
+     "w": 1270,
+     "h": 1239,
+     "tw": 620,
+     "th": 605,
+     "bg": "#5d5644",
      "cap": "Fıstık ezmesi dolama, içi kaymaklı"
-    },
-    {
-     "k": "p38",
-     "t": "img",
-     "w": 1120,
-     "h": 1492,
-     "tw": 649,
-     "th": 865,
-     "bg": "#514a26",
-     "cap": "Fıstık ezmesi tepsisi"
-    },
-    {
-     "k": "p54",
-     "t": "img",
-     "w": 1132,
-     "h": 1584,
-     "tw": 656,
-     "th": 918,
-     "bg": "#3e3a26",
-     "cap": "Fıstık ezmesi — üstü iri fıstıklı"
     },
     {
      "k": "v10",
@@ -751,77 +758,18 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "id": "fistik",
-   "name": "Antep Fıstığı",
-   "kicker": "Her sabah kavrulur",
-   "desc": "Gaziantep'in fıstık kuşağının tam ortasındayız; fıstık aynı gün geliyor, aynı gün kavruluyor. Baklavanın içine giren fıstık ile tepside satılan fıstık aynı fıstıktır. Kavrulmuş fıstık, karışık kuruyemiş ve çiğ iç fıstık ayrı ayrı bulunur.",
-   "cover": {
-    "k": "p65",
-    "t": "img",
-    "w": 1200,
-    "h": 1600,
-    "tw": 696,
-    "th": 928,
-    "bg": "#454641"
-   },
-   "nPhoto": 4,
-   "nVideo": 0,
-   "items": [
-    {
-     "k": "p65",
-     "t": "img",
-     "w": 1200,
-     "h": 1600,
-     "tw": 696,
-     "th": 928,
-     "bg": "#454641",
-     "cap": "Çiğ iç fıstık — mor zarlı, yuvarlak tepside"
-    },
-    {
-     "k": "p51",
-     "t": "img",
-     "w": 1124,
-     "h": 1564,
-     "tw": 651,
-     "th": 906,
-     "bg": "#595536",
-     "cap": "Fıstık dokusunun yakın planı"
-    },
-    {
-     "k": "p52",
-     "t": "img",
-     "w": 1130,
-     "h": 1542,
-     "tw": 655,
-     "th": 894,
-     "bg": "#51432e",
-     "cap": "Karışık kuruyemiş tepsisi"
-    },
-    {
-     "k": "p64",
-     "t": "img",
-     "w": 1126,
-     "h": 1564,
-     "tw": 653,
-     "th": 907,
-     "bg": "#403b1f",
-     "cap": "Günlük kavrulmuş Antep fıstığı"
-    }
-   ]
-  },
-  {
    "id": "ozel",
    "name": "Özel Tatlılar",
    "kicker": "Mevsimlik ve özel gün",
    "desc": "Kaymaklı katmanlar, çikolata kaplı dilimler, hindistan cevizli kare kesim, mevsiminde çilekli tepsiler ve Ramazan'da güllaç. Vitrinin klasik baklava dışında kalan tarafı — her biri aynı tezgâhta, aynı malzemeyle yapılır.",
    "cover": {
-    "k": "p62",
+    "k": "p05",
     "t": "img",
-    "w": 1408,
-    "h": 1576,
-    "tw": 816,
-    "th": 913,
-    "bg": "#463a14"
+    "w": 1012,
+    "h": 1554,
+    "tw": 620,
+    "th": 952,
+    "bg": "#4e473e"
    },
    "nPhoto": 5,
    "nVideo": 0,
@@ -829,52 +777,52 @@ window.AU_MEDIA = {
     {
      "k": "p05",
      "t": "img",
-     "w": 790,
-     "h": 1352,
-     "tw": 458,
-     "th": 784,
-     "bg": "#4e4641",
-     "cap": "Hindistan cevizli & kakaolu kare dilim"
+     "w": 1012,
+     "h": 1554,
+     "tw": 620,
+     "th": 952,
+     "bg": "#4e473e",
+     "cap": "Sütlü kadayıf"
     },
     {
      "k": "p09",
      "t": "img",
-     "w": 1196,
-     "h": 846,
-     "tw": 693,
-     "th": 490,
-     "bg": "#5e514a",
-     "cap": "Kaymaklı soğuk sunum"
+     "w": 1280,
+     "h": 823,
+     "tw": 620,
+     "th": 399,
+     "bg": "#5e4d46",
+     "cap": "Sütlü kadayıf"
     },
     {
      "k": "p29",
      "t": "img",
-     "w": 1128,
-     "h": 1528,
-     "tw": 654,
-     "th": 886,
-     "bg": "#483a2a",
-     "cap": "Çikolatalı özel tepsi"
+     "w": 1142,
+     "h": 1377,
+     "tw": 620,
+     "th": 748,
+     "bg": "#3f2d1d",
+     "cap": "Soğuk baklava"
     },
     {
      "k": "p35",
      "t": "img",
-     "w": 1132,
-     "h": 1574,
-     "tw": 656,
-     "th": 912,
-     "bg": "#483824",
-     "cap": "Çikolata kaplı özel çeşit"
+     "w": 1115,
+     "h": 1410,
+     "tw": 620,
+     "th": 784,
+     "bg": "#423223",
+     "cap": "Soğuk baklava"
     },
     {
-     "k": "p62",
+     "k": "p20",
      "t": "img",
-     "w": 1408,
-     "h": 1576,
-     "tw": 816,
-     "th": 913,
-     "bg": "#463a14",
-     "cap": "Kaymaklı tepsi kesimi"
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#817653",
+     "cap": "Sütlaç"
     }
    ]
   },
@@ -886,54 +834,64 @@ window.AU_MEDIA = {
    "cover": {
     "k": "p03",
     "t": "img",
-    "w": 1388,
-    "h": 1586,
-    "tw": 805,
-    "th": 920,
-    "bg": "#55452c"
+    "w": 1240,
+    "h": 1269,
+    "tw": 620,
+    "th": 634,
+    "bg": "#544128"
    },
-   "nPhoto": 4,
+   "nPhoto": 5,
    "nVideo": 0,
    "items": [
     {
      "k": "p03",
      "t": "img",
-     "w": 1388,
-     "h": 1586,
-     "tw": 805,
-     "th": 920,
-     "bg": "#55452c",
+     "w": 1240,
+     "h": 1269,
+     "tw": 620,
+     "th": 634,
+     "bg": "#544128",
      "cap": "Vitrinde günün tepsileri"
     },
     {
      "k": "p15",
      "t": "img",
-     "w": 1392,
-     "h": 1574,
-     "tw": 807,
-     "th": 913,
-     "bg": "#534318",
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#544119",
      "cap": "Vitrin — çeşit çeşit dizilim"
     },
     {
      "k": "p21",
      "t": "img",
-     "w": 1266,
-     "h": 1592,
-     "tw": 734,
-     "th": 923,
-     "bg": "#493d16",
+     "w": 1121,
+     "h": 1403,
+     "tw": 620,
+     "th": 776,
+     "bg": "#4b3a16",
      "cap": "Ali Usta ürün koleksiyonu"
     },
     {
      "k": "p50",
      "t": "img",
-     "w": 1500,
-     "h": 1500,
-     "tw": 869,
-     "th": 869,
-     "bg": "#4d3e35",
-     "cap": "Ali Usta çekiliş duyurusu"
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#4a4441",
+     "cap": "Ali Usta'dan bir kare"
+    },
+    {
+     "k": "p18",
+     "t": "img",
+     "w": 1254,
+     "h": 1254,
+     "tw": 620,
+     "th": 620,
+     "bg": "#635841",
+     "cap": "Tezgâhta tepsi düzeni"
     }
    ]
   }
@@ -943,38 +901,29 @@ window.AU_MEDIA = {
    {
     "k": "p61",
     "t": "img",
-    "w": 1500,
-    "h": 1500,
-    "tw": 869,
-    "th": 869,
-    "bg": "#3b2e1a"
+    "w": 1254,
+    "h": 1254,
+    "tw": 620,
+    "th": 620,
+    "bg": "#553718"
    },
    {
-    "k": "p58",
+    "k": "p11",
     "t": "img",
-    "w": 1074,
-    "h": 1362,
-    "tw": 622,
-    "th": 789,
-    "bg": "#4b4124"
+    "w": 1082,
+    "h": 1453,
+    "tw": 620,
+    "th": 833,
+    "bg": "#483e30"
    },
    {
     "k": "p14",
     "t": "img",
-    "w": 1408,
-    "h": 1388,
-    "tw": 816,
-    "th": 804,
-    "bg": "#615639"
-   },
-   {
-    "k": "p20",
-    "t": "img",
-    "w": 1500,
-    "h": 1502,
-    "tw": 869,
-    "th": 870,
-    "bg": "#807e55"
+    "w": 1280,
+    "h": 1116,
+    "tw": 620,
+    "th": 541,
+    "bg": "#5b4c34"
    }
   ],
   "video": {
@@ -989,49 +938,49 @@ window.AU_MEDIA = {
   {
    "k": "p47",
    "t": "img",
-   "w": 1500,
-   "h": 1124,
-   "tw": 869,
-   "th": 651,
-   "bg": "#40372c"
+   "w": 1280,
+   "h": 955,
+   "tw": 620,
+   "th": 462,
+   "bg": "#493826"
   },
   {
    "k": "p59",
    "t": "img",
-   "w": 1408,
-   "h": 1568,
-   "tw": 816,
-   "th": 909,
-   "bg": "#54492a"
+   "w": 1149,
+   "h": 1369,
+   "tw": 620,
+   "th": 739,
+   "bg": "#524229"
   }
  ],
  "iletisim": [
   {
    "k": "p00",
    "t": "img",
-   "w": 782,
-   "h": 1562,
-   "tw": 453,
-   "th": 905,
-   "bg": "#433b2f"
+   "w": 968,
+   "h": 1625,
+   "tw": 620,
+   "th": 1041,
+   "bg": "#463b28"
   },
   {
    "k": "p23",
    "t": "img",
-   "w": 790,
-   "h": 1576,
-   "tw": 458,
-   "th": 914,
-   "bg": "#483415"
+   "w": 941,
+   "h": 1672,
+   "tw": 620,
+   "th": 1102,
+   "bg": "#4d3517"
   },
   {
    "k": "p39",
    "t": "img",
-   "w": 1412,
-   "h": 1180,
-   "tw": 818,
-   "th": 684,
-   "bg": "#484015"
+   "w": 1280,
+   "h": 942,
+   "tw": 620,
+   "th": 456,
+   "bg": "#4d3e16"
   }
  ]
 };

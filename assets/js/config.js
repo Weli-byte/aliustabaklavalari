@@ -56,39 +56,24 @@ window.AU_CONFIG = {
   /* Durum: 'tahmini' | 'onayli'
      'tahmini'  → tablo gösterilir, üstünde "piyasa ortalamasına göre tahmini" uyarısı çıkar
      'onayli'   → uyarı kaybolur                                                        */
-  fiyatDurum: 'tahmini',
-  fiyatGuncelleme: 'Ağustos 2026',
-  fiyatNotu: 'Fiyatlar mevsime, fıstık rekoltesine ve çeşit karışımına göre değişir. Kesin tutar için WhatsApp\'tan yazın.',
-  /* Tepsi sütunlarının bazı ürünlerde ne anlama geldiğini açıklar. */
-  fiyatBirimNotu: 'Çiğ iç fıstık ve dondurmada “yarım tepsi” 500 g, “tam tepsi” 1 kg paketi gösterir. Künefe ve güllaçta ise 4 ve 8 kişilik tepsidir; porsiyon fiyatı künefede 190 ₺, güllaçta 160 ₺, dondurmada top başına 70 ₺’dir.',
+  fiyatDurum: 'onayli',
+  fiyatGuncelleme: 'Eylül 2026',
+  fiyatNotu: '',
+  fiyatBirimNotu: '',
 
-  /* Kilo fiyatı ana ölçüdür. Yarım tepsi ≈ 1 kg, tam tepsi ≈ 2 kg;
-     tepsi alımında kilo fiyatına göre küçük bir avantaj uygulanır. */
+  /* Kilo fiyatı ve tepsi fiyatı ana ölçüdür. */
   fiyatlar: [
-    { urun: 'Normal Baklava',    kg: '1.150 ₺', yarim: '1.150 ₺', tam: '2.250 ₺' },
-    { urun: 'Kare Baklava',      kg: '1.200 ₺', yarim: '1.200 ₺', tam: '2.350 ₺' },
-    { urun: 'Yuvarlak Tepsi Baklava', kg: '1.200 ₺', yarim: '1.200 ₺', tam: '2.350 ₺' },
-    { urun: 'Midye Baklava',     kg: '1.300 ₺', yarim: '1.300 ₺', tam: '2.550 ₺' },
-    { urun: 'Kuru Baklava',      kg: '1.100 ₺', yarim: '1.100 ₺', tam: '2.150 ₺' },
-    { urun: 'Şöbiyet',           kg: '1.350 ₺', yarim: '1.350 ₺', tam: '2.650 ₺' },
-    { urun: 'Yaprak Şöbiyet',    kg: '1.400 ₺', yarim: '1.400 ₺', tam: '2.750 ₺' },
-    { urun: 'Dolama',            kg: '1.350 ₺', yarim: '1.350 ₺', tam: '2.650 ₺' },
-    { urun: 'Bülbül Yuvası',     kg: '1.300 ₺', yarim: '1.300 ₺', tam: '2.550 ₺' },
-    { urun: 'Special Karışım',   kg: '1.350 ₺', yarim: '1.350 ₺', tam: '2.650 ₺' },
-    { urun: 'Fıstık Ezmesi',     kg: '1.650 ₺', yarim: '1.650 ₺', tam: '3.250 ₺' },
-    /* Aşağıdaki dört üründe tepsi yerine paket/porsiyon ölçüsü geçerlidir;
-       tablonun altındaki not bunu açıklar.                                    */
-    { urun: 'Çiğ İç Fıstık',     kg: '1.450 ₺', yarim: '760 ₺',   tam: '1.450 ₺' },
-    { urun: 'Künefe (porsiyon)', kg: '780 ₺',   yarim: '720 ₺',   tam: '1.380 ₺' },
-    { urun: 'Güllaç (porsiyon)', kg: '720 ₺',   yarim: '680 ₺',   tam: '1.300 ₺' },
-    { urun: 'Dondurma (top)',    kg: '560 ₺',   yarim: '300 ₺',   tam: '560 ₺' }
+    { urun: 'Klasik Baklava', kg: '1.000 ₺', tam: '2.250 ₺', tepsi: '2.250 ₺' },
+    { urun: 'Havuç Dilimi',   kg: '1.000 ₺', tam: '2.250 ₺', tepsi: '2.250 ₺' },
+    { urun: 'Midye Baklava',  kg: '1.000 ₺', tam: '2.450 ₺', tepsi: '2.450 ₺' },
+    { urun: 'Şöbiyet',        kg: '1.000 ₺', tam: '2.250 ₺', tepsi: '2.250 ₺' },
+    { urun: 'Yeşil Şöbiyet',  kg: '1.800 ₺', tam: '3.850 ₺', tepsi: '3.850 ₺' },
+    { urun: 'Dolama',         kg: '1.800 ₺', tam: '3.850 ₺', tepsi: '3.850 ₺' },
+    { urun: 'Bülbül Yuvası',  kg: '1.000 ₺', tam: '2.250 ₺', tepsi: '2.250 ₺' },
+    { urun: 'Fıstıkzade',     detay: '2 Kişilik: 400 ₺ · 3 Kişilik: 600 ₺ · 4 Kişilik: 800 ₺ · 6 Kişilik: 1.000 ₺', kg: '400 ₺’den', tam: '1.000 ₺', porsiyon: true },
+    { urun: 'Dondurma',       detay: 'Sade: 500 ₺ · Karışık: 700 ₺ · Fıstıklı: 800 ₺', kg: '500 ₺', tam: '800 ₺', porsiyon: true }
   ],
-  gramajlar: [
-    { olcu: 'Kilo ile',    gram: '250 g’dan itibaren', kisi: '2–3 kişi / 250 g' },
-    { olcu: 'Yarım tepsi', gram: '≈ 1 kg',             kisi: '8–10 kişi' },
-    { olcu: 'Tam tepsi',   gram: '≈ 2 kg',             kisi: '16–20 kişi' },
-    { olcu: 'Büyük tepsi', gram: '≈ 4 kg',             kisi: '30–40 kişi' }
-  ],
+  gramajlar: [],
   kargoUcreti: '≈ 250 ₺ (5 kg’a kadar)',
   kargoSure:   '1–3 iş günü',
 
@@ -117,21 +102,32 @@ window.AU_CONFIG = {
   },
 
   /* ------------------------------------------------------------------
+     4a-1) "TATLI DÜNYASINA FOTOĞRAF/VİDEO EKLE" ŞİFRESİ
+     Yalnızca işletme sahibi/çalışanları eklesin diye. ⚠️ Bu gerçek bir
+     sunucu güvenliği DEĞİLDİR — site tamamen tarayıcıda çalıştığı için
+     kaynak kodu (bu dosya dahil) herkese açıktır. Sıradan ziyaretçiyi
+     durdurur, kaynak kodu okuyabilen birini durdurmaz.
+     Şifre burada TERS ÇEVRİLMİŞ tutulur (ilk bakışta görünmesin diye,
+     şifreleme değildir). Değiştirmek için: yeni şifreyi ters çevirip
+     yazın. Örn. şifre "ABC123" ise buraya "321CBA" yazılır.
+     Şu anki şifre: ALİUSTA2727
+     ------------------------------------------------------------------ */
+  catEkleSifreTers: '7272ATSUİLA',
+
+  /* ------------------------------------------------------------------
      4b) SEPET VE HESAPLAYICI
      ------------------------------------------------------------------ */
   sepet: {
     acik: true,
-    /* Gramaj çarpanları: kilo fiyatına göre. Tepside küçük avantaj vardır. */
+    /* Gramaj seçenekleri: yarım ve büyük tepsi kaldırıldı */
     olculer: [
       { ad: '250 g',       kg: 0.25, carpan: 0.27 },
       { ad: '500 g',       kg: 0.50, carpan: 0.52 },
       { ad: '1 kg',        kg: 1.00, carpan: 1.00 },
-      { ad: 'Yarım tepsi', kg: 1.00, carpan: 1.00 },
-      { ad: 'Tam tepsi',   kg: 2.00, carpan: 1.96 },
-      { ad: 'Büyük tepsi', kg: 4.00, carpan: 3.85 }
+      { ad: 'Tepsi',       kg: 2.00, carpan: 2.00 }
     ],
-    porsiyonlu: ['Künefe (porsiyon)', 'Güllaç (porsiyon)', 'Dondurma (top)'],
-    not: 'Tutarlar tahminidir; kesin fiyat WhatsApp’ta teyit edilir.'
+    porsiyonlu: ['Fıstıkzade', 'Dondurma'],
+    not: 'Kesin tutar WhatsApp’ta teyit edilir.'
   },
 
   /* ------------------------------------------------------------------
@@ -170,76 +166,22 @@ window.AU_CONFIG = {
      klasörüne koyup adını buraya yazın. Boşsa bölüm görünmez.
      ------------------------------------------------------------------ */
   vitrin: {
-    tarih: '',                  // örn: '2026-08-26'
-    gorsel: '',                 // örn: 'vitrin-2026-08-26.webp'
-    not: '',                    // örn: 'Bugün fıstık ezmesi ve şöbiyet bol.'
-    cesitler: []                // örn: ['Midye baklava','Şöbiyet','Künefe']
+    tarih: '2026-09-09',
+    gorsel: 'assets/img/p00.webp',
+    not: 'Fıstık ezmesi öğleden sonra tükenebilir, erken gelin.',
+    cesitler: [
+      'Dürüm Baklava', 'Midye Baklava', 'Yeşil Şöbiyet',
+      'Burma Kadayıf', 'Künefe', { ad: 'Fıstık Ezmesi', durum: 'az kaldı' }
+    ]
   },
-
-  /* ------------------------------------------------------------------
-     4f) INSTAGRAM STORY ARŞİVİ
-     Haftalık seçilmiş kareler. Görselleri assets/img/story/ klasörüne koyun.
-     ------------------------------------------------------------------ */
-  storyArsivi: [],              // { gorsel:'...', baslik:'...', tarih:'2026-08-20' }
-
-  /* ------------------------------------------------------------------
-     4g) BLOG / HİKÂYELER
-     ------------------------------------------------------------------ */
-  yazilar: [
-    { slug: 'kirk-kat-yufka',
-      baslik: 'Yufka neden kırk kat?',
-      ozet: 'Kırk sayısı gelenekten mi geliyor, fizikten mi? Katman sayısı baklavanın çıtırlığını nasıl belirliyor?',
-      tarih: '2026-08-10', okuma: 4, kapak: 'p45',
-      icerik: [
-        'Antep baklavasında “kırk kat” bir süsleme değil, ölçü. Yufka ne kadar inceyse o kadar çok kat açılabilir; her kat arasına giren tereyağı fırında buharlaşırken katmanları birbirinden ayırır. Çıtırlığın kaynağı bu ayrışmadır.',
-        'Ustanın oklava altında yufkayı ne kadar inceltebildiği, kaç kat açabileceğini belirler. Otuz katın altına düşen baklava hamurumsu kalır; elliyi geçen baklava ise dağılır. Kırk civarı, yüzyıllar içinde deneme yanılmayla bulunmuş denge noktasıdır.',
-        'Ali Usta’nın tezgâhında yufka elde açılır. Makineyle açılan yufkanın kalınlığı sabittir; el, hamurun o günkü nemine göre kalınlığı değiştirir. Aynı tarif, aynı un, farklı gün — farklı kalınlık. Ölçü değil, sezgi.'
-      ] },
-    { slug: 'antep-fistigi-neden-yesil',
-      baslik: 'Antep fıstığı neden bu kadar yeşil?',
-      ozet: 'Rengin sırrı toprakta mı, hasat zamanında mı? Gerçek Antep fıstığını taklidinden ayıran işaretler.',
-      tarih: '2026-07-28', okuma: 5, kapak: 'p64',
-      icerik: [
-        'Fıstığın yeşilliği klorofil ve antosiyanin dengesinden gelir. Hasat erken yapılırsa iç fıstık koyu yeşil, geç yapılırsa sarımsı olur. Baklavalık fıstık bilerek erken toplanır — hem daha yeşil hem daha aromatiktir.',
-        'Gaziantep’in fıstık kuşağı, kireçli toprak ve sert kışlarıyla bu rengi destekler. Aynı ağaç başka toprakta daha soluk ürün verir. Coğrafi işaret tescilinin sebebi de budur.',
-        'Boyalı fıstığı ayırt etmek kolay: avucunuzda ovun. Gerçek fıstık elinizi boyamaz, kırıldığında iç kısmı da dışı kadar yeşildir. Kokusu tereyağımsıdır; boyalı olan kokusuzdur.'
-      ] },
-    { slug: 'serbet-nasil-kaynatilir',
-      baslik: 'Şerbetin kıvamı nasıl tutturulur?',
-      ozet: 'Bir derece fark, baklavayı ya sünger yapar ya cam. Ustanın gözle ölçtüğü kıvam noktası.',
-      tarih: '2026-07-12', okuma: 4, kapak: 'p41',
-      icerik: [
-        'Şerbet, su ile şekerin belli bir yoğunluğa gelene kadar kaynatılmasıdır. Fazla kaynarsa şeker kristalleşir, baklava cam gibi sertleşir; az kaynarsa yufkaya işlemez, tepsi dibinde birikir.',
-        'Doğru kıvam, kaşıktan akarken ipliğe benzer bir iz bırakır. Termometre 104–106 °C gösterir ama usta termometreye bakmaz; kaşığın kenarındaki akışa bakar.',
-        'Bir kural daha var: sıcak baklavaya soğuk şerbet, soğuk baklavaya sıcak şerbet. İkisi de sıcak olursa yufka yumuşar, ikisi de soğuk olursa şerbet emilmez.'
-      ] },
-    { slug: 'baklava-nasil-saklanir',
-      baslik: 'Baklava buzdolabında saklanır mı?',
-      ozet: 'En sık sorulan soru ve en sık yapılan hata. Çeşide göre doğru saklama yöntemi.',
-      tarih: '2026-06-30', okuma: 3, kapak: 'p24',
-      icerik: [
-        'Kısa cevap: sade fıstıklı baklava buzdolabına girmez. Soğuk, tereyağını katılaştırır ve yufkayı sertleştirir. Oda sıcaklığında, ağzı kapalı bir kutuda 3–4 gün tazeliğini korur.',
-        'İstisna kaymaklı çeşitlerdir. Şöbiyet, yaprak şöbiyet ve kaymaklı sunumlar buzdolabında saklanmalı ve iki gün içinde tüketilmelidir — kaymak bozulur.',
-        'Kuru baklava en dayanıklısıdır: az şerbetli olduğu için oda sıcaklığında 10–15 gün durur. Kargoya bu yüzden kuru baklava tercih edilir.'
-      ] },
-    { slug: 'kunefe-mi-baklava-mi',
-      baslik: 'Künefe mi, baklava mı?',
-      ozet: 'İki tatlının hangi durumda birbirinden daha iyi olduğuna dair dürüst bir kılavuz.',
-      tarih: '2026-06-14', okuma: 3, kapak: 'p37',
-      icerik: [
-        'Künefe sıcak yenir, baklava beklemeyi kaldırır. Misafirlik, ikram ve hediye için baklava; oturup yemek için künefe.',
-        'Künefe kargoya gitmez — tel kadayıf ve peynir soğuyunca dokusunu kaybeder. Uzağa gönderilecekse baklava, özellikle kuru baklava tercih edilmeli.',
-        'Kalabalık sofralarda ikisini birden koymak en iyisidir: baklava tepside bekler, künefe sırayla tezgâhtan gelir.'
-      ] }
-  ],
 
   /* ------------------------------------------------------------------
      4h) KARŞILAŞTIRMA TABLOSU
      ------------------------------------------------------------------ */
   karsilastirma: [
-    { konu: 'Yağ',            biz: 'Gerçek tereyağı',              onlar: 'Margarin / karışım yağ' },
+    { konu: 'Yağ',            biz: 'Sade yağ',                     onlar: 'Margarin / karışım yağ' },
     { konu: 'Tatlandırıcı',   biz: 'Doğal pancar şekeri',          onlar: 'Glikoz şurubu' },
-    { konu: 'Fıstık',         biz: 'Aynı sabah kavrulmuş Antep',   onlar: 'Aylar önce kavrulmuş, boyalı olabilir' },
+    { konu: 'Fıstık',         biz: 'Doğal Antep fıstığı',          onlar: 'Aylar önce kavrulmuş, boyalı olabilir' },
     { konu: 'Yufka',          biz: 'Elde açılmış, kırk kat',       onlar: 'Makine yufkası, sabit kalınlık' },
     { konu: 'Koruyucu',       biz: 'Yok',                          onlar: 'Raf ömrü uzatıcı katkı' },
     { konu: 'Üretim',         biz: 'Her sabah, o günlük',          onlar: 'Haftalık parti üretim' },
@@ -354,7 +296,7 @@ window.AU_CONFIG = {
   ],
   /* Ziyaretçi değerlendirmelerinde en çok tekrar eden çeşitler. */
   oneCikan: {
-    urunler: ['Kuru Baklava', 'Dondurma', 'Künefe'],
+    urunler: ['Kuru Baklava', 'Dondurma', 'Şöbiyet'],
     kisiBasi: '₺100–200',
     kaynak: ''
   },
@@ -376,39 +318,28 @@ window.AU_CONFIG = {
      Ürün adları "Ürünler" bölümündeki adlarla birebir aynı olmalı.
      ------------------------------------------------------------------ */
   urunDetay: {
+    'Klasik Baklava':   { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 dilim' },
     'Normal Baklava':   { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 dilim' },
+    'Dürüm Baklava':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3–4 dilim' },
     'Kare Baklava':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3–4 dilim' },
+    'Hasır Künefe':     { icindekiler: 'Tel kadayıf, sade yağ / tereyağı, tuzsuz künefe peyniri, Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '1 tepsi ≈ 2–3 kişilik' },
     'Yuvarlak Tepsi Baklava': { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 2–3 dilim' },
     'Midye Baklava':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 adet' },
+    'Burma Kadayıf':    { icindekiler: 'Tel kadayıf, sade yağ / tereyağı, bol Antep fıstığı, pancar şekeri şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '7–10 gün', porsiyon: '100 g ≈ 2–3 adet' },
     'Kuru Baklava':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kuru yerde', raf: '10–15 gün — kargoya en uygunu', porsiyon: '100 g ≈ 4 dilim' },
     'Şöbiyet':          { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün — kaymaklı olduğu için', porsiyon: '100 g ≈ 3 adet' },
+    'Yeşil Şöbiyet':    { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün', porsiyon: '100 g ≈ 3 adet' },
     'Yaprak Şöbiyet':   { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün', porsiyon: '100 g ≈ 3 adet' },
     'Dolama':           { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3 adet' },
+    'Saray Dolması':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı (%60+), pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3 adet' },
     'Fıstık Ezmesi':          { icindekiler: 'Antep fıstığı, pancar şekeri', alerjen: ['Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '10–15 gün', porsiyon: '100 g ≈ 4–5 dilim' },
+    'Antep Özel':             { icindekiler: 'Un, su, tereyağı, bol Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4 dilim' },
     'Bülbül Yuvası':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4 adet' },
+    'Havuç Dilimi':     { icindekiler: 'Un, su, tereyağı, bol Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 2–3 dilim' },
     'Special Karışım':  { icindekiler: 'Tepsideki bütün çeşitlerin karışımı', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Kaymaklı çeşit varsa buzdolabında', raf: '2–4 gün', porsiyon: '1 kg ≈ 8–10 kişi' },
+    'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': { icindekiler: 'Tel kadayıf, sade yağ, tuzsuz künefe peyniri, bol Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '2, 3, 4 ve 6 kişilik' },
+    'Fıstıkzade Künefe': { icindekiler: 'Tel kadayıf, sade yağ, tuzsuz künefe peyniri, bol Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '2, 3, 4 ve 6 kişilik' },
+    'Fıstıkzade':        { icindekiler: 'Tel kadayıf, sade yağ, tuzsuz künefe peyniri, bol Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '2, 3, 4 ve 6 kişilik' },
     'Çiğ İç Fıstık': { icindekiler: 'Antep fıstığı (çiğ iç, mor zarlı)', alerjen: ['Sert kabuklu yemiş (fıstık)'], saklama: 'Ağzı kapalı kavanozda, serin ve kuru yerde', raf: '1 ay', porsiyon: '100 g ≈ 2 avuç' }
-  },
-
-  /* ------------------------------------------------------------------
-     12) SIKÇA SORULANLAR
-     ------------------------------------------------------------------ */
-  sss: [
-    { s: 'Kargo kaç günde gelir?',
-      c: 'Siparişiniz kargoya verileceği sabah üretilir. Teslimat Türkiye genelinde 1–3 iş günü sürer. Yola çıkacak tepsiler az şerbetli hazırlanır, sarsıntıya dayanıklı kutuya konur.' },
-    { s: 'Baklava kaç gün dayanır?',
-      c: 'Kuru baklava oda sıcaklığında 10–15 gün, normal fıstıklı baklava 3–4 gün tazeliğini korur. Şöbiyet ve kaymaklı çeşitler buzdolabında 2 gün içinde tüketilmelidir.' },
-    { s: 'Koruyucu madde kullanıyor musunuz?',
-      c: 'Hayır. Şerbet doğal pancar şekerinden kaynatılır; raf ömrünü uzatan hiçbir katkı, koruyucu veya glikoz şurubu kullanılmaz. Bu yüzden baklavamız günlük üretilir.' },
-    { s: 'Margarin mi tereyağı mı kullanıyorsunuz?',
-      c: 'Yalnızca gerçek tereyağı. Margarin, hidrojenize yağ veya karışım yağ kullanılmaz.' },
-    { s: 'Düğün ve toplu sipariş alıyor musunuz?',
-      c: 'Evet. Düğün, nişan, doğum günü, bayram ve kurumsal ikram siparişleri alınır. Tepsi ölçüsü, çeşit dağılımı ve teslim saati siparişe göre ayarlanır. Yoğun günler için birkaç gün önceden haber vermek yeterlidir.' },
-    { s: 'Rezervasyon yapabilir miyim?',
-      c: 'Evet. Açık hava oturma bölümü ve iç salon için rezervasyon alıyoruz. Kalabalık gruplar için en az bir gün önceden haber vermenizi rica ederiz. Rezervasyon formu doğrudan WhatsApp hattımıza düşer.' },
-    { s: 'Alerjen bilgisi var mı?',
-      c: 'Bütün ürünlerimiz Antep fıstığı (sert kabuklu yemiş), gluten ve süt ürünü içerir. Aynı tezgâhta üretildikleri için çapraz bulaşma ihtimali vardır. Ürün kartlarındaki "Detay" bağlantısından her ürünün alerjen listesine ulaşabilirsiniz.' },
-    { s: 'Açık hava oturma bölümü var mı?',
-      c: 'Evet. Baklavanızı dükkânda, çayla birlikte açık havada yiyebilirsiniz.' }
-  ]
+  }
 };

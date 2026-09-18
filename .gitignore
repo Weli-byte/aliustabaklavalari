@@ -24,3 +24,6 @@ desktop.ini
 
 # Tatli adlarini dogrulamak icin uretilen kontak sayfalari
 _work/yeni_kare/
+
+# Playwright test ekran görüntüleri (geliştirme sırasında geçici)
+.playwright-mcp/

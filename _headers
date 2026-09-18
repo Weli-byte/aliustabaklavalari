@@ -1,0 +1,16 @@
+# Güvenlik HTTP başlıkları — Netlify ve Cloudflare Pages bu dosyayı
+# otomatik okur (kök dizinde durması yeterli, ekstra ayar gerekmez).
+# Vercel kullanılacaksa vercel.json aynı işi görür.
+#
+# Bu site tamamen statik (sunucu/veritabanı yok), bu yüzden klasik
+# SQL injection / sunucu ele geçirme riski yok. Bu başlıklar; siteyi
+# başka bir sayfaya gömüp tıklama çaldırma (clickjacking), tarayıcının
+# dosya türünü yanlış tahmin etmesi ve gereksiz konum/kamera/mikrofon
+# izni istekleri gibi tarayıcı taraflı riskleri kapatır.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'

@@ -54,12 +54,30 @@
     return Math.round(n).toLocaleString('tr-TR') + ' ₺';
   }
 
+  var URUN_ALIAS = {
+    'Normal Baklava': 'Klasik Baklava',
+    'Kare Baklava': 'Klasik Baklava',
+    'Dürüm Baklava': 'Klasik Baklava',
+    'Burma Kadayıf': 'Klasik Baklava',
+    'Yuvarlak Tepsi Baklava': 'Klasik Baklava',
+    'Kuru Baklava': 'Klasik Baklava',
+    'Special Karışım': 'Klasik Baklava',
+    'Özel Kare': 'Klasik Baklava',
+    'Yaprak Şöbiyet': 'Yeşil Şöbiyet',
+    'Saray Dolması': 'Dolama',
+    'Antep Özel': 'Klasik Baklava',
+    'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade',
+    'Fıstıkzade Künefe': 'Fıstıkzade'
+  };
+
   function fiyatSatiri(urun) {
-    return (C.fiyatlar || []).filter(function (f) { return f.urun === urun; })[0] || null;
+    var u = URUN_ALIAS[urun] || urun;
+    return (C.fiyatlar || []).filter(function (f) { return f.urun === u || f.urun === urun; })[0] || null;
   }
   function fiyatIndex(urun) {
     var l = C.fiyatlar || [];
-    for (var i = 0; i < l.length; i++) if (l[i].urun === urun) return i;
+    var u = URUN_ALIAS[urun] || urun;
+    for (var i = 0; i < l.length; i++) if (l[i].urun === urun || l[i].urun === u) return i;
     return -1;
   }
   function olcuIndex(ad) {
@@ -79,6 +97,14 @@
     return (C.sepet && C.sepet.porsiyonlu || []).indexOf(urun) > -1;
   }
 
+  /** "Tepsi" ölçüsünün tutarı: kg fiyatının sabit katı DEĞİL, ürünün
+      fiyat tablosundaki kendi tepsi/tam değeri — ürünler arası oran
+      (2,25–2,45 arası) sabit olmadığı için kg×çarpan yanlış sonuç verirdi. */
+  function tepsiFiyati(f) {
+    var v = f.tepsi || f.tam;
+    return v ? paraOku(v) : null;
+  }
+
   /** Tek satırın tutarı ve ağırlığı. */
   function satirHesap(x) {
     var f = (C.fiyatlar || [])[x.ui];
@@ -87,6 +113,10 @@
       return { tutar: paraOku(f.tam) * x.adet, kg: 0.25 * x.adet };
     }
     var olcu = ((C.sepet && C.sepet.olculer) || [])[x.oi] || { kg: 1, carpan: 1 };
+    if (olcu.ad === 'Tepsi') {
+      var tf = tepsiFiyati(f);
+      if (tf != null) return { tutar: tf * x.adet, kg: olcu.kg * x.adet };
+    }
     return { tutar: paraOku(f.kg) * olcu.carpan * x.adet, kg: olcu.kg * x.adet };
   }
 
@@ -615,19 +645,19 @@
   function oner(c) {
     if (c.teslim === 'kargo') {
       return c.kisi === 'cok'
-        ? { u: 'Kuru Baklava', o: 'Büyük tepsi', n: 'Kargoya en dayanıklı çeşit; az şerbetli olduğu için yolda dağılmaz.' }
-        : { u: 'Kuru Baklava', o: 'Tam tepsi', n: 'Yola çıkacak sipariş için en güvenli seçim — 10–15 gün tazeliğini korur.' };
+        ? { u: 'Klasik Baklava', o: 'Tepsi', n: 'Kargoya en dayanıklı çeşit; az şerbetli olduğu için yolda dağılmaz.' }
+        : { u: 'Klasik Baklava', o: '1 kg', n: 'Yola çıkacak sipariş için en güvenli seçim — 10–15 gün tazeliğini korur.' };
     }
     if (c.kaymak === 'evet') {
       return c.kisi === 'az'
         ? { u: 'Şöbiyet', o: '500 g', n: 'Kaymak ve fıstığın buluştuğu klasik. Buzdolabında iki gün içinde tüketin.' }
-        : { u: 'Yaprak Şöbiyet', o: 'Tam tepsi', n: 'Katmanları yaprak gibi ayrılır, kalabalık sofrada göz doldurur.' };
+        : { u: 'Yeşil Şöbiyet', o: 'Tepsi', n: 'Katmanları yaprak gibi ayrılır, kalabalık sofrada göz doldurur.' };
     }
     if (c.kisi === 'cok') {
-      return { u: 'Special Karışım', o: 'Büyük tepsi', n: 'Tek tepside bütün çeşitler — herkesin sevdiği bir şey çıkar.' };
+      return { u: 'Klasik Baklava', o: 'Tepsi', n: 'Tek tepside zengin ikram — herkesin sevdiği lezzet.' };
     }
     if (c.kisi === 'orta') {
-      return { u: 'Midye Baklava', o: 'Tam tepsi', n: 'Fıstık oranı en yüksek çeşitlerden; ikramda en çok beğenilen.' };
+      return { u: 'Midye Baklava', o: 'Tepsi', n: 'Fıstık oranı en yüksek çeşitlerden; ikramda en çok beğenilen.' };
     }
     return { u: 'Havuç Dilimi', o: '500 g', n: 'Geniş tabanlı dilim, her lokmada artan fıstık. Az kişi için ideal.' };
   }
@@ -660,7 +690,10 @@
               '<p class="eyebrow eyebrow--plain">' + esc(T('Önerimiz')) + '</p>' +
               '<h3>' + esc(r.u) + '</h3>' +
               '<p class="wz-why">' + esc(T(r.n)) + '</p>' +
-              (fs ? '<p class="wz-price">' + esc(r.o) + ' · <bdi>' + paraYaz(paraOku(fs.kg) * ((C.sepet.olculer || []).filter(function (o) { return o.ad === r.o; })[0] || { carpan: 1 }).carpan) + '</bdi></p>' : '') +
+              (fs ? '<p class="wz-price">' + esc(r.o) + ' · <bdi>' + paraYaz(
+                r.o === 'Tepsi' ? (tepsiFiyati(fs) || 0)
+                  : paraOku(fs.kg) * ((C.sepet.olculer || []).filter(function (o) { return o.ad === r.o; })[0] || { carpan: 1 }).carpan
+              ) + '</bdi></p>' : '') +
               '<div class="wz-act">' +
                 '<button class="btn btn--solid" type="button" data-add="' + esc(r.u) + '"><span>' + esc(T('Sepete ekle')) + '</span></button>' +
                 '<button class="btn" type="button" id="wzAgain"><span>' + esc(T('Baştan sor')) + '</span></button>' +

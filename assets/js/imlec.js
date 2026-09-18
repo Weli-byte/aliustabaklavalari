@@ -37,7 +37,6 @@
     ['[data-add]',                                  'SEPETE'],
     ['[data-detail]',                               'DETAY'],
     ['[data-cmp]',                                  'KARŞILAŞTIR'],
-    ['[data-yazi]',                                 'OKU'],
     ['a[href^="tel:"]',                             'ARA'],
     ['[href*="wa.me"], [href*="api.whatsapp"], .soc--wa, .wa-fab, .mini--wa, .btn--wa, #cartSend', 'YAZ'],
     ['.wz-opt',                                     'SEÇ'],

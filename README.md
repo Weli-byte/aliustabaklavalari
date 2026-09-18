@@ -188,6 +188,7 @@ bölüm siteye **hiç çıkmaz** — yer tutucuyla dolmaz.
 | 16 | **AVIF** | Bütün görseller `<picture>` ile | `_work/build_avif.py` |
 | 17 | **Supabase** | Yorumlar anında yayınlanır | `supabase` |
 | 18 | **E-posta bülteni** | Alt bilgi (footer) | `bulten` |
+| 19 | **İşletme paneli** | Ali Usta / çalışanlar foto-video yayınlar | `panel.html` (bkz. bölüm 12) |
 
 ### Sepet nasıl çalışıyor
 
@@ -802,6 +803,71 @@ yaptığınızda yorum sitede görünür. RLS politikası: `anon` rolüne `inser
 
 Üçü aynı anda açık olabilir; site hepsini birleştirir ve tekrarları eler.
 
+### İşletme paneli (`panel.html`) — Ali Usta ve çalışanlar kendi fotoğraf/videosunu yayınlasın
+
+Aynı Supabase projesini kullanır (yukarıdaki `url`/`anonKey` yeterli, ikinci bir
+hesap gerekmez). `panel.html` sitenin menüsünde **hiçbir yere bağlı değildir** —
+şifre yok, linki bilen açar. Kurulum:
+
+1. Supabase panelinde **Table editor** → yeni tablo: `hikayeler`
+
+   | sütun | tip | not |
+   |---|---|---|
+   | `id` | int8 | otomatik (primary key, identity) |
+   | `baslik` | text | |
+   | `medya_url` | text | |
+   | `medya_tip` | text | `'image'` ya da `'video'` |
+   | `medya_url2` | text | boş olabilir |
+   | `olusturma` | timestamptz | varsayılan `now()` |
+
+   RLS açın, `anon` rolüne şu policy'i ekleyin:
+   - **INSERT**: `true` (herkes yayınlayabilir — panelde şifre olmadığı için)
+   - **SELECT**: `true` (site herkese açık okur)
+
+2. **Storage** → yeni bucket: `hikaye-medya`, **Public bucket** işaretli.
+   Bucket policy'nde `anon` rolüne:
+   - **INSERT** (upload): `true`
+   - **SELECT** (okuma): `true`
+
+3. Kaydedin. `panel.html`'i açın (`https://siteniz/panel.html`), dosya seçip
+   ürün adını yazıp "Yayınla" deyin — kayıt aynı anda ana sayfadaki
+   "Tezgâhtan haftalık kareler" (Story Arşivi) bölümünde görünür.
+
+### "Türüne göre, tek tek" (Tatlı dünyası) — anasayfanın içinde fotoğraf/video ekleme
+
+Bu, `panel.html`'den ayrı bir özellik: ayrı sayfası yok, doğrudan anasayfada
+"Türüne göre, tek tek" bölümünün içinde. Ziyaretçi bir türe basıp ızgarayı
+açtığında, üstte **"Fotoğraf/video ekle"** düğmesi çıkar; tıklayınca küçük bir
+form açılır (dosya seç, kısa açıklama yaz, "Ekle" de) — kayıt o anda o türün
+ızgarasına ve sayaçlarına işler, sayfa yenilenmeden.
+
+Kurulum: Supabase panelinde **Table editor** → yeni tablo: `tur_medya`
+
+| sütun | tip | not |
+|---|---|---|
+| `id` | int8 | otomatik (primary key, identity) |
+| `tur` | text | `baklava` · `kunefe` · `dondurma` · `fistik` · `ozel` · `dukkan` |
+| `baslik` | text | |
+| `medya_url` | text | |
+| `medya_tip` | text | `'image'` ya da `'video'` |
+| `olusturma` | timestamptz | varsayılan `now()` |
+
+RLS açın, `anon` rolüne `hikayeler` tablosundaki aynı iki policy'i ekleyin
+(**INSERT**: `true`, **SELECT**: `true`). Ayrı bir Storage bucket'ı gerekmez,
+aynı `hikaye-medya` bucket'ı kullanılır.
+
+**Önemli fark:** `panel.html`'in linki gizli (şifre yok ama linki bilmeyen
+bulamaz). Bu özellik anasayfanın içinde olduğu için **herkes** — siteye giren
+her ziyaretçi — bir türe fotoğraf/video ekleyebilir; gizli bir link değil.
+Supabase kurulu değilse "Fotoğraf/video ekle" düğmesi hiç görünmez, o yüzden
+riski istemiyorsanız `tur_medya`'yı kurmayın.
+
+Panel linkini yalnızca Ali Usta ve çalışanlarla paylaşın (SMS/WhatsApp'tan
+gönderin) — sitede hiçbir düğme ona bağlanmaz, bulmak için linki bilmek gerekir.
+Şifre olmadığı için biri linki ele geçirirse yayın yapabilir; büyük bir risk
+değildir (yalnızca yeni bir kart eklenir, mevcut hiçbir şey silinmez/değişmez)
+ama linki gereksiz yere paylaşmayın.
+
 ---
 
 ## 13. Bakım
@@ -815,7 +881,7 @@ Başka hiçbir şey gerekmez.
 | Ne | Nerede |
 |---|---|
 | Bugün vitrinde | `config.js` → `vitrin` |
-| Story arşivi | `config.js` → `storyArsivi` (görseller `assets/img/story/`) |
+| Story arşivi | `config.js` → `storyArsivi` (görseller `assets/img/story/`) — ya da `panel.html`'den canlı ekleyin |
 | Sipariş takibi | `config.js` → `takip.siparisler` |
 | Kargo tarifesi | `config.js` → `kargoTarife` |
 | Hediye paketi | `config.js` → `hediye.secenekler` |
