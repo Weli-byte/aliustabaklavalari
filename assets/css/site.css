@@ -1484,6 +1484,13 @@ body.motion-off .season-dot{ animation:none; }
 /* ==========================================================
    DİL SEÇİCİ
    ========================================================== */
+.nav-menu-link{
+  padding:.5rem .78rem;
+  font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--cream-mute); text-decoration:none; border:1px solid var(--line-soft);
+  transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.nav-menu-link:hover{ color:var(--gold-lit); border-color:var(--line); }
 .langs{ display:flex; border:1px solid var(--line-soft); }
 .lang{
   padding:.5rem .62rem;
@@ -2105,6 +2112,7 @@ picture{ display:contents; }
 @media (max-width:600px){
   .nav-tools{ gap:.3rem; }
   .lang{ padding:.26rem .44rem; font-size:.68rem; }
+  .nav-menu-link{ padding:.26rem .44rem; font-size:.62rem; }
   #navPhone{ padding:.6rem; }
   #navPhone .ic-tel{ display:block; }
   /* metin ekrandan kalkar ama erişilebilir adda kalır */
