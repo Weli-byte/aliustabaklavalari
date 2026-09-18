@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=44',
-    srcSmall='assets/video/hero-sm.mp4?v=44',
-    poster='assets/video/poster/hero.webp?v=44',
+    src='assets/video/hero.mp4?v=45',
+    srcSmall='assets/video/hero-sm.mp4?v=45',
+    poster='assets/video/poster/hero.webp?v=45',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
@@ -51,7 +51,7 @@ TEZGAH_CAP = {
  'v01':'Ustanın elinden dondurma yapımı',
  'v03':'Vitrin dizilişi ve günlük kesim',
  'v06':'Şerbetin ocakta kıvama gelmesi',
- 'v09':'Karışık fıstıkzade künefe yapımı',
+ 'v09':'',
  'v11':'Dilimleme — bıçak açısı ustalık işi',
 }
 
@@ -66,14 +66,14 @@ CATS = [
   kapak=P(13),
   fotograflar=[P(13), P(40), P(41), P(43), P(25), P(10)],
   videolar=[V(4), V(7), V(8), V(13),
-            V(17), V(18), V(19), V(20), V(21), V(22), V(23), V(24)]),
+            V(17), V(19), V(20), V(23), V(24)]),
 
  dict(id="kunefe", ad="Künefe", kicik="Sıcak servis",
   ozet="Tel kadayıf iki kat hâlinde bakır tepsiye yayılır, arasına tuzsuz tel peynir konur, "
        "ocakta iki yüzü de kızarana kadar çevrilir. Sıcakken şerbetlenir, üstüne fıstık, "
        "yanına kaymak. Künefe beklemez — tezgâhtan tabağa gider, peynir uzarken yenir.",
   kapak=P(37),
-  fotograflar=[P(37), P(56), P(57), P(62), P(24), P(30), P(46), P(38), P(54),
+  fotograflar=[P(37), P(56), P(57), P(62), P(24), P(30), P(46), P(38),
                P(65), P(51), P(52), P(64), P(58)],
   videolar=[V(2), V(12), V(14), V(15)]),
 
@@ -82,7 +82,7 @@ CATS = [
        "girer. Yazın en çok istenen çeşit budur: sıcak baklavanın yanında soğuk bir kaşık. "
        "Fıstık ezmesi ayrıca tepsiyle de satılır, kesilip porsiyon hâlinde servis edilir.",
   kapak=P(34),
-  fotograflar=[P(34), P(36), P(16)],
+  fotograflar=[P(34), P(36)],
   videolar=[V(10)]),
 
  dict(id="ozel", ad="Özel Tatlılar", kicik="Mevsimlik ve özel gün",
@@ -104,28 +104,26 @@ CATS = [
 
 CAP = {
  # baklava
- 'p13':'Klasik Baklava','p40':'Fıstık Sarma',
- 'p41':'Altın Rengi Tepsi','p43':'Midye Baklava',
- 'p25':'Dolama, tepside dizilim','p10':'Bülbül yuvası, yakın çekim',
+ 'p13':'Bülbül Yuvası','p40':'Dolama',
+ 'p41':'Altın Rengi Tepsi','p43':'Yeşil Midye',
+ 'p25':'Şöbiyet','p10':'Midye',
  'v04':'','v07':'',
  'v08':'','v13':'',
- 'v17':'','v18':'',
+ 'v17':'Antep Özel',
  'v19':'','v20':'',
- 'v21':'','v22':'',
  'v23':'','v24':'',
  # kunefe
  'p37':'Künefe — peynirin uzayışı','p56':'Künefe, fıstıkla taçlandırılmış',
  'p57':'Künefe — fıstık tepesi',
  'p24':'Fıstıklı burma kadayıf','p30':'Fıstıklı kadayıf','p46':'Cevizli künefe',
- 'p38':'Billuriye','p54':'Billuriye',
+ 'p38':'Billuriye',
  'v02':'Ocakta künefe — bakır tepside çevirme','v12':'Künefe ve kaymak servisi',
  'v14':'Künefenin tabakta açılışı','v15':'Tel kadayıfın çekişi',
  'p65':'Fıstıkzade Künefe','p51':'Hasır kadayıf',
  'p52':'Dördü bir arada','p64':'Yarı fıstıkzade yarı billuriye',
  'p58':'Fıstıklı künefe ve meyve tabağı sunumu',
  # dondurma & fistik ezmesi
- 'p34':'Fıstık ezmesi ve dondurmalı sunum','p36':'Fıstık ezmesi dolama, içi kaymaklı',
- 'p16':'Fıstık ezmesi, yakın çekim',
+ 'p34':'','p36':'',
  'v10':'Fıstık ezmeli tepsinin kesimi',
  # ozel
  'p05':'Sütlü kadayıf','p09':'Sütlü kadayıf',

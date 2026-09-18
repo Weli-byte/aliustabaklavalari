@@ -16,7 +16,6 @@
 | `p13` | ChatGPT Image 9 Eyl 2026 11_09_29.png | Tatlı dünyası · Baklava |
 | `p14` | ChatGPT Image 9 Eyl 2026 11_13_55.png | Özel Sipariş |
 | `p15` | ChatGPT Image 9 Eyl 2026 11_15_27.png | Tatlı dünyası · Dükkân & Vitrin |
-| `p16` | ChatGPT Image 9 Eyl 2026 11_16_37.png | Tatlı dünyası · Dondurma & Fıstık Ezmesi |
 | `p18` | ChatGPT Image 9 Eyl 2026 11_19_48.png | Tatlı dünyası · Dükkân & Vitrin |
 | `p19` | Ekran görüntüsü 2026-08-25 133330.png | Miras |
 | `p20` | ChatGPT Image 9 Eyl 2026 11_21_54.png | Tatlı dünyası · Özel Tatlılar |
@@ -50,7 +49,6 @@
 | `p51` | ChatGPT Image 9 Eyl 2026 14_05_16.png | Tatlı dünyası · Künefe |
 | `p52` | ChatGPT Image 9 Eyl 2026 14_07_00.png | Tatlı dünyası · Künefe |
 | `p53` | ChatGPT Image 9 Eyl 2026 14_08_14.png | Ürünler rayı |
-| `p54` | ChatGPT Image 9 Eyl 2026 14_09_24.png | Tatlı dünyası · Künefe |
 | `p55` | ChatGPT Image 9 Eyl 2026 14_10_37.png | Ürünler rayı |
 | `p56` | ChatGPT Image 9 Eyl 2026 14_12_04.png | Tatlı dünyası · Künefe |
 | `p57` | ChatGPT Image 9 Eyl 2026 14_14_36.png | Tatlı dünyası · Künefe |
@@ -81,10 +79,7 @@
 | `v15` | Ekran Kaydı 2026-08-25 135230.mp4 | Tatlı dünyası · Künefe |
 | `v16` | Ekran Kaydı 2026-08-25 135419.mp4 | Özel Sipariş — video |
 | `v17` | WhatsApp Video 2026-08-29 at 15.43.27.mp4 | Tatlı dünyası · Baklava |
-| `v18` | WhatsApp Video 2026-08-29 at 15.43.29.mp4 | Tatlı dünyası · Baklava |
 | `v19` | WhatsApp Video 2026-08-29 at 15.43.41.mp4 | Tatlı dünyası · Baklava |
 | `v20` | WhatsApp Video 2026-08-29 at 15.43.43.mp4 | Tatlı dünyası · Baklava |
-| `v21` | WhatsApp Video 2026-08-29 at 15.43.45.mp4 | Tatlı dünyası · Baklava |
-| `v22` | WhatsApp Video 2026-08-29 at 15.43.47.mp4 | Tatlı dünyası · Baklava |
 | `v23` | WhatsApp Video 2026-08-29 at 15.43.48.mp4 | Tatlı dünyası · Baklava |
 | `v24` | WhatsApp Video 2026-08-29 at 15.43.51.mp4 | Tatlı dünyası · Baklava |

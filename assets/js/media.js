@@ -1,10 +1,10 @@
 /* Ali Usta Baklavaları — medya haritası. Otomatik üretildi: _work/gen_media.py
-   62 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
+   60 fotoğraf + 22 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=44",
-  "srcSmall": "assets/video/hero-sm.mp4?v=44",
-  "poster": "assets/video/poster/hero.webp?v=44",
+  "src": "assets/video/hero.mp4?v=45",
+  "srcSmall": "assets/video/hero-sm.mp4?v=45",
+  "poster": "assets/video/poster/hero.webp?v=45",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
@@ -386,7 +386,7 @@ window.AU_MEDIA = {
    "w": 820,
    "h": 1448,
    "dur": 18.0,
-   "cap": "Karışık fıstıkzade künefe yapımı"
+   "cap": ""
   },
   {
    "k": "v11",
@@ -413,7 +413,7 @@ window.AU_MEDIA = {
     "bg": "#503e1d"
    },
    "nPhoto": 6,
-   "nVideo": 12,
+   "nVideo": 9,
    "items": [
     {
      "k": "p13",
@@ -423,7 +423,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 1094,
      "bg": "#503e1d",
-     "cap": "Klasik Baklava"
+     "cap": "Bülbül Yuvası"
     },
     {
      "k": "p40",
@@ -433,7 +433,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 461,
      "bg": "#3d3511",
-     "cap": "Fıstık Sarma"
+     "cap": "Dolama"
     },
     {
      "k": "p41",
@@ -453,7 +453,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 458,
      "bg": "#4f421d",
-     "cap": "Midye Baklava"
+     "cap": "Yeşil Midye"
     },
     {
      "k": "p25",
@@ -463,7 +463,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 760,
      "bg": "#473714",
-     "cap": "Dolama, tepside dizilim"
+     "cap": "Şöbiyet"
     },
     {
      "k": "p10",
@@ -473,7 +473,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 620,
      "bg": "#5f481c",
-     "cap": "Bülbül yuvası, yakın çekim"
+     "cap": "Midye"
     },
     {
      "k": "v04",
@@ -513,15 +513,7 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 1614,
      "dur": 2.6,
-     "cap": ""
-    },
-    {
-     "k": "v18",
-     "t": "vid",
-     "w": 900,
-     "h": 502,
-     "dur": 4.3,
-     "cap": ""
+     "cap": "Antep Özel"
     },
     {
      "k": "v19",
@@ -537,22 +529,6 @@ window.AU_MEDIA = {
      "w": 900,
      "h": 1614,
      "dur": 2.5,
-     "cap": ""
-    },
-    {
-     "k": "v21",
-     "t": "vid",
-     "w": 900,
-     "h": 1614,
-     "dur": 2.6,
-     "cap": ""
-    },
-    {
-     "k": "v22",
-     "t": "vid",
-     "w": 900,
-     "h": 502,
-     "dur": 4.3,
      "cap": ""
     },
     {
@@ -587,7 +563,7 @@ window.AU_MEDIA = {
     "th": 786,
     "bg": "#4b2f15"
    },
-   "nPhoto": 14,
+   "nPhoto": 13,
    "nVideo": 4,
    "items": [
     {
@@ -668,16 +644,6 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 742,
      "bg": "#46431f",
-     "cap": "Billuriye"
-    },
-    {
-     "k": "p54",
-     "t": "img",
-     "w": 1119,
-     "h": 1406,
-     "tw": 620,
-     "th": 779,
-     "bg": "#453e25",
      "cap": "Billuriye"
     },
     {
@@ -778,7 +744,7 @@ window.AU_MEDIA = {
     "th": 766,
     "bg": "#443722"
    },
-   "nPhoto": 3,
+   "nPhoto": 2,
    "nVideo": 1,
    "items": [
     {
@@ -789,7 +755,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 766,
      "bg": "#443722",
-     "cap": "Fıstık ezmesi ve dondurmalı sunum"
+     "cap": ""
     },
     {
      "k": "p36",
@@ -799,17 +765,7 @@ window.AU_MEDIA = {
      "tw": 620,
      "th": 605,
      "bg": "#5d5644",
-     "cap": "Fıstık ezmesi dolama, içi kaymaklı"
-    },
-    {
-     "k": "p16",
-     "t": "img",
-     "w": 933,
-     "h": 1685,
-     "tw": 620,
-     "th": 1120,
-     "bg": "#454214",
-     "cap": "Fıstık ezmesi, yakın çekim"
+     "cap": ""
     },
     {
      "k": "v10",
