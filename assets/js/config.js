@@ -296,7 +296,7 @@ window.AU_CONFIG = {
   ],
   /* Ziyaretçi değerlendirmelerinde en çok tekrar eden çeşitler. */
   oneCikan: {
-    urunler: ['Kuru Baklava', 'Dondurma', 'Şöbiyet'],
+    urunler: ['Burma Kadayıf', 'Dondurma', 'Şöbiyet'],
     kisiBasi: '₺100–200',
     kaynak: ''
   },
@@ -319,14 +319,10 @@ window.AU_CONFIG = {
      ------------------------------------------------------------------ */
   urunDetay: {
     'Klasik Baklava':   { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 dilim' },
-    'Normal Baklava':   { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 dilim' },
     'Dürüm Baklava':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3–4 dilim' },
-    'Kare Baklava':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 3–4 dilim' },
     'Hasır Künefe':     { icindekiler: 'Tel kadayıf, sade yağ / tereyağı, tuzsuz künefe peyniri, Antep fıstığı, şeker şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Taze ve sıcak tüketilmesi önerilir', raf: 'Aynı gün', porsiyon: '1 tepsi ≈ 2–3 kişilik' },
-    'Yuvarlak Tepside Tel Kadayıf': { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 2–3 dilim' },
     'Midye Baklava':    { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '3–4 gün', porsiyon: '100 g ≈ 4–5 adet' },
     'Burma Kadayıf':    { icindekiler: 'Tel kadayıf, sade yağ / tereyağı, bol Antep fıstığı, pancar şekeri şerbeti', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kapalı kutuda', raf: '7–10 gün', porsiyon: '100 g ≈ 2–3 adet' },
-    'Kuru Baklava':     { icindekiler: 'Un, su, tereyağı, Antep fıstığı, pancar şekeri, nişasta', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Oda sıcaklığında, kuru yerde', raf: '10–15 gün — kargoya en uygunu', porsiyon: '100 g ≈ 4 dilim' },
     'Şöbiyet':          { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün — kaymaklı olduğu için', porsiyon: '100 g ≈ 3 adet' },
     'Yeşil Şöbiyet':    { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün', porsiyon: '100 g ≈ 3 adet' },
     'Yaprak Şöbiyet':   { icindekiler: 'Un, su, tereyağı, kaymak, Antep fıstığı, pancar şekeri', alerjen: ['Gluten','Süt','Sert kabuklu yemiş (fıstık)'], saklama: 'Buzdolabında', raf: '2 gün', porsiyon: '100 g ≈ 3 adet' },

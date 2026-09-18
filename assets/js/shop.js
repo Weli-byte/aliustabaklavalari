@@ -55,12 +55,9 @@
   }
 
   var URUN_ALIAS = {
-    'Normal Baklava': 'Klasik Baklava',
-    'Kare Baklava': 'Klasik Baklava',
     'Dürüm Baklava': 'Klasik Baklava',
     'Burma Kadayıf': 'Klasik Baklava',
-    'Yuvarlak Tepside Tel Kadayıf': 'Klasik Baklava',
-    'Kuru Baklava': 'Klasik Baklava',
+    'Hasır Künefe': 'Klasik Baklava',
     'Special Karışım': 'Klasik Baklava',
     'Özel Kare': 'Klasik Baklava',
     'Yaprak Şöbiyet': 'Yeşil Şöbiyet',

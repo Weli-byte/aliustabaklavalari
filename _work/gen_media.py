@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=41',
-    srcSmall='assets/video/hero-sm.mp4?v=41',
-    poster='assets/video/poster/hero.webp?v=41',
+    src='assets/video/hero.mp4?v=42',
+    srcSmall='assets/video/hero-sm.mp4?v=42',
+    poster='assets/video/poster/hero.webp?v=42',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
@@ -29,13 +29,13 @@ MIRAS_V = V(5)
 
 # ---------------------------------------------------------------- URUNLER
 RAIL = [
- ("Normal Baklava","Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.",[22,45]),
- ("Kare Baklava","Kalın fıstık dolgusu, kare kesim. Tepside dizilişiyle bile iddialı.",[28,4]),
- ("Yuvarlak Tepside Tel Kadayıf","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,32]),
+ ("Klasik Baklava","Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.",[22,45]),
+ ("Dürüm Baklava","Kalın fıstık dolgusu, kare kesim. Tepside dizilişiyle bile iddialı.",[28,4]),
+ ("Hasır Künefe","Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",[55,32]),
  ("Midye Baklava","İnce yufkanın kıvrılıp kapanmasıyla açılan sedef formu.",[26,42]),
- ("Kuru Baklava","Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",[1,8]),
+ ("Burma Kadayıf","Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",[1]),
  ("Yeşil Şöbiyet","Katmanları yaprak gibi ayrılan, üstü baştan aşağı fıstıklı.",[66]),
- ("Dolama","Fıstığın etrafına sarılan ince yufka. Sarma tekniğinin ustalık sınavı.",[25,44]),
+ ("Dolama","Fıstığın etrafına sarılan ince yufka. Sarma tekniğinin ustalık sınavı.",[8]),
  ("Fıstık Ezmesi","Taş değirmende çekilmiş Antep fıstığı, şekerle yoğrulup tepsiye basılır.",[49,16]),
  ("Bülbül Yuvası","Yuva biçiminde kıvrılmış yufka, göbeği fıstıkla doldurulmuş.",[6,10]),
  ("Special Karışım","Tek tepside bütün çeşitler. Misafir ağırlamanın kestirme yolu.",[63,58]),
@@ -63,7 +63,7 @@ CATS = [
        "kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, "
        "dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
   kapak=P(13),
-  fotograflar=[P(13), P(40), P(41), P(43)],
+  fotograflar=[P(13), P(40), P(41), P(43), P(25), P(44)],
   videolar=[V(4), V(7), V(8), V(13),
             V(17), V(18), V(19), V(20), V(21), V(22), V(23), V(24)]),
 
@@ -105,6 +105,7 @@ CAP = {
  # baklava
  'p13':'Klasik Baklava','p40':'Fıstık Sarma',
  'p41':'Altın Rengi Tepsi','p43':'Midye Baklava',
+ 'p25':'Dolama, tepside dizilim','p44':'Dolama, rulo kesim',
  'v04':'','v07':'',
  'v08':'','v13':'',
  'v17':'','v18':'',

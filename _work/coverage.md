@@ -24,7 +24,7 @@
 | `p22` | ChatGPT Image 9 Eyl 2026 11_25_22.png | Ürünler rayı |
 | `p23` | ChatGPT Image 9 Eyl 2026 11_27_24.png | İletişim |
 | `p24` | ChatGPT Image 9 Eyl 2026 11_28_59.png | Tatlı dünyası · Künefe |
-| `p25` | ChatGPT Image 9 Eyl 2026 11_31_12.png | Ürünler rayı |
+| `p25` | ChatGPT Image 9 Eyl 2026 11_31_12.png | Tatlı dünyası · Baklava |
 | `p26` | ChatGPT Image 9 Eyl 2026 11_32_37.png | Ürünler rayı |
 | `p28` | ChatGPT Image 9 Eyl 2026 11_35_11.png | Ürünler rayı |
 | `p29` | ChatGPT Image 9 Eyl 2026 11_36_31.png | Tatlı dünyası · Özel Tatlılar |
@@ -41,7 +41,7 @@
 | `p41` | ChatGPT Image 9 Eyl 2026 13_48_57.png | Tatlı dünyası · Baklava |
 | `p42` | ChatGPT Image 9 Eyl 2026 13_50_51.png | Ürünler rayı |
 | `p43` | ChatGPT Image 9 Eyl 2026 13_52_40.png | Tatlı dünyası · Baklava |
-| `p44` | ChatGPT Image 9 Eyl 2026 13_54_14.png | Ürünler rayı |
+| `p44` | ChatGPT Image 9 Eyl 2026 13_54_14.png | Tatlı dünyası · Baklava |
 | `p45` | ChatGPT Image 9 Eyl 2026 13_55_54.png | Ürünler rayı |
 | `p46` | ChatGPT Image 9 Eyl 2026 13_57_06.png | Tatlı dünyası · Künefe |
 | `p47` | ChatGPT Image 9 Eyl 2026 13_58_21.png | Kargo |

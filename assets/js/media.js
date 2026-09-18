@@ -2,9 +2,9 @@
    62 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=41",
-  "srcSmall": "assets/video/hero-sm.mp4?v=41",
-  "poster": "assets/video/poster/hero.webp?v=41",
+  "src": "assets/video/hero.mp4?v=42",
+  "srcSmall": "assets/video/hero-sm.mp4?v=42",
+  "poster": "assets/video/poster/hero.webp?v=42",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
@@ -59,7 +59,7 @@ window.AU_MEDIA = {
  },
  "rail": [
   {
-   "name": "Normal Baklava",
+   "name": "Klasik Baklava",
    "desc": "Kırk kat yufka, tereyağı, Antep fıstığı. Ustanın el açtığı klasik.",
    "photos": [
     {
@@ -83,7 +83,7 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Kare Baklava",
+   "name": "Dürüm Baklava",
    "desc": "Kalın fıstık dolgusu, kare kesim. Tepside dizilişiyle bile iddialı.",
    "photos": [
     {
@@ -107,7 +107,7 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Yuvarlak Tepside Tel Kadayıf",
+   "name": "Hasır Künefe",
    "desc": "Yuvarlak tepside dilim kesim. Bayram ve ikram sofralarının klasik sunumu.",
    "photos": [
     {
@@ -155,7 +155,7 @@ window.AU_MEDIA = {
    ]
   },
   {
-   "name": "Kuru Baklava",
+   "name": "Burma Kadayıf",
    "desc": "Az şerbetli, uzun ömürlü. Kargoya en dayanıklısı.",
    "photos": [
     {
@@ -168,13 +168,13 @@ window.AU_MEDIA = {
      "bg": "#3f2e1f"
     },
     {
-     "k": "p08",
+     "k": "p01",
      "t": "img",
-     "w": 1265,
-     "h": 1244,
+     "w": 1093,
+     "h": 1439,
      "tw": 620,
-     "th": 610,
-     "bg": "#433b13"
+     "th": 816,
+     "bg": "#3f2e1f"
     }
    ]
   },
@@ -207,22 +207,22 @@ window.AU_MEDIA = {
    "desc": "Fıstığın etrafına sarılan ince yufka. Sarma tekniğinin ustalık sınavı.",
    "photos": [
     {
-     "k": "p25",
+     "k": "p08",
      "t": "img",
-     "w": 1133,
-     "h": 1388,
+     "w": 1265,
+     "h": 1244,
      "tw": 620,
-     "th": 760,
-     "bg": "#473714"
+     "th": 610,
+     "bg": "#433b13"
     },
     {
-     "k": "p44",
+     "k": "p08",
      "t": "img",
-     "w": 1280,
-     "h": 953,
+     "w": 1265,
+     "h": 1244,
      "tw": 620,
-     "th": 461,
-     "bg": "#504117"
+     "th": 610,
+     "bg": "#433b13"
     }
    ]
   },
@@ -388,7 +388,7 @@ window.AU_MEDIA = {
     "th": 1094,
     "bg": "#503e1d"
    },
-   "nPhoto": 4,
+   "nPhoto": 6,
    "nVideo": 12,
    "items": [
     {
@@ -430,6 +430,26 @@ window.AU_MEDIA = {
      "th": 458,
      "bg": "#4f421d",
      "cap": "Midye Baklava"
+    },
+    {
+     "k": "p25",
+     "t": "img",
+     "w": 1133,
+     "h": 1388,
+     "tw": 620,
+     "th": 760,
+     "bg": "#473714",
+     "cap": "Dolama, tepside dizilim"
+    },
+    {
+     "k": "p44",
+     "t": "img",
+     "w": 1280,
+     "h": 953,
+     "tw": 620,
+     "th": 461,
+     "bg": "#504117",
+     "cap": "Dolama, rulo kesim"
     },
     {
      "k": "v04",
