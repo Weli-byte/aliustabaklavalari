@@ -91,6 +91,7 @@ for kod, m in DILLER.items():
     h = h.replace('imagesrcset="assets/', 'imagesrcset="../assets/')
     h = h.replace('srcset="assets/', 'srcset="../assets/')
     h = h.replace('href="manifest.webmanifest"', 'href="../manifest.webmanifest"')
+    h = h.replace('href="menu.html"', 'href="../menu.html"')
     h = h.replace("'assets/", "'../assets/")
     # <html>
     h = h.replace('<html lang="tr">', '<html lang="%s" dir="%s">' % (kod, m['dir']), 1)

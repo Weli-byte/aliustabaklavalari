@@ -989,6 +989,13 @@ footer.site{ background:var(--pitch); border-top:1px solid var(--line-soft); pad
   display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
   margin-top:clamp(2.5rem,5vw,4.5rem); padding-top:1.6rem; border-top:1px solid var(--line-soft);
 }
+.foot-qr{
+  display:flex; align-items:center; gap:1rem;
+  margin-top:1.6rem; padding-top:1.6rem; border-top:1px solid var(--line-soft);
+}
+.foot-qr img{ width:5rem; height:5rem; flex:none; background:var(--cream); padding:.35rem; border:1px solid var(--line); }
+.foot-qr p{ margin:0; }
+.foot-qr a{ color:var(--gold-lit); text-decoration:underline; }
 
 /* ==========================================================
    LIGHTBOX
