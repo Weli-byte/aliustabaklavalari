@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=43',
-    srcSmall='assets/video/hero-sm.mp4?v=43',
-    poster='assets/video/poster/hero.webp?v=43',
+    src='assets/video/hero.mp4?v=44',
+    srcSmall='assets/video/hero-sm.mp4?v=44',
+    poster='assets/video/poster/hero.webp?v=44',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )
@@ -74,7 +74,7 @@ CATS = [
        "yanına kaymak. Künefe beklemez — tezgâhtan tabağa gider, peynir uzarken yenir.",
   kapak=P(37),
   fotograflar=[P(37), P(56), P(57), P(62), P(24), P(30), P(46), P(38), P(54),
-               P(65), P(51), P(52), P(64)],
+               P(65), P(51), P(52), P(64), P(58)],
   videolar=[V(2), V(12), V(14), V(15)]),
 
  dict(id="dondurma", ad="Dondurma & Fıstık Ezmesi", kicik="Soğuk taraf",
@@ -90,7 +90,7 @@ CATS = [
        "çilekli tepsiler ve Ramazan'da güllaç. Vitrinin klasik baklava dışında kalan tarafı — "
        "her biri aynı tezgâhta, aynı malzemeyle yapılır.",
   kapak=P(5),
-  fotograflar=[P(5), P(9), P(29), P(35), P(20), P(58)],
+  fotograflar=[P(5), P(9), P(29), P(35), P(20)],
   videolar=[]),
 
  dict(id="dukkan", ad="Dükkân & Vitrin", kicik="Nizip'teki tezgâh",
@@ -122,6 +122,7 @@ CAP = {
  'v14':'Künefenin tabakta açılışı','v15':'Tel kadayıfın çekişi',
  'p65':'Fıstıkzade Künefe','p51':'Hasır kadayıf',
  'p52':'Dördü bir arada','p64':'Yarı fıstıkzade yarı billuriye',
+ 'p58':'Fıstıklı künefe ve meyve tabağı sunumu',
  # dondurma & fistik ezmesi
  'p34':'Fıstık ezmesi ve dondurmalı sunum','p36':'Fıstık ezmesi dolama, içi kaymaklı',
  'p16':'Fıstık ezmesi, yakın çekim',
@@ -131,7 +132,6 @@ CAP = {
  'p29':'Soğuk baklava','p35':'Soğuk baklava',
  'p20':'Sütlaç',
  'p62':'Kaymaklı tepsi kesimi',
- 'p58':'Fıstıklı künefe ve meyve tabağı sunumu',
  # dukkan
  'p03':'Vitrinde günün tepsileri','p15':'Vitrin — çeşit çeşit dizilim',
  'p18':'Tezgâhta tepsi düzeni',

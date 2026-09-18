@@ -54,7 +54,7 @@
 | `p55` | ChatGPT Image 9 Eyl 2026 14_10_37.png | Ürünler rayı |
 | `p56` | ChatGPT Image 9 Eyl 2026 14_12_04.png | Tatlı dünyası · Künefe |
 | `p57` | ChatGPT Image 9 Eyl 2026 14_14_36.png | Tatlı dünyası · Künefe |
-| `p58` | ChatGPT Image 9 Eyl 2026 14_15_51.png | Tatlı dünyası · Özel Tatlılar |
+| `p58` | ChatGPT Image 9 Eyl 2026 14_15_51.png | Tatlı dünyası · Künefe |
 | `p59` | ChatGPT Image 9 Eyl 2026 14_17_06.png | Kargo |
 | `p60` | ChatGPT Image 9 Eyl 2026 14_18_37.png | Miras |
 | `p61` | ChatGPT Image 9 Eyl 2026 14_21_02.png | Özel Sipariş |

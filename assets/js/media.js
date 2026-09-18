@@ -2,9 +2,9 @@
    62 fotoğraf + 25 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=43",
-  "srcSmall": "assets/video/hero-sm.mp4?v=43",
-  "poster": "assets/video/poster/hero.webp?v=43",
+  "src": "assets/video/hero.mp4?v=44",
+  "srcSmall": "assets/video/hero-sm.mp4?v=44",
+  "poster": "assets/video/poster/hero.webp?v=44",
   "w": 1280,
   "h": 720,
   "dur": 10.0,
@@ -587,7 +587,7 @@ window.AU_MEDIA = {
     "th": 786,
     "bg": "#4b2f15"
    },
-   "nPhoto": 13,
+   "nPhoto": 14,
    "nVideo": 4,
    "items": [
     {
@@ -721,6 +721,16 @@ window.AU_MEDIA = {
      "cap": "Yarı fıstıkzade yarı billuriye"
     },
     {
+     "k": "p58",
+     "t": "img",
+     "w": 1172,
+     "h": 1342,
+     "tw": 620,
+     "th": 710,
+     "bg": "#4d3a1f",
+     "cap": "Fıstıklı künefe ve meyve tabağı sunumu"
+    },
+    {
      "k": "v02",
      "t": "vid",
      "w": 820,
@@ -825,7 +835,7 @@ window.AU_MEDIA = {
     "th": 952,
     "bg": "#4e473e"
    },
-   "nPhoto": 6,
+   "nPhoto": 5,
    "nVideo": 0,
    "items": [
     {
@@ -877,16 +887,6 @@ window.AU_MEDIA = {
      "th": 620,
      "bg": "#817653",
      "cap": "Sütlaç"
-    },
-    {
-     "k": "p58",
-     "t": "img",
-     "w": 1172,
-     "h": 1342,
-     "tw": 620,
-     "th": 710,
-     "bg": "#4d3a1f",
-     "cap": "Fıstıklı künefe ve meyve tabağı sunumu"
     }
    ]
   },
