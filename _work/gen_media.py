@@ -16,9 +16,9 @@ def V(n): return 'v%02d' % n
 # ---------------------------------------------------------------- HERO
 # Isletmenin profesyonel tanitim filmi. Tek basina, tam ekran.
 HERO = dict(
-    src='assets/video/hero.mp4?v=51',
-    srcSmall='assets/video/hero-sm.mp4?v=51',
-    poster='assets/video/poster/hero.webp?v=51',
+    src='assets/video/hero.mp4?v=52',
+    srcSmall='assets/video/hero-sm.mp4?v=52',
+    poster='assets/video/poster/hero.webp?v=52',
     w=1280, h=720, dur=10.0,
     file='Hero - Ali Usta dukkan ve kunefe tanitim.mp4',
 )

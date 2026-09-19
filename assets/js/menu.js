@@ -6,11 +6,9 @@
    YÖNETİM: işletme sahibi aynı şifreyle (config.js → catEkleSifreTers,
    "Türüne göre" bölümündeki fotoğraf/video ekleme şifresiyle birebir aynı)
    buradan yeni tatlı ekleyebilir, eklediğini silebilir, HERHANGİ bir
-   tatlının fiyatını değiştirebilir. Bu değişiklikler LocalStorage'da
-   tutulur — site.js'teki "Türüne göre" ekleme özelliği ile aynı sınır:
-   Supabase kurulu değilse (config.js → supabase.url boş) yalnızca
-   İŞLEMİ YAPAN TARAYICIDA görünür, ziyaretçilerin kendi telefonuna
-   yansımaz. Gerçekten herkese yansısın diye Supabase bağlanmalı. */
+   tatlının fiyatını değiştirebilir. Supabase bağlı (config.js →
+   supabase.url/anonKey) — bu değişiklikler herkese, her cihazda anında
+   görünür. LocalStorage yalnızca anlık gösterim/önbellek içindir. */
 (function () {
   'use strict';
   var D = document;
@@ -83,6 +81,75 @@
   function eklenenKaydet(list) { yaz(ADD_KEY, list); }
   function fiyatOverride() { return oku(PRICE_KEY, {}); }
   function fiyatOverrideKaydet(obj) { yaz(PRICE_KEY, obj); }
+
+  /* ------------------------------------------------------------------
+     SUPABASE — kurulduysa (config.js → supabase.url/anonKey) eklenen
+     tatlılar ve fiyat değişiklikleri herkese, her cihazda görünür.
+     Kurulu değilse yukarıdaki LocalStorage tek başına çalışır (yalnızca
+     bu tarayıcıda görünür).
+     ------------------------------------------------------------------ */
+  var S = C.supabase;
+  var sbAcik = !!(S && S.url && S.anonKey);
+  var sbBase = sbAcik ? S.url.replace(/\/+$/, '') : '';
+  function sbBaslik() { return { apikey: S.anonKey, Authorization: 'Bearer ' + S.anonKey }; }
+
+  function sbFotoYukle(file) {
+    var guvenliAd = file.name.replace(/[^a-zA-Z0-9.]+/g, '-').slice(-60);
+    var yol = 'menu/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + guvenliAd;
+    return fetch(sbBase + '/storage/v1/object/hikaye-medya/' + yol, {
+      method: 'POST',
+      headers: Object.assign({ 'Content-Type': file.type || 'application/octet-stream' }, sbBaslik()),
+      body: file
+    }).then(function (r) {
+      if (!r.ok) throw new Error('Yükleme hatası ' + r.status);
+      return sbBase + '/storage/v1/object/public/hikaye-medya/' + yol;
+    });
+  }
+  function sbEkleGonder(item) {
+    if (!sbAcik) return Promise.resolve();
+    return fetch(sbBase + '/rest/v1/menu_ekle', {
+      method: 'POST',
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }, sbBaslik()),
+      body: JSON.stringify({ id: item.id, cat: item.cat, name: item.name, price: item.fiyat, photo_url: item.foto || null })
+    }).catch(function (err) { console.warn('Supabase (ekle):', err); });
+  }
+  function sbEkleSil(id) {
+    if (!sbAcik) return Promise.resolve();
+    return fetch(sbBase + '/rest/v1/menu_ekle?id=eq.' + encodeURIComponent(id), {
+      method: 'DELETE',
+      headers: sbBaslik()
+    }).catch(function (err) { console.warn('Supabase (sil):', err); });
+  }
+  function sbFiyatGonder(id, fiyat) {
+    if (!sbAcik) return Promise.resolve();
+    return fetch(sbBase + '/rest/v1/menu_fiyat', {
+      method: 'POST',
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbBaslik()),
+      body: JSON.stringify({ id: id, fiyat: fiyat })
+    }).catch(function (err) { console.warn('Supabase (fiyat):', err); });
+  }
+  /* Sayfa açılışında Supabase'teki güncel listeyi çek, yerel önbelleği
+     onunla değiştir (herkes aynı şeyi görsün), sonra yeniden çiz. */
+  function sbSenkronEt() {
+    if (!sbAcik) return;
+    fetch(sbBase + '/rest/v1/menu_ekle?select=id,cat,name,price,photo_url&order=created_at.asc', { headers: sbBaslik() })
+      .then(function (r) { return r.json(); })
+      .then(function (rows) {
+        if (!Array.isArray(rows)) return;
+        eklenenKaydet(rows.map(function (r) { return { id: r.id, cat: r.cat, name: r.name, fiyat: r.price, foto: r.photo_url || '' }; }));
+        ciz();
+      }).catch(function (err) { console.warn('Supabase (yükleme):', err); });
+
+    fetch(sbBase + '/rest/v1/menu_fiyat?select=id,fiyat', { headers: sbBaslik() })
+      .then(function (r) { return r.json(); })
+      .then(function (rows) {
+        if (!Array.isArray(rows)) return;
+        var obj = {};
+        rows.forEach(function (r) { obj[r.id] = r.fiyat; });
+        fiyatOverrideKaydet(obj);
+        ciz();
+      }).catch(function (err) { console.warn('Supabase (fiyat yükleme):', err); });
+  }
 
   function kilitliMi() { return sessionStorage.getItem(SESSION_KEY) !== '1'; }
   function sifreDogruMu(girilen) {
@@ -226,6 +293,7 @@
       ov[id] = yeni;
       fiyatOverrideKaydet(ov);
       ciz();
+      sbFiyatGonder(id, yeni);
       return;
     }
     var delBtn = e.target.closest('[data-del-item]');
@@ -234,6 +302,7 @@
       var did = delBtn.getAttribute('data-del-item');
       eklenenKaydet(eklenenler().filter(function (it) { return it.id !== did; }));
       ciz();
+      sbEkleSil(did);
       return;
     }
     var addToggle = e.target.closest('[data-cat-toggle]');
@@ -273,20 +342,33 @@
     var dosya = form.foto.files && form.foto.files[0];
     var msg = form.querySelector('.menu-add-msg');
     if (!ad || !fiyat) return;
-    function ekle(fotoDataUrl) {
+    function ekle(fotoUrl) {
+      var item = { id: 'add:' + Date.now(), cat: form.getAttribute('data-cat'), name: ad, fiyat: fiyat, foto: fotoUrl || '' };
       var list = eklenenler();
-      list.push({ id: 'add:' + Date.now(), cat: form.getAttribute('data-cat'), name: ad, fiyat: fiyat, foto: fotoDataUrl || '' });
+      list.push(item);
       eklenenKaydet(list);
       ciz();
+      sbEkleGonder(item);
     }
     if (dosya) {
       if (dosya.size > 4 * 1024 * 1024) {
         msg.hidden = false; msg.textContent = 'Fotoğraf çok büyük (4 MB üzeri). Daha küçük bir fotoğraf seçin.';
         return;
       }
-      var reader = new FileReader();
-      reader.onload = function (ev) { ekle(ev.target.result); };
-      reader.readAsDataURL(dosya);
+      if (sbAcik) {
+        msg.hidden = false; msg.textContent = 'Fotoğraf yükleniyor…';
+        sbFotoYukle(dosya).then(function (url) { msg.hidden = true; ekle(url); })
+          .catch(function () {
+            /* Supabase'e ulaşılamazsa cihazda kalıcı çalışsın diye yereldeki dataURL'e düş */
+            var reader = new FileReader();
+            reader.onload = function (ev) { msg.hidden = true; ekle(ev.target.result); };
+            reader.readAsDataURL(dosya);
+          });
+      } else {
+        var reader = new FileReader();
+        reader.onload = function (ev) { ekle(ev.target.result); };
+        reader.readAsDataURL(dosya);
+      }
     } else {
       ekle('');
     }
@@ -301,6 +383,7 @@
   }
 
   ciz();
+  sbSenkronEt();
 
   var wa = D.getElementById('menuWa');
   if (wa && C.whatsapp) {

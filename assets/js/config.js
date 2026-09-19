@@ -239,7 +239,7 @@ window.AU_CONFIG = {
      supabase.com’da ücretsiz proje açıp URL ve anon anahtarını yazın.
      Kurulum adımları README bölüm 14’te.
      ------------------------------------------------------------------ */
-  supabase: { url: '', anonKey: '', tablo: 'yorumlar' },
+  supabase: { url: 'https://npmvfwmzeluxkyzanjyk.supabase.co', anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wbXZmd216ZWx1eGt5emFuanlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3OTcyNjgsImV4cCI6MjEwNTM3MzI2OH0.uuq32_ZAXKvgg7kmYdPK7GFF8LrEG6Yg-bUNOUxUYTU', tablo: 'yorumlar' },
 
 
   /* ------------------------------------------------------------------
