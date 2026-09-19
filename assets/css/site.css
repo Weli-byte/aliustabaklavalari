@@ -1237,6 +1237,15 @@ body.is-locked .wa-fab{ opacity:0; pointer-events:none; }
    FİYAT & GRAMAJ
    ========================================================== */
 #fiyat{ background:var(--ink); }
+.price-yonetim-btn{
+  display:block; margin:0 0 1rem auto; padding:.5rem 1rem;
+  font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+  color:var(--cream-mute); background:none; border:1px dashed var(--line-soft); border-radius:.4rem;
+  cursor:pointer; transition:color .3s var(--ease), border-color .3s var(--ease);
+}
+.price-yonetim-btn:hover{ color:var(--gold-lit); border-color:var(--gold); }
+.price-edit-btn{ font-size:.72rem; color:var(--cream-mute); background:none; border:0; cursor:pointer; line-height:1; margin-left:.3rem; vertical-align:middle; }
+.price-edit-btn:hover{ color:var(--gold-lit); }
 .price-wrap{ border:1px solid var(--line-soft); background:var(--ink-2); }
 .price-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 table.price{ width:100%; border-collapse:collapse; min-width:24rem; }

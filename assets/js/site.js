@@ -99,7 +99,7 @@
   /* Sayfa alt klasörde olabilir (en/, ar/). Kök yolu site.js'in kendi
      adresinden çıkarılır; medya tek kopya olarak assets/ altında kalır. */
   var BASE = (function () {
-    var sc = D.querySelector('script[src$="site.js"]');
+    var sc = D.querySelector('script[src*="assets/js/site.js"]');
     var src = sc ? sc.getAttribute('src') : '';
     return src.replace(/assets\/js\/site\.js.*$/, '');
   })();
@@ -874,19 +874,100 @@
       'Sosyal medya adresleri henüz iletilmedi. Adresi assets/js/config.js dosyasına yazdığınızda düğme kendiliğinden burada ve üst menüde görünür.';
   }
 
-  /* --- Fiyat tablosu --- */
+  /* --- Fiyat tablosu ---
+     "Fiyatları düzenle" düğmesi: aynı şifre (config.js → catEkleSifreTers,
+     "Türüne göre"/menü sayfasındaki şifreyle birebir aynı). Değişiklikler
+     Supabase → menu_fiyat tablosuna 'price:<ürün>|kg' / '…|tepsi' /
+     '…|detay' anahtarlarıyla yazılır, kurulduysa herkese anında yansır. */
   (function priceTable() {
     var t = $('#priceTable');
     if (!t) return;
     if (!C.fiyatlar || !C.fiyatlar.length) { var fs = $('#fiyat'); if (fs) fs.hidden = true; return; }
-    t.innerHTML =
-      '<thead><tr><th scope="col">' + esc(T('Ürün')) + '</th><th scope="col">' + esc(T('Kilo')) + '</th><th scope="col">' + esc(T('Tepsi')) + '</th></tr></thead>' +
-      '<tbody>' + C.fiyatlar.map(function (r) {
-        if (r.detay || r.porsiyon) {
-          return '<tr><th scope="row">' + esc(r.urun) + '</th><td colspan="2" class="price-porsiyon">' + esc(r.detay || (r.kg + ' · ' + (r.tepsi || r.tam))) + '</td></tr>';
+
+    var S = C.supabase, sbAcik = !!(S && S.url && S.anonKey), sbBase = sbAcik ? S.url.replace(/\/+$/, '') : '';
+    function sbBaslik() { return { apikey: S.anonKey, Authorization: 'Bearer ' + S.anonKey }; }
+    var PRICE_SESSION_KEY = 'AU_PANEL_DOGRULANDI';
+    function fiyatKilitliMi() { return sessionStorage.getItem(PRICE_SESSION_KEY) !== '1'; }
+    function fiyatSifreDogruMu(g) {
+      var ters = (C.catEkleSifreTers || '').split('').reverse().join('');
+      return !!ters && g === ters;
+    }
+    var FIYAT_OV_KEY = 'AU_PRICE_OV_V1';
+    function fiyatOvAl() { try { return JSON.parse(localStorage.getItem(FIYAT_OV_KEY) || '{}'); } catch (e) { return {}; } }
+    function fiyatOvKaydet(o) { try { localStorage.setItem(FIYAT_OV_KEY, JSON.stringify(o)); } catch (e) {} }
+    function sbFiyatGonder(id, deger) {
+      if (!sbAcik) return;
+      fetch(sbBase + '/rest/v1/menu_fiyat', {
+        method: 'POST',
+        headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbBaslik()),
+        body: JSON.stringify({ id: id, fiyat: deger })
+      }).catch(function (err) { console.warn('Supabase (fiyat):', err); });
+    }
+    function sbFiyatCek(cb) {
+      if (!sbAcik) return;
+      fetch(sbBase + '/rest/v1/menu_fiyat?select=id,fiyat', { headers: sbBaslik() })
+        .then(function (r) { return r.json(); })
+        .then(function (rows) {
+          if (!Array.isArray(rows)) return;
+          var ov = {};
+          rows.forEach(function (r) { if (r.id.indexOf('price:') === 0) ov[r.id] = r.fiyat; });
+          fiyatOvKaydet(ov);
+          cb();
+        }).catch(function (err) { console.warn('Supabase (fiyat yükleme):', err); });
+    }
+
+    function ciz() {
+      var ov = fiyatOvAl();
+      var acik = !fiyatKilitliMi();
+      t.innerHTML =
+        '<thead><tr><th scope="col">' + esc(T('Ürün')) + '</th><th scope="col">' + esc(T('Kilo')) + '</th><th scope="col">' + esc(T('Tepsi')) + '</th></tr></thead>' +
+        '<tbody>' + C.fiyatlar.map(function (r) {
+          var idDetay = 'price:' + r.urun + '|detay', idKg = 'price:' + r.urun + '|kg', idTepsi = 'price:' + r.urun + '|tepsi';
+          if (r.detay || r.porsiyon) {
+            var detayGosterilen = ov[idDetay] || r.detay || (r.kg + ' · ' + (r.tepsi || r.tam));
+            return '<tr><th scope="row">' + esc(r.urun) + '</th><td colspan="2" class="price-porsiyon">' + esc(detayGosterilen) +
+              (acik ? ' <button class="price-edit-btn" type="button" data-price-edit="' + esc(idDetay) + '" title="Değiştir">✎</button>' : '') +
+              '</td></tr>';
+          }
+          var kgGosterilen = ov[idKg] || r.kg || '-', tepsiGosterilen = ov[idTepsi] || r.tepsi || r.tam || '-';
+          return '<tr><th scope="row">' + esc(r.urun) + '</th>' +
+            '<td>' + esc(kgGosterilen) + (acik ? ' <button class="price-edit-btn" type="button" data-price-edit="' + esc(idKg) + '" title="Değiştir">✎</button>' : '') + '</td>' +
+            '<td>' + esc(tepsiGosterilen) + (acik ? ' <button class="price-edit-btn" type="button" data-price-edit="' + esc(idTepsi) + '" title="Değiştir">✎</button>' : '') + '</td>' +
+            '</tr>';
+        }).join('') + '</tbody>';
+    }
+    ciz();
+    sbFiyatCek(ciz);
+
+    t.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-price-edit]');
+      if (!btn) return;
+      var id = btn.getAttribute('data-price-edit');
+      var yeni = window.prompt('Yeni değer:', btn.previousSibling && btn.previousSibling.textContent ? btn.previousSibling.textContent.trim() : '');
+      if (yeni === null) return;
+      yeni = yeni.trim();
+      if (!yeni) return;
+      var ov = fiyatOvAl();
+      ov[id] = yeni;
+      fiyatOvKaydet(ov);
+      ciz();
+      sbFiyatGonder(id, yeni);
+    });
+
+    var toggle = $('#priceAdminToggle');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        if (!fiyatKilitliMi()) { ciz(); return; }
+        var girilen = window.prompt('Bu bölüm yalnızca işletme sahibi/çalışanları içindir.\nŞifreyi yazın:');
+        if (girilen === null) return;
+        if (fiyatSifreDogruMu(girilen.trim())) {
+          try { sessionStorage.setItem(PRICE_SESSION_KEY, '1'); } catch (e) {}
+          ciz();
+        } else {
+          window.alert('Şifre yanlış.');
         }
-        return '<tr><th scope="row">' + esc(r.urun) + '</th><td>' + esc(r.kg || '-') + '</td><td>' + esc(r.tepsi || r.tam || '-') + '</td></tr>';
-      }).join('') + '</tbody>';
+      });
+    }
 
     var gg = $('#gramGrid');
     if (gg) {
