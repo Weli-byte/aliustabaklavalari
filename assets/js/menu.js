@@ -1,37 +1,46 @@
 /* Ali Usta Baklavaları — QR menü sayfası.
-   Ürün adı/açıklaması assets/js/media.js (RAIL), fiyatlar assets/js/config.js
-   üzerinden okunur; ikisi de ana site ile ortak, ayrı bakım gerekmez. */
+   Ürün adı/açıklaması/fotoğraf assets/js/media.js (RAIL + CATS) üzerinden,
+   fiyatlar assets/js/config.js üzerinden okunur; ana site ile ortak veri,
+   ayrı bakım gerekmez. */
 (function () {
   'use strict';
   var C = window.AU_CONFIG || {};
-  var RAIL = (window.AU_MEDIA && window.AU_MEDIA.rail) || [];
+  var M = window.AU_MEDIA || {};
+  var RAIL = M.rail || [];
+  var CATS = M.cats || [];
 
+  function IMG(k) { return 'assets/img/thumb/' + k + '.webp'; }
+
+  /* Ürün adı → fiyat tablosundaki satır adı. Ana sitedeki shop.js ile aynı mantık. */
   var ALIAS = {
     'Dürüm Baklava': 'Klasik Baklava',
     'Burma Kadayıf': 'Klasik Baklava',
     'Hasır Künefe': 'Klasik Baklava',
     'Antep Özel': 'Klasik Baklava',
     'Saray Sarması': 'Dolama',
-    'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade'
+    'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'Fıstıkzade',
+    /* galeri fotoğraf altyazıları — aynı ürünün başka bir çekimi/adlandırması */
+    'Fıstıklı burma kadayıf': 'Klasik Baklava',
+    'Fıstıklı kadayıf': 'Klasik Baklava',
+    'Hasır kadayıf': 'Klasik Baklava',
+    'Fıstıkzade Künefe': 'Fıstıkzade',
+    'Yeşil Midye': 'Midye Baklava',
+    'Midye': 'Midye Baklava'
   };
 
-  /* Kategori başlıkları + içindeki ürün adları (RAIL adlarıyla birebir). */
-  var KATEGORILER = [
-    { ad: 'Baklava Çeşitleri', urunler: [
-      'Klasik Baklava', 'Dürüm Baklava', 'Midye Baklava', 'Burma Kadayıf',
-      'Yeşil Şöbiyet', 'Dolama', 'Bülbül Yuvası', 'Havuç Dilimi', 'Saray Sarması'
-    ]},
-    { ad: 'Künefe', urunler: [
-      'Hasır Künefe', 'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye'
-    ]},
-    { ad: 'Fıstık & Özel', urunler: [
-      'Antep Özel'
-    ]}
-  ];
+  /* RAIL ürünlerinin "Türüne göre" kategorilerindeki karşılığı. */
+  var RAIL_CAT = {
+    'Klasik Baklava': 'baklava', 'Dürüm Baklava': 'baklava', 'Midye Baklava': 'baklava',
+    'Burma Kadayıf': 'baklava', 'Yeşil Şöbiyet': 'baklava', 'Dolama': 'baklava',
+    'Bülbül Yuvası': 'baklava', 'Havuç Dilimi': 'baklava', 'Saray Sarması': 'baklava',
+    'Hasır Künefe': 'kunefe', 'Fıstıkzade Künefe ve Yarı Fıstıkzade Yarı Billuriye': 'kunefe',
+    'Antep Özel': 'dondurma'
+  };
 
-  function railOf(ad) {
-    for (var i = 0; i < RAIL.length; i++) if (RAIL[i].name === ad) return RAIL[i];
-    return null;
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
   }
   function fiyatOf(ad) {
     var hedef = ALIAS[ad] || ad;
@@ -39,34 +48,74 @@
     for (var i = 0; i < l.length; i++) if (l[i].urun === hedef) return l[i];
     return null;
   }
-  function esc(s) {
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-    });
+  function fiyatMetni(f) {
+    if (!f) return '';
+    return f.kg || f.tam || '';
   }
+  function railPhoto(r) { return r.photos && r.photos[0]; }
 
   var out = [];
-  KATEGORILER.forEach(function (kat) {
-    var satirlar = kat.urunler.map(function (ad) {
-      var r = railOf(ad);
-      var f = fiyatOf(ad);
-      if (!r || !f) return '';
-      var fiyatMetin = f.porsiyon ? (f.kg || f.tam || '') : (f.kg || f.tam || '');
+  var no = 0;
+
+  CATS.filter(function (c) { return c.id !== 'dukkan'; }).forEach(function (cat) {
+    no++;
+    var railItems = RAIL.filter(function (r) { return RAIL_CAT[r.name] === cat.id; });
+    var railNames = railItems.map(function (r) { return r.name; });
+
+    /* Kategorinin galeri fotoğrafları arasından, zaten fiyatlı listede
+       gösterilen ürünle aynı ada sahip olanları çıkar — aynı ürün iki kez
+       görünmesin (fotoğraf farklı olsa da). */
+    var galeri = (cat.items || []).filter(function (it) {
+      return it.t === 'img' && railNames.indexOf(it.cap) === -1;
+    });
+
+    var kartlar = railItems.map(function (r) {
+      var f = fiyatOf(r.name);
+      var foto = railPhoto(r);
       return (
-        '<div class="menu-item">' +
-          '<div><span class="menu-item-name">' + esc(ad) + '</span>' +
-          '<span class="menu-item-desc">' + esc(r.desc) + '</span></div>' +
-          '<div><span class="menu-item-price">' + esc(fiyatMetin) + '</span>' +
-          (f.porsiyon ? '<span class="menu-item-unit">' + esc(f.detay || '') + '</span>' : '<span class="menu-item-unit">/ kg</span>') +
+        '<div class="menu-card">' +
+          (foto ? '<div class="menu-card-ph"><img src="' + IMG(foto.k) + '" width="' + foto.w + '" height="' + foto.h + '" alt="" loading="lazy" decoding="async"></div>' : '') +
+          '<div class="menu-card-body">' +
+            '<div class="menu-card-top">' +
+              '<span class="menu-card-name">' + esc(r.name) + '</span>' +
+              '<span class="menu-card-price">' + esc(f ? fiyatMetni(f) : 'Sorunuz') + '</span>' +
+            '</div>' +
+            '<span class="menu-card-desc">' + esc(r.desc) + '</span>' +
+            (f && !f.porsiyon ? '<span class="menu-card-unit">/ kg</span>' : '') +
+            (f && f.porsiyon && f.detay ? '<span class="menu-card-unit">' + esc(f.detay) + '</span>' : '') +
           '</div>' +
         '</div>'
       );
     }).join('');
-    if (!satirlar) return;
+
+    var galeriHtml = '';
+    if (galeri.length) {
+      galeriHtml =
+        '<div class="menu-gallery-lbl"><span>Vitrinden</span><i></i></div>' +
+        '<div class="menu-gallery">' +
+        galeri.map(function (it) {
+          return (
+            '<figure class="menu-gph"><img src="' + IMG(it.k) + '" width="' + it.w + '" height="' + it.h + '" alt="" loading="lazy" decoding="async">' +
+            (it.cap ? '<figcaption>' + esc(it.cap) + '</figcaption>' : '') +
+            '</figure>'
+          );
+        }).join('') +
+        '</div>';
+    }
+
     out.push(
-      '<section class="menu-cat"><h2>' + esc(kat.ad) + '</h2><div class="menu-list">' + satirlar + '</div></section>'
+      '<section class="menu-cat">' +
+        '<div class="menu-cat-head">' +
+          '<p class="menu-cat-no">' + ('0' + no) + '</p>' +
+          '<h2>' + esc(cat.name) + '</h2>' +
+          '<p class="menu-cat-kicker">' + esc(cat.kicker) + '</p>' +
+        '</div>' +
+        (kartlar ? '<div class="menu-grid">' + kartlar + '</div>' : '') +
+        galeriHtml +
+      '</section>'
     );
   });
+
   document.getElementById('menuBody').innerHTML = out.join('');
 
   var wa = document.getElementById('menuWa');
