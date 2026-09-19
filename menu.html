@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=49">
+<link rel="stylesheet" href="assets/css/site.css?v=50">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Karla:ital,wght@0,400..700;1,400..500&display=swap&subset=latin,latin-ext">
 
 <style>
@@ -22,8 +22,15 @@
   .menu-head{ text-align:center; padding-block:clamp(2.5rem,7vw,4rem) clamp(2rem,5vw,3rem); }
   .menu-logo{ font-family:var(--f-disp); font-variation-settings:"SOFT" 30,"WONK" 1; color:var(--gold-lit); font-size:1.05rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.9rem; }
   .menu-h1{ font-family:var(--f-disp); font-variation-settings:"SOFT" 40,"WONK" 1,"opsz" 96; font-size:clamp(2.1rem,4vw + 1rem,3.4rem); color:var(--cream); margin:.3rem 0 .6rem; }
-  .menu-sub{ color:var(--cream-dim); font-size:.98rem; max-width:34rem; margin-inline:auto; }
   .menu-diamond{ width:.5rem; height:.5rem; background:var(--gold); margin:1.6rem auto 0; transform:rotate(45deg); }
+
+  .menu-admin-btn{
+    position:fixed; top:1rem; right:1rem; z-index:5; padding:.5rem 1rem;
+    font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700;
+    color:var(--cream-mute); background:var(--ink-2); border:1px solid var(--line-soft); border-radius:2rem;
+    cursor:pointer; transition:color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .menu-admin-btn:hover{ color:var(--gold-lit); border-color:var(--line); }
 
   /* -------- kategori bölümü -------- */
   .menu-cat{ padding-top:clamp(3.2rem,7vw,4.6rem); border-top:1px solid var(--line-soft); margin-top:clamp(3.2rem,7vw,4.6rem); }
@@ -39,24 +46,39 @@
   .menu-card-ph{ flex:none; width:4.6rem; height:4.6rem; border-radius:.35rem; overflow:hidden; background:var(--ink-3); border:1px solid var(--line-soft); }
   .menu-card-ph img{ width:100%; height:100%; object-fit:cover; display:block; }
   .menu-card-body{ flex:1; min-width:0; }
+  .menu-card{ position:relative; }
   .menu-card-top{ display:flex; justify-content:space-between; align-items:baseline; gap:.6rem; }
   .menu-card-name{ font-family:var(--f-disp); font-size:1.05rem; color:var(--cream); }
+  .menu-card-price-wrap{ display:inline-flex; align-items:center; gap:.35rem; }
   .menu-card-price{ font-family:var(--f-disp); font-size:1.05rem; color:var(--gold-lit); white-space:nowrap; }
   .menu-card-desc{ display:block; font-size:.82rem; color:var(--cream-mute); margin-top:.2rem; line-height:1.5; }
   .menu-card-unit{ display:block; font-size:.68rem; color:var(--cream-mute); text-align:right; margin-top:.1rem; }
 
-  /* -------- vitrinden galeri (fiyatsız, dekoratif) -------- */
-  .menu-gallery-lbl{ display:flex; align-items:center; gap:.7rem; margin-top:clamp(2.4rem,5vw,3.2rem); margin-bottom:1rem; }
-  .menu-gallery-lbl span{ font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--cream-mute); white-space:nowrap; }
-  .menu-gallery-lbl i{ flex:1; height:1px; background:var(--line-soft); }
-  .menu-gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; }
-  .menu-gph{ position:relative; aspect-ratio:1/1; border-radius:.3rem; overflow:hidden; background:var(--ink-3); }
-  .menu-gph img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .menu-gph figcaption{
-    position:absolute; inset:auto 0 0 0; padding:.5rem .6rem .4rem;
-    font-size:.66rem; color:var(--cream); letter-spacing:.02em;
-    background:linear-gradient(to top, rgba(11,7,4,.85), transparent);
+  /* -------- yönetim (şifreli) -------- */
+  .menu-edit-price{ font-size:.8rem; color:var(--cream-mute); background:none; border:0; cursor:pointer; line-height:1; }
+  .menu-edit-price:hover{ color:var(--gold-lit); }
+  .menu-del-item{
+    position:absolute; top:-.4rem; right:-.4rem; width:1.4rem; height:1.4rem; line-height:1.4rem; text-align:center;
+    border-radius:50%; background:var(--copper-dp); color:var(--cream); font-size:.8rem; border:0; cursor:pointer;
   }
+  .menu-add-toggle{
+    margin-top:1.2rem; padding:.55rem 1rem; font-size:.76rem; letter-spacing:.05em;
+    color:var(--gold-lit); background:none; border:1px dashed var(--line); border-radius:.4rem; cursor:pointer;
+  }
+  .menu-add-toggle:hover{ border-color:var(--gold); }
+  .menu-add-form{ margin-top:1rem; padding:1rem; border:1px solid var(--line-soft); border-radius:.5rem; background:var(--ink-2); }
+  .menu-add-title{ font-size:.78rem; color:var(--cream-mute); margin-bottom:.7rem; }
+  .menu-add-row{ display:flex; gap:.6rem; margin-bottom:.6rem; flex-wrap:wrap; }
+  .menu-add-row input[type="text"]{
+    flex:1; min-width:9rem; padding:.55rem .7rem; background:var(--ink-3); border:1px solid var(--line-soft);
+    border-radius:.35rem; color:var(--cream); font-size:.86rem; font-family:var(--f-body);
+  }
+  .menu-add-row input[type="file"]{ flex:1; min-width:9rem; color:var(--cream-mute); font-size:.8rem; }
+  .menu-add-submit{
+    padding:.55rem 1.2rem; background:var(--gold); color:var(--pitch); border:0; border-radius:.35rem;
+    font-weight:700; font-size:.82rem; cursor:pointer;
+  }
+  .menu-add-msg{ font-size:.78rem; color:var(--copper); margin:0; }
 
   .menu-note{ margin-top:clamp(3rem,6vw,4rem); padding-top:1.6rem; border-top:1px solid var(--line-soft); color:var(--cream-mute); font-size:.86rem; text-align:center; }
   .menu-foot{ margin-top:clamp(2.4rem,6vw,3.4rem); text-align:center; }
@@ -66,17 +88,17 @@
 
   @media (max-width:640px){
     .menu-grid{ grid-template-columns:1fr; }
-    .menu-gallery{ grid-template-columns:repeat(2,1fr); }
   }
 </style>
 </head>
 <body class="motion-off">
 
+<button class="menu-admin-btn" id="menuAdminToggle" type="button">Yönetim</button>
+
 <main class="menu-wrap">
   <header class="menu-head">
     <div class="menu-logo">Ali Usta Baklavaları</div>
     <h1 class="menu-h1">Menü</h1>
-    <p class="menu-sub">Nizip, Gaziantep — kırk kat yufka, günlük kavrulmuş Antep fıstığı, doğal pancar şekeri şerbeti. Fiyatlar kilogram üzerindendir.</p>
     <div class="menu-diamond" aria-hidden="true"></div>
   </header>
 
@@ -90,8 +112,8 @@
   </div>
 </main>
 
-<script src="assets/js/config.js?v=49"></script>
-<script src="assets/js/media.js?v=49"></script>
-<script src="assets/js/menu.js?v=49"></script>
+<script src="assets/js/config.js?v=50"></script>
+<script src="assets/js/media.js?v=50"></script>
+<script src="assets/js/menu.js?v=50"></script>
 </body>
 </html>

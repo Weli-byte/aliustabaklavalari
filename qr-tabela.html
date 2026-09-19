@@ -6,22 +6,25 @@
 <title>Masa Kartı — Ali Usta Baklavaları</title>
 <meta name="robots" content="noindex">
 <style>
-  @page{ size:A5; margin:0; }
+  /* Not: "5 kat büyük" tam 410mm olurdu — A5 kağıda sığmaz. Bunun yerine
+     kart A4'e büyütüldü ve QR, sayfaya sığan en büyük ölçüye (150mm)
+     çıkarıldı (önceki 82mm'nin ~1,8 katı, görsel olarak çok daha baskın). */
+  @page{ size:A4; margin:0; }
   *{ box-sizing:border-box; }
   body{ margin:0; background:#EDE5D3; font-family:Georgia,"Palatino Linotype",serif; }
   .kart{
-    width:148mm; height:210mm; margin:0 auto; padding:16mm 12mm;
+    width:210mm; height:297mm; margin:0 auto; padding:20mm 14mm;
     background:#120C06; color:#F5E8CF;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; gap:8mm;
+    text-align:center; gap:10mm;
   }
-  .isim{ letter-spacing:.08em; text-transform:uppercase; color:#C9922E; font-size:14pt; }
-  .baslik{ font-size:26pt; color:#F5E8CF; margin:0; }
-  .alt{ font-size:11pt; color:#C7B18B; max-width:100mm; line-height:1.5; }
-  .qr-cerceve{ background:#F5E8CF; padding:7mm; border:1px solid #C9922E; }
-  .qr-cerceve img{ display:block; width:82mm; height:82mm; }
-  .oku{ font-size:12pt; color:#F0C463; letter-spacing:.04em; }
-  .link{ font-size:9pt; color:#9C8969; }
+  .isim{ letter-spacing:.08em; text-transform:uppercase; color:#C9922E; font-size:18pt; }
+  .baslik{ font-size:34pt; color:#F5E8CF; margin:0; }
+  .alt{ font-size:13pt; color:#C7B18B; max-width:130mm; line-height:1.5; }
+  .qr-cerceve{ background:#F5E8CF; padding:9mm; border:1px solid #C9922E; }
+  .qr-cerceve img{ display:block; width:150mm; height:150mm; }
+  .oku{ font-size:15pt; color:#F0C463; letter-spacing:.04em; }
+  .link{ font-size:11pt; color:#9C8969; }
   @media print{
     body{ background:#120C06; }
     .kart{ box-shadow:none; }
