@@ -20,6 +20,7 @@
   var CATS = (M.cats || []).filter(function (c) { return c.id !== 'dukkan'; });
 
   function IMG(k) { return 'assets/img/thumb/' + k + '.webp'; }
+  function IMG_FULL(k) { return 'assets/img/' + k + '.webp'; }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
@@ -116,7 +117,7 @@
     var fiyatMetniGosterilen = overrides[o.id] || (o.baseFiyat ? o.baseFiyat.text : '') || 'Sorunuz';
     return (
       '<div class="menu-card" data-id="' + esc(o.id) + '">' +
-        (o.photoSrc ? '<div class="menu-card-ph"><img src="' + esc(o.photoSrc) + '" width="' + (o.w || 600) + '" height="' + (o.h || 600) + '" alt="" loading="lazy" decoding="async"></div>' : '') +
+        (o.photoSrc ? '<div class="menu-card-ph"><img src="' + esc(o.photoSrc) + '" data-full="' + esc(o.photoFull || o.photoSrc) + '" width="' + (o.w || 600) + '" height="' + (o.h || 600) + '" alt="" loading="lazy" decoding="async"></div>' : '') +
         '<div class="menu-card-body">' +
           '<div class="menu-card-top">' +
             '<span class="menu-card-name">' + esc(o.name) + '</span>' +
@@ -164,7 +165,7 @@
         var foto = r.photos && r.photos[0];
         return kartHTML({
           id: 'rail:' + r.name, name: r.name, desc: r.desc,
-          photoSrc: foto ? IMG(foto.k) : '', w: foto && foto.w, h: foto && foto.h,
+          photoSrc: foto ? IMG(foto.k) : '', photoFull: foto ? IMG_FULL(foto.k) : '', w: foto && foto.w, h: foto && foto.h,
           baseFiyat: (function () { var f = fiyatSatiri(r.name); return f ? { text: fiyatMetni(f), porsiyon: f.porsiyon, detay: f.detay } : null; })()
         });
       }).join('');
@@ -176,7 +177,7 @@
         var f = fiyatSatiri(ad);
         return kartHTML({
           id: 'gal:' + it.k, name: ad, desc: '',
-          photoSrc: IMG(it.k), w: it.w, h: it.h,
+          photoSrc: IMG(it.k), photoFull: IMG_FULL(it.k), w: it.w, h: it.h,
           baseFiyat: f ? { text: fiyatMetni(f), porsiyon: f.porsiyon, detay: f.detay } : null
         });
       }).join('');
@@ -240,6 +241,27 @@
       var form = D.querySelector('.menu-add-form[data-cat="' + addToggle.getAttribute('data-cat-toggle') + '"]');
       if (form) form.hidden = !form.hidden;
       return;
+    }
+    var ph = e.target.closest('.menu-card-ph');
+    if (ph) {
+      var img = ph.querySelector('img');
+      var lb = D.getElementById('menuLb'), lbImg = D.getElementById('menuLbImg');
+      if (lb && lbImg && img) {
+        lbImg.src = img.getAttribute('data-full') || img.src;
+        lb.hidden = false;
+      }
+      return;
+    }
+    if (e.target.id === 'menuLb' || e.target.id === 'menuLbClose') {
+      var lb2 = D.getElementById('menuLb');
+      if (lb2) lb2.hidden = true;
+    }
+  });
+
+  D.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var lb = D.getElementById('menuLb');
+      if (lb && !lb.hidden) lb.hidden = true;
     }
   });
 

@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=50">
+<link rel="stylesheet" href="assets/css/site.css?v=51">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Karla:ital,wght@0,400..700;1,400..500&display=swap&subset=latin,latin-ext">
 
 <style>
@@ -43,8 +43,20 @@
   /* -------- fiyatlı ürün kartları -------- */
   .menu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1rem 1.6rem; margin-top:clamp(2rem,4vw,2.6rem); }
   .menu-card{ display:flex; gap:.9rem; align-items:flex-start; padding-bottom:1rem; border-bottom:1px solid var(--line-soft); }
-  .menu-card-ph{ flex:none; width:4.6rem; height:4.6rem; border-radius:.35rem; overflow:hidden; background:var(--ink-3); border:1px solid var(--line-soft); }
+  .menu-card-ph{ flex:none; width:4.6rem; height:4.6rem; border-radius:.35rem; overflow:hidden; background:var(--ink-3); border:1px solid var(--line-soft); cursor:zoom-in; }
   .menu-card-ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  #menuLb{
+    position:fixed; inset:0; z-index:50; background:rgba(7,4,2,.94);
+    display:flex; align-items:center; justify-content:center; padding:2rem;
+    backdrop-filter:blur(6px);
+  }
+  #menuLb img{ max-width:min(90vw,720px); max-height:88vh; width:auto; height:auto; border-radius:.4rem; box-shadow:0 20px 60px rgba(0,0,0,.6); }
+  #menuLbClose{
+    position:fixed; top:1rem; right:1.2rem; width:2.6rem; height:2.6rem; border-radius:50%;
+    background:var(--ink-2); border:1px solid var(--line); color:var(--cream); font-size:1.3rem; cursor:pointer;
+  }
+  #menuLbClose:hover{ color:var(--gold-lit); }
   .menu-card-body{ flex:1; min-width:0; }
   .menu-card{ position:relative; }
   .menu-card-top{ display:flex; justify-content:space-between; align-items:baseline; gap:.6rem; }
@@ -112,8 +124,13 @@
   </div>
 </main>
 
-<script src="assets/js/config.js?v=50"></script>
-<script src="assets/js/media.js?v=50"></script>
-<script src="assets/js/menu.js?v=50"></script>
+<div id="menuLb" hidden>
+  <button id="menuLbClose" type="button" aria-label="Kapat">×</button>
+  <img id="menuLbImg" src="" alt="">
+</div>
+
+<script src="assets/js/config.js?v=51"></script>
+<script src="assets/js/media.js?v=51"></script>
+<script src="assets/js/menu.js?v=51"></script>
 </body>
 </html>
