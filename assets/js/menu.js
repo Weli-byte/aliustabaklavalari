@@ -68,6 +68,7 @@
      ------------------------------------------------------------------ */
   var ADD_KEY = 'AU_MENU_ADD_V1';
   var PRICE_KEY = 'AU_MENU_FIYAT_V1';
+  var HIDE_KEY = 'AU_MENU_HIDE_V1'; /* sabit (RAIL/galeri) ürünler silinemez, bunun yerine gizlenir */
   var SESSION_KEY = 'AU_PANEL_DOGRULANDI'; /* site.js ile aynı anahtar — bir kere girilince tüm sitede geçerli */
 
   function oku(key, dflt) {
@@ -81,6 +82,8 @@
   function eklenenKaydet(list) { yaz(ADD_KEY, list); }
   function fiyatOverride() { return oku(PRICE_KEY, {}); }
   function fiyatOverrideKaydet(obj) { yaz(PRICE_KEY, obj); }
+  function gizlenenler() { return oku(HIDE_KEY, []); }
+  function gizlenenKaydet(list) { yaz(HIDE_KEY, list); }
 
   /* ------------------------------------------------------------------
      SUPABASE — kurulduysa (config.js → supabase.url/anonKey) eklenen
@@ -128,6 +131,14 @@
       body: JSON.stringify({ id: id, fiyat: fiyat })
     }).catch(function (err) { console.warn('Supabase (fiyat):', err); });
   }
+  function sbGizle(id) {
+    if (!sbAcik) return Promise.resolve();
+    return fetch(sbBase + '/rest/v1/menu_gizli', {
+      method: 'POST',
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbBaslik()),
+      body: JSON.stringify({ id: id })
+    }).catch(function (err) { console.warn('Supabase (gizle):', err); });
+  }
   /* Sayfa açılışında Supabase'teki güncel listeyi çek, yerel önbelleği
      onunla değiştir (herkes aynı şeyi görsün), sonra yeniden çiz. */
   function sbSenkronEt() {
@@ -149,6 +160,14 @@
         fiyatOverrideKaydet(obj);
         ciz();
       }).catch(function (err) { console.warn('Supabase (fiyat yükleme):', err); });
+
+    fetch(sbBase + '/rest/v1/menu_gizli?select=id', { headers: sbBaslik() })
+      .then(function (r) { return r.json(); })
+      .then(function (rows) {
+        if (!Array.isArray(rows)) return;
+        gizlenenKaydet(rows.map(function (r) { return r.id; }));
+        ciz();
+      }).catch(function (err) { console.warn('Supabase (gizli yükleme):', err); });
   }
 
   function kilitliMi() { return sessionStorage.getItem(SESSION_KEY) !== '1'; }
@@ -177,7 +196,10 @@
      photoSrc : <img src> değeri (thumb yolu ya da data: URL)
      w,h      : orijinal ölçüler (CLS önlemek için)
      baseFiyat: {text, porsiyon, detay} ya da null
-     silinebilir: yönetim modunda "sil" düğmesi göstersin mi (yalnızca eklenenler)
+     Yönetim modunda her karta "sil" düğmesi çıkar: eklenen tatlılar
+     Supabase'ten tamamen silinir, sabit (RAIL/galeri) ürünler ise
+     "gizli" listesine eklenip menüden düşürülür — orijinal veri
+     (media.js/config.js) hiç değişmez, istenirse geri getirilebilir.
      ------------------------------------------------------------------ */
   function kartHTML(o) {
     var overrides = fiyatOverride();
@@ -197,7 +219,7 @@
           (o.baseFiyat && !o.baseFiyat.porsiyon ? '<span class="menu-card-unit">/ kg</span>' : '') +
           (o.baseFiyat && o.baseFiyat.porsiyon && o.baseFiyat.detay ? '<span class="menu-card-unit">' + esc(o.baseFiyat.detay) + '</span>' : '') +
         '</div>' +
-        (o.silinebilir ? '<button class="menu-admin-only menu-del-item" type="button" data-del-item="' + esc(o.id) + '" hidden title="Bu tatlıyı sil">×</button>' : '') +
+        '<button class="menu-admin-only menu-del-item" type="button" data-del-item="' + esc(o.id) + '" hidden title="Bu tatlıyı sil">×</button>' +
       '</div>'
     );
   }
@@ -223,9 +245,11 @@
     var no = 0;
     var out = [];
 
+    var gizli = gizlenenler();
+
     CATS.forEach(function (cat) {
       no++;
-      var railItems = RAIL.filter(function (r) { return RAIL_CAT[r.name] === cat.id; });
+      var railItems = RAIL.filter(function (r) { return RAIL_CAT[r.name] === cat.id && gizli.indexOf('rail:' + r.name) === -1; });
       var railNames = railItems.map(function (r) { return r.name; });
 
       var kartlar = railItems.map(function (r) {
@@ -238,7 +262,7 @@
       }).join('');
 
       var galeriKartlar = (cat.items || []).filter(function (it) {
-        return it.t === 'img' && railNames.indexOf(it.cap) === -1;
+        return it.t === 'img' && railNames.indexOf(it.cap) === -1 && gizli.indexOf('gal:' + it.k) === -1;
       }).map(function (it) {
         var ad = it.cap || ISIM_YEDEK[it.k] || 'İsimsiz';
         var f = fiyatSatiri(ad);
@@ -250,7 +274,7 @@
       }).join('');
 
       var eklenmisKartlar = eklenenler().filter(function (it) { return it.cat === cat.id; }).map(function (it) {
-        return kartHTML({ id: it.id, name: it.name, desc: '', photoSrc: it.foto, w: 600, h: 600, baseFiyat: { text: it.fiyat }, silinebilir: true });
+        return kartHTML({ id: it.id, name: it.name, desc: '', photoSrc: it.foto, w: 600, h: 600, baseFiyat: { text: it.fiyat } });
       }).join('');
 
       out.push(
@@ -300,9 +324,19 @@
     if (delBtn) {
       if (!window.confirm('Bu tatlıyı menüden kaldırmak istediğinize emin misiniz?')) return;
       var did = delBtn.getAttribute('data-del-item');
-      eklenenKaydet(eklenenler().filter(function (it) { return it.id !== did; }));
-      ciz();
-      sbEkleSil(did);
+      if (did.indexOf('add:') === 0) {
+        /* İşletme sahibinin eklediği tatlı — Supabase'ten tamamen silinir. */
+        eklenenKaydet(eklenenler().filter(function (it) { return it.id !== did; }));
+        ciz();
+        sbEkleSil(did);
+      } else {
+        /* Sabit (RAIL/galeri) ürün — orijinal veriye dokunulmaz, sadece
+           menüden gizlenir; "gizli" listesinden çıkarılırsa geri döner. */
+        var g = gizlenenler();
+        if (g.indexOf(did) === -1) { g.push(did); gizlenenKaydet(g); }
+        ciz();
+        sbGizle(did);
+      }
       return;
     }
     var addToggle = e.target.closest('[data-cat-toggle]');

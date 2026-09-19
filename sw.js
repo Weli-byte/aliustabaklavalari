@@ -1,7 +1,7 @@
 /* Ali Usta Baklavaları — çevrimdışı önbellek.
    Kabuk (HTML/CSS/JS/ikon) önbelleğe alınır; ağır medya alınmaz.
    Sürümü değiştirince eski önbellek otomatik silinir. */
-var SURUM = 'aliusta-v82';
+var SURUM = 'aliusta-v83';
 var KABUK = [
   './',
   './index.html',
