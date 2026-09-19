@@ -692,7 +692,7 @@
       var yol = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + guvenliAd;
       return fetch(base + '/storage/v1/object/hikaye-medya/' + yol, {
         method: 'POST',
-        headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey, 'Content-Type': file.type || 'application/octet-stream' },
+        headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey, 'Content-Type': file.type || 'application/octet-stream', 'x-au-key': sessionStorage.getItem(SIFRE_OTURUM_ANAHTARI) === '1' ? (C.dbYaziAnahtari || '') : '' },
         body: file
       }).then(function (r) {
         if (!r.ok) throw new Error('Dosya yüklenemedi (' + r.status + ')');
@@ -704,7 +704,7 @@
       var base = s.url.replace(/\/+$/, '');
       return fetch(base + '/rest/v1/tur_medya', {
         method: 'POST',
-        headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+        headers: { apikey: s.anonKey, Authorization: 'Bearer ' + s.anonKey, 'Content-Type': 'application/json', Prefer: 'return=minimal', 'x-au-key': sessionStorage.getItem(SIFRE_OTURUM_ANAHTARI) === '1' ? (C.dbYaziAnahtari || '') : '' },
         body: JSON.stringify({ tur: tur, baslik: baslik, medya_url: medya.url, medya_tip: medya.tip })
       });
     }
@@ -892,6 +892,11 @@
       var ters = (C.catEkleSifreTers || '').split('').reverse().join('');
       return !!ters && g === ters;
     }
+    function sbYaziBaslik() {
+      var h = sbBaslik();
+      h['x-au-key'] = fiyatKilitliMi() ? '' : (C.dbYaziAnahtari || '');
+      return h;
+    }
     var FIYAT_OV_KEY = 'AU_PRICE_OV_V1';
     function fiyatOvAl() { try { return JSON.parse(localStorage.getItem(FIYAT_OV_KEY) || '{}'); } catch (e) { return {}; } }
     function fiyatOvKaydet(o) { try { localStorage.setItem(FIYAT_OV_KEY, JSON.stringify(o)); } catch (e) {} }
@@ -899,7 +904,7 @@
       if (!sbAcik) return;
       fetch(sbBase + '/rest/v1/menu_fiyat', {
         method: 'POST',
-        headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbBaslik()),
+        headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbYaziBaslik()),
         body: JSON.stringify({ id: id, fiyat: deger })
       }).catch(function (err) { console.warn('Supabase (fiyat):', err); });
     }

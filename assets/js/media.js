@@ -2,9 +2,9 @@
    60 fotoğraf + 21 video + 1 tanıtım filmi. Hepsi sitede kullanılıyor. */
 window.AU_MEDIA = {
  "hero": {
-  "src": "assets/video/hero.mp4?v=54",
-  "srcSmall": "assets/video/hero-sm.mp4?v=54",
-  "poster": "assets/video/poster/hero.webp?v=54",
+  "src": "assets/video/hero.mp4?v=55",
+  "srcSmall": "assets/video/hero-sm.mp4?v=55",
+  "poster": "assets/video/poster/hero.webp?v=55",
   "w": 1280,
   "h": 720,
   "dur": 10.0,

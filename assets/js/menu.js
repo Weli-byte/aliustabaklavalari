@@ -95,13 +95,23 @@
   var sbAcik = !!(S && S.url && S.anonKey);
   var sbBase = sbAcik ? S.url.replace(/\/+$/, '') : '';
   function sbBaslik() { return { apikey: S.anonKey, Authorization: 'Bearer ' + S.anonKey }; }
+  /* Yazma (ekleme/silme/güncelleme) isteklerinde config.js → dbYaziAnahtari
+     değerini header olarak gönderir — veritabanındaki RLS kuralı bunu
+     doğrular. Kilit açık değilse (şifre girilmediyse) header boş gider,
+     Supabase isteği reddeder. Tarayıcı konsolundan/curl'den doğrudan API
+     çağrısı yapan biri, bu anahtarı bilmeden yazamaz. */
+  function sbYaziBaslik() {
+    var h = sbBaslik();
+    h['x-au-key'] = kilitliMi() ? '' : (C.dbYaziAnahtari || '');
+    return h;
+  }
 
   function sbFotoYukle(file) {
     var guvenliAd = file.name.replace(/[^a-zA-Z0-9.]+/g, '-').slice(-60);
     var yol = 'menu/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + guvenliAd;
     return fetch(sbBase + '/storage/v1/object/hikaye-medya/' + yol, {
       method: 'POST',
-      headers: Object.assign({ 'Content-Type': file.type || 'application/octet-stream' }, sbBaslik()),
+      headers: Object.assign({ 'Content-Type': file.type || 'application/octet-stream' }, sbYaziBaslik()),
       body: file
     }).then(function (r) {
       if (!r.ok) throw new Error('Yükleme hatası ' + r.status);
@@ -112,7 +122,7 @@
     if (!sbAcik) return Promise.resolve();
     return fetch(sbBase + '/rest/v1/menu_ekle', {
       method: 'POST',
-      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }, sbBaslik()),
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }, sbYaziBaslik()),
       body: JSON.stringify({ id: item.id, cat: item.cat, name: item.name, price: item.fiyat, photo_url: item.foto || null })
     }).catch(function (err) { console.warn('Supabase (ekle):', err); });
   }
@@ -120,14 +130,14 @@
     if (!sbAcik) return Promise.resolve();
     return fetch(sbBase + '/rest/v1/menu_ekle?id=eq.' + encodeURIComponent(id), {
       method: 'DELETE',
-      headers: sbBaslik()
+      headers: sbYaziBaslik()
     }).catch(function (err) { console.warn('Supabase (sil):', err); });
   }
   function sbFiyatGonder(id, fiyat) {
     if (!sbAcik) return Promise.resolve();
     return fetch(sbBase + '/rest/v1/menu_fiyat', {
       method: 'POST',
-      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbBaslik()),
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbYaziBaslik()),
       body: JSON.stringify({ id: id, fiyat: fiyat })
     }).catch(function (err) { console.warn('Supabase (fiyat):', err); });
   }
@@ -135,7 +145,7 @@
     if (!sbAcik) return Promise.resolve();
     return fetch(sbBase + '/rest/v1/menu_gizli', {
       method: 'POST',
-      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbBaslik()),
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbYaziBaslik()),
       body: JSON.stringify({ id: id })
     }).catch(function (err) { console.warn('Supabase (gizle):', err); });
   }

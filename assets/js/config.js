@@ -114,6 +114,15 @@ window.AU_CONFIG = {
      ------------------------------------------------------------------ */
   catEkleSifreTers: '7272ATSUİLA',
 
+  /* Yukarıdaki şifre doğrulandıktan sonra Supabase'e yazma isteklerinde
+     "x-au-key" header'ı olarak gönderilen değer. Şifrenin kendisi
+     (İ harfi yüzünden) HTTP header'ında güvenilir taşınamadığı için ayrı
+     bir ASCII anahtar kullanılır — veritabanındaki RLS kuralları bunu
+     bekler. Bu, kaynak kodu okuyabilen biri için de görünürdür (anonKey
+     gibi); amaç sunucu güvenliği değil, şifresiz doğrudan API isteklerini
+     engellemektir. */
+  dbYaziAnahtari: 'au-db-yazi-7f2c9e4a',
+
   /* ------------------------------------------------------------------
      4b) SEPET VE HESAPLAYICI
      ------------------------------------------------------------------ */
