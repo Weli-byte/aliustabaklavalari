@@ -400,8 +400,8 @@ window.AU_MEDIA = {
  "cats": [
   {
    "id": "baklava",
-   "name": "Baklava",
-   "kicker": "Tezgâhın ana işi",
+   "name": "Baklavalarımız",
+   "kicker": "",
    "desc": "Kırk kat yufka elde açılır, arasına günlük kavrulmuş Antep fıstığı serpilir, gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, yuvarlak tepsi, dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.",
    "cover": {
     "k": "p13",
@@ -551,8 +551,8 @@ window.AU_MEDIA = {
   },
   {
    "id": "kunefe",
-   "name": "Künefe",
-   "kicker": "Sıcak servis",
+   "name": "Künefelerimiz",
+   "kicker": "",
    "desc": "Tel kadayıf iki kat hâlinde bakır tepsiye yayılır, arasına tuzsuz tel peynir konur, ocakta iki yüzü de kızarana kadar çevrilir. Sıcakken şerbetlenir, üstüne fıstık, yanına kaymak. Künefe beklemez — tezgâhtan tabağa gider, peynir uzarken yenir.",
    "cover": {
     "k": "p37",
@@ -732,8 +732,8 @@ window.AU_MEDIA = {
   },
   {
    "id": "dondurma",
-   "name": "Dondurma & Fıstık Ezmesi",
-   "kicker": "Soğuk taraf",
+   "name": "Dondurmalarımız & Fıstık Ezmelerimiz",
+   "kicker": "",
    "desc": "Antep fıstığı taş değirmende çekilir, şekerle yoğrulur; ortaya kaymak ya da dondurma girer. Yazın en çok istenen çeşit budur: sıcak baklavanın yanında soğuk bir kaşık. Fıstık ezmesi ayrıca tepsiyle de satılır, kesilip porsiyon hâlinde servis edilir.",
    "cover": {
     "k": "p34",
@@ -771,8 +771,8 @@ window.AU_MEDIA = {
   },
   {
    "id": "ozel",
-   "name": "Özel Tatlılar",
-   "kicker": "Mevsimlik ve özel gün",
+   "name": "Özel Tatlılarımız",
+   "kicker": "",
    "desc": "Kaymaklı katmanlar, çikolata kaplı dilimler, hindistan cevizli kare kesim, mevsiminde çilekli tepsiler ve Ramazan'da güllaç. Vitrinin klasik baklava dışında kalan tarafı — her biri aynı tezgâhta, aynı malzemeyle yapılır.",
    "cover": {
     "k": "p05",

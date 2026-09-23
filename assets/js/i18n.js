@@ -153,14 +153,17 @@ en: {
   'Bütün türler': 'All kinds',
   'Tatlı türü seçin': 'Choose a kind of sweet',
   'Baklava': 'Baklava',
+  'Baklavalarımız': 'Baklava',
   'Tezgâhın ana işi': 'The heart of the bench',
   'Kırk kat yufka elde açılır, arasına günlük kavrulmuş Antep fıstığı serpilir, gerçek tereyağıyla fırına girer. Fırından çıktığı anda doğal pancar şekerinden kaynatılmış şerbet dökülür. Kesim biçimi çeşidi belirler: kare, midye, havuç dilimi, dolama, şöbiyet. Hepsi aynı hamurdan, ayıran tek şey ustanın elindeki bıçak açısı.':
     'Forty layers of pastry rolled by hand, strewn with pistachios roasted that morning, baked in real butter. The moment it leaves the oven, syrup boiled from natural beet sugar is poured over. The cut decides the variety: square, mussel, carrot slice, dolama, şöbiyet. Same dough throughout — only the angle of the master\'s knife differs.',
   'Künefe': 'Künefe',
+  'Künefelerimiz': 'Künefe',
   'Sıcak servis': 'Served hot',
   'Tel kadayıf iki kat hâlinde bakır tepsiye yayılır, arasına tuzsuz tel peynir konur, ocakta iki yüzü de kızarana kadar çevrilir. Sıcakken şerbetlenir, üstüne fıstık, yanına kaymak. Künefe beklemez — tezgâhtan tabağa gider, peynir uzarken yenir.':
     'Shredded kadayıf is spread in two layers on a copper tray with unsalted stringy cheese between them, then turned on the stove until both faces brown. Syrup while it is still hot, pistachio on top, clotted cream alongside. Künefe does not wait — it goes from bench to plate and is eaten while the cheese still pulls.',
   'Dondurma & Fıstık Ezmesi': 'Ice Cream & Pistachio Paste',
+  'Dondurmalarımız & Fıstık Ezmelerimiz': 'Ice Cream & Pistachio Paste',
   'Soğuk taraf': 'The cold side',
   'Antep fıstığı taş değirmende çekilir, şekerle yoğrulur; ortaya kaymak ya da dondurma girer. Yazın en çok istenen çeşit budur: sıcak baklavanın yanında soğuk bir kaşık. Fıstık ezmesi ayrıca tepsiyle de satılır, kesilip porsiyon hâlinde servis edilir.':
     'Antep pistachios are stone-milled and kneaded with sugar; clotted cream or ice cream goes in the middle. This is what people ask for most in summer — a cold spoonful beside hot baklava. Pistachio paste is also sold by the tray and served in portions.',
@@ -169,6 +172,7 @@ en: {
   'Gaziantep\'in fıstık kuşağının tam ortasındayız; fıstık aynı gün geliyor, aynı gün kavruluyor. Baklavanın içine giren fıstık ile tepside satılan fıstık aynı fıstıktır. Kavrulmuş fıstık, karışık kuruyemiş ve çiğ iç fıstık ayrı ayrı bulunur.':
     'We sit in the middle of Gaziantep\'s pistachio belt; the nuts arrive and are roasted the same day. The pistachio inside the baklava is the same pistachio sold on the tray. Roasted pistachios, mixed nuts and raw kernels are all available separately.',
   'Özel Tatlılar': 'Special Sweets',
+  'Özel Tatlılarımız': 'Special Sweets',
   'Mevsimlik ve özel gün': 'Seasonal and celebration',
   'Kaymaklı katmanlar, çikolata kaplı dilimler, hindistan cevizli kare kesim, mevsiminde çilekli tepsiler ve Ramazan\'da güllaç. Vitrinin klasik baklava dışında kalan tarafı — her biri aynı tezgâhta, aynı malzemeyle yapılır.':
     'Cream-layered slices, chocolate-coated pieces, coconut squares, strawberry trays in season and güllaç during Ramadan. The side of the display beyond classic baklava — all made at the same bench, from the same ingredients.',
