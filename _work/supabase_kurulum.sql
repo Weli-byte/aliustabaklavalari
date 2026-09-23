@@ -50,6 +50,24 @@ create policy "herkes yazabilir" on menu_fiyat for insert with check (true);
 drop policy if exists "herkes guncelleyebilir" on menu_fiyat;
 create policy "herkes guncelleyebilir" on menu_fiyat for update using (true);
 
+-- 3b) Menü sayfası — mevcut (sabit) ürünlerin fotoğrafı değiştirildiğinde
+--     override burada tutulur; media.js'teki orijinal veri değişmez.
+--     Diğer yazma tablolarıyla aynı şifre kontrolü (x-au-key header).
+create table if not exists menu_foto (
+  id text primary key,
+  foto_url text not null,
+  updated_at timestamptz not null default now()
+);
+alter table menu_foto enable row level security;
+drop policy if exists "herkes okuyabilir" on menu_foto;
+create policy "herkes okuyabilir" on menu_foto for select using (true);
+drop policy if exists "sifreliler yazabilir" on menu_foto;
+create policy "sifreliler yazabilir" on menu_foto for insert
+  with check (current_setting('request.headers', true)::json->>'x-au-key' = 'au-db-yazi-7f2c9e4a');
+drop policy if exists "sifreliler guncelleyebilir" on menu_foto;
+create policy "sifreliler guncelleyebilir" on menu_foto for update
+  using (current_setting('request.headers', true)::json->>'x-au-key' = 'au-db-yazi-7f2c9e4a');
+
 -- 4) Fotoğraf/video dosyalarının konduğu depo (storage bucket)
 insert into storage.buckets (id, name, public)
 values ('hikaye-medya', 'hikaye-medya', true)

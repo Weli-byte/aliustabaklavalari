@@ -68,6 +68,7 @@
      ------------------------------------------------------------------ */
   var ADD_KEY = 'AU_MENU_ADD_V1';
   var PRICE_KEY = 'AU_MENU_FIYAT_V1';
+  var PHOTO_KEY = 'AU_MENU_FOTO_V1'; /* sabit (RAIL/galeri) ürünlerin fotoğrafı değiştirildiğinde; orijinal media.js verisi değişmez */
   var HIDE_KEY = 'AU_MENU_HIDE_V1'; /* sabit (RAIL/galeri) ürünler silinemez, bunun yerine gizlenir */
   var SESSION_KEY = 'AU_PANEL_DOGRULANDI'; /* site.js ile aynı anahtar — bir kere girilince tüm sitede geçerli */
 
@@ -80,6 +81,8 @@
   }
   function eklenenler() { return oku(ADD_KEY, []); }
   function eklenenKaydet(list) { yaz(ADD_KEY, list); }
+  function fotoOverride() { return oku(PHOTO_KEY, {}); }
+  function fotoOverrideKaydet(obj) { yaz(PHOTO_KEY, obj); }
   function fiyatOverride() { return oku(PRICE_KEY, {}); }
   function fiyatOverrideKaydet(obj) { yaz(PRICE_KEY, obj); }
   function gizlenenler() { return oku(HIDE_KEY, []); }
@@ -141,6 +144,14 @@
       body: JSON.stringify({ id: id, fiyat: fiyat })
     }).catch(function (err) { console.warn('Supabase (fiyat):', err); });
   }
+  function sbFotoGonder(id, url) {
+    if (!sbAcik) return Promise.resolve();
+    return fetch(sbBase + '/rest/v1/menu_foto', {
+      method: 'POST',
+      headers: Object.assign({ 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' }, sbYaziBaslik()),
+      body: JSON.stringify({ id: id, foto_url: url })
+    }).catch(function (err) { console.warn('Supabase (foto):', err); });
+  }
   function sbGizle(id) {
     if (!sbAcik) return Promise.resolve();
     return fetch(sbBase + '/rest/v1/menu_gizli', {
@@ -170,6 +181,16 @@
         fiyatOverrideKaydet(obj);
         ciz();
       }).catch(function (err) { console.warn('Supabase (fiyat yükleme):', err); });
+
+    fetch(sbBase + '/rest/v1/menu_foto?select=id,foto_url', { headers: sbBaslik() })
+      .then(function (r) { return r.json(); })
+      .then(function (rows) {
+        if (!Array.isArray(rows)) return;
+        var obj = {};
+        rows.forEach(function (r) { obj[r.id] = r.foto_url; });
+        fotoOverrideKaydet(obj);
+        ciz();
+      }).catch(function (err) { console.warn('Supabase (foto yükleme):', err); });
 
     fetch(sbBase + '/rest/v1/menu_gizli?select=id', { headers: sbBaslik() })
       .then(function (r) { return r.json(); })
@@ -214,9 +235,16 @@
   function kartHTML(o) {
     var overrides = fiyatOverride();
     var fiyatMetniGosterilen = overrides[o.id] || (o.baseFiyat ? o.baseFiyat.text : '') || 'Sorunuz';
+    var fotoOv = fotoOverride()[o.id];
+    var photoSrc = fotoOv || o.photoSrc;
+    var photoFull = fotoOv || o.photoFull || o.photoSrc;
     return (
       '<div class="menu-card" data-id="' + esc(o.id) + '">' +
-        (o.photoSrc ? '<div class="menu-card-ph"><img src="' + esc(o.photoSrc) + '" data-full="' + esc(o.photoFull || o.photoSrc) + '" width="' + (o.w || 600) + '" height="' + (o.h || 600) + '" alt="" loading="lazy" decoding="async"></div>' : '') +
+        (photoSrc ?
+          '<div class="menu-card-ph"><img src="' + esc(photoSrc) + '" data-full="' + esc(photoFull) + '" width="' + (o.w || 600) + '" height="' + (o.h || 600) + '" alt="" loading="lazy" decoding="async">' +
+          '<button class="menu-admin-only menu-edit-photo" type="button" data-edit-photo="' + esc(o.id) + '" hidden title="Fotoğrafı değiştir">📷</button>' +
+          '</div>'
+        : '') +
         '<div class="menu-card-body">' +
           '<div class="menu-card-top">' +
             '<span class="menu-card-name">' + esc(o.name) + '</span>' +
@@ -328,6 +356,38 @@
       fiyatOverrideKaydet(ov);
       ciz();
       sbFiyatGonder(id, yeni);
+      return;
+    }
+    var editPhotoBtn = e.target.closest('[data-edit-photo]');
+    if (editPhotoBtn) {
+      var fotoId = editPhotoBtn.getAttribute('data-edit-photo');
+      var input = D.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.addEventListener('change', function () {
+        var dosya = input.files && input.files[0];
+        if (!dosya) return;
+        if (dosya.size > 4 * 1024 * 1024) { window.alert('Fotoğraf çok büyük (4 MB üzeri). Daha küçük bir fotoğraf seçin.'); return; }
+        function uygula(url) {
+          var ov = fotoOverride();
+          ov[fotoId] = url;
+          fotoOverrideKaydet(ov);
+          ciz();
+          sbFotoGonder(fotoId, url);
+        }
+        if (sbAcik) {
+          sbFotoYukle(dosya).then(uygula).catch(function () {
+            var reader = new FileReader();
+            reader.onload = function (ev) { uygula(ev.target.result); };
+            reader.readAsDataURL(dosya);
+          });
+        } else {
+          var reader = new FileReader();
+          reader.onload = function (ev) { uygula(ev.target.result); };
+          reader.readAsDataURL(dosya);
+        }
+      });
+      input.click();
       return;
     }
     var delBtn = e.target.closest('[data-del-item]');
