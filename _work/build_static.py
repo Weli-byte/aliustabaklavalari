@@ -19,13 +19,6 @@ BUGUN = datetime.date.today().isoformat()
 
 SAYFALAR = [
     ('/',            '1.0', 'weekly'),
-    ('/#urunler',    '0.9', 'monthly'),
-    ('/#fiyat',      '0.9', 'weekly'),
-    ('/#tatlilar',   '0.8', 'monthly'),
-    ('/#siparis',    '0.9', 'monthly'),
-    ('/#kargo',      '0.7', 'monthly'),
-    ('/#sss',        '0.7', 'monthly'),
-    ('/#iletisim',   '0.8', 'monthly'),
     ('/en/',         '0.8', 'monthly'),
 ]
 
