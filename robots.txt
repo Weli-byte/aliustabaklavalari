@@ -1,10 +1,7 @@
-# !!! ALAN ADI HENÜZ YAZILMADI !!!
-# Yayına almadan önce şunu çalıştırın:
-#   python _work/build_static.py https://gercek-alan-adiniz.com
 # Ali Usta Baklavaları — Nizip
 User-agent: *
 Allow: /
 Disallow: /_work/
 Disallow: /DATA/
 
-Sitemap: https://ALANADINIZ.com/sitemap.xml
+Sitemap: https://www.aliustabaklavalari.com/sitemap.xml
